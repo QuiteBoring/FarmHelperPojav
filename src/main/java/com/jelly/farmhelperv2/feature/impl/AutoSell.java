@@ -1,6 +1,5 @@
 package com.jelly.farmhelperv2.feature.impl;
 
-import cc.polyfrost.oneconfig.utils.Multithreading;
 import com.jelly.farmhelperv2.config.FarmHelperConfig;
 import com.jelly.farmhelperv2.event.InventoryInputEvent;
 import com.jelly.farmhelperv2.failsafe.FailsafeManager;
@@ -13,6 +12,7 @@ import com.jelly.farmhelperv2.util.KeyBindUtils;
 import com.jelly.farmhelperv2.util.LogUtils;
 import com.jelly.farmhelperv2.util.PlayerUtils;
 import com.jelly.farmhelperv2.util.helper.Clock;
+import gg.essential.api.utils.Multithreading;
 import lombok.Getter;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiInventory;

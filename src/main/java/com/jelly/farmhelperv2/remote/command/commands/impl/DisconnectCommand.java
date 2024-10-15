@@ -1,11 +1,11 @@
 package com.jelly.farmhelperv2.remote.command.commands.impl;
 
-import cc.polyfrost.oneconfig.utils.Multithreading;
 import com.google.gson.JsonObject;
 import com.jelly.farmhelperv2.handler.MacroHandler;
 import com.jelly.farmhelperv2.remote.command.commands.ClientCommand;
 import com.jelly.farmhelperv2.remote.command.commands.Command;
 import com.jelly.farmhelperv2.remote.struct.RemoteMessage;
+import gg.essential.api.utils.Multithreading;
 import net.minecraft.util.ChatComponentText;
 
 import java.util.concurrent.TimeUnit;

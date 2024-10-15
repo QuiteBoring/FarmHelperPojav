@@ -1,6 +1,5 @@
 package com.jelly.farmhelperv2.feature.impl;
 
-import cc.polyfrost.oneconfig.utils.Multithreading;
 import com.jelly.farmhelperv2.config.FarmHelperConfig;
 import com.jelly.farmhelperv2.event.ClickedBlockEvent;
 import com.jelly.farmhelperv2.failsafe.FailsafeManager;
@@ -8,6 +7,7 @@ import com.jelly.farmhelperv2.feature.IFeature;
 import com.jelly.farmhelperv2.handler.MacroHandler;
 import com.jelly.farmhelperv2.util.LogUtils;
 import com.jelly.farmhelperv2.util.helper.FifoQueue;
+import gg.essential.api.utils.Multithreading;
 import lombok.Getter;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCocoa;

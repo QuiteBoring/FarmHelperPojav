@@ -1,6 +1,5 @@
 package com.jelly.farmhelperv2.failsafe.impl;
 
-import cc.polyfrost.oneconfig.utils.Multithreading;
 import com.jelly.farmhelperv2.config.FarmHelperConfig;
 import com.jelly.farmhelperv2.config.page.FailsafeNotificationsPage;
 import com.jelly.farmhelperv2.failsafe.Failsafe;
@@ -10,6 +9,7 @@ import com.jelly.farmhelperv2.handler.GameStateHandler;
 import com.jelly.farmhelperv2.handler.MacroHandler;
 import com.jelly.farmhelperv2.util.LogUtils;
 import com.jelly.farmhelperv2.util.helper.AudioManager;
+import gg.essential.api.utils.Multithreading;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.StringUtils;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;

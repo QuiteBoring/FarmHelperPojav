@@ -1,6 +1,5 @@
 pluginManagement {
     repositories {
-        maven("https://repo.polyfrost.cc/releases")
         mavenCentral()
         gradlePluginPortal()
         maven("https://oss.sonatype.org/content/repositories/snapshots")

@@ -1,13 +1,13 @@
 package com.jelly.farmhelperv2.util;
 
-import cc.polyfrost.oneconfig.utils.Multithreading;
-import cc.polyfrost.oneconfig.utils.Notifications;
 import com.jelly.farmhelperv2.config.FarmHelperConfig;
 import com.jelly.farmhelperv2.config.struct.DiscordWebhook;
 import com.jelly.farmhelperv2.feature.impl.BanInfoWS;
 import com.jelly.farmhelperv2.feature.impl.ProfitCalculator;
 import com.jelly.farmhelperv2.handler.GameStateHandler;
 import com.jelly.farmhelperv2.handler.MacroHandler;
+import gg.essential.api.EssentialAPI;
+import gg.essential.api.utils.Multithreading;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.StringUtils;
@@ -55,12 +55,12 @@ public class LogUtils {
 
     public static void sendNotification(String title, String message, float duration) {
         if (!FarmHelperConfig.streamerMode)
-            Notifications.INSTANCE.send(title, message, duration);
+            EssentialAPI.getNotifications().push(title, message, duration);
     }
 
     public static void sendNotification(String title, String message) {
         if (!FarmHelperConfig.streamerMode)
-            Notifications.INSTANCE.send(title, message);
+            EssentialAPI.getNotifications().push(title, message);
     }
 
     public static void sendFailsafeMessage(String message) {

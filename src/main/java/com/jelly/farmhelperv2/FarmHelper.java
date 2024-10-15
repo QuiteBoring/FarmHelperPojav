@@ -1,11 +1,9 @@
 package com.jelly.farmhelperv2;
 
 import baritone.api.BaritoneAPI;
-import cc.polyfrost.oneconfig.utils.commands.CommandManager;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jelly.farmhelperv2.command.FarmHelperMainCommand;
-import com.jelly.farmhelperv2.command.RewarpCommand;
 import com.jelly.farmhelperv2.config.FarmHelperConfig;
 import com.jelly.farmhelperv2.event.MillisecondEvent;
 import com.jelly.farmhelperv2.failsafe.FailsafeManager;
@@ -68,8 +66,6 @@ public class FarmHelper {
         mc.gameSettings.gammaSetting = 1000;
         BanInfoWS.getInstance().loadStatsOnInit();
         isDebug = java.lang.management.ManagementFactory.getRuntimeMXBean().getInputArguments().toString().contains("-agentlib:jdwp");
-        if (!FarmHelperConfig.streamerMode && FarmHelperConfig.changeWindowTitle)
-            Display.setTitle("Farm Helper 〔v" + VERSION + "〕 " + (!isDebug ? "Bing Chilling" : "wazzup dev?") + " ☛ " + Minecraft.getMinecraft().getSession().getUsername());
         FailsafeUtils.getInstance();
         PlotUtils.init();
 
@@ -199,8 +195,7 @@ public class FarmHelper {
     }
 
     private void initializeCommands() {
-        ClientCommandHandler.instance.registerCommand(new RewarpCommand());
-        CommandManager.register(new FarmHelperMainCommand());
+        new FarmHelperMainCommand().register();
     }
 
     public static boolean isJDAVersionCorrect = false;

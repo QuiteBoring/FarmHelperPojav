@@ -19,7 +19,7 @@ import java.util.Optional;
 import java.util.Random;
 import java.util.function.Function;
 
-import static cc.polyfrost.oneconfig.libs.universal.UMath.wrapAngleTo180;
+import static gg.essential.universal.UMath.wrapAngleTo180;
 
 public class RotationHandler {
     private static RotationHandler instance;

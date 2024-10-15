@@ -1,6 +1,6 @@
 package com.jelly.farmhelperv2.util.helper;
 
-import cc.polyfrost.oneconfig.utils.Multithreading;
+import gg.essential.api.utils.Multithreading;
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

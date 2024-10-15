@@ -1,6 +1,5 @@
 package com.jelly.farmhelperv2.macro.impl;
 
-import cc.polyfrost.oneconfig.libs.universal.UMath;
 import com.jelly.farmhelperv2.config.FarmHelperConfig;
 import com.jelly.farmhelperv2.handler.GameStateHandler;
 import com.jelly.farmhelperv2.handler.MacroHandler;
@@ -8,6 +7,7 @@ import com.jelly.farmhelperv2.macro.AbstractMacro;
 import com.jelly.farmhelperv2.util.*;
 import com.jelly.farmhelperv2.util.helper.Rotation;
 import com.jelly.farmhelperv2.util.helper.RotationConfiguration;
+import gg.essential.universal.UMath;
 import net.minecraft.util.EnumFacing;
 
 import java.util.Optional;

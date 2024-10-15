@@ -3,7 +3,7 @@ package com.jelly.farmhelperv2.util;
 import net.minecraft.client.Minecraft;
 import org.apache.commons.lang3.tuple.MutablePair;
 
-import static cc.polyfrost.oneconfig.libs.universal.UMath.wrapAngleTo180;
+import static gg.essential.universal.UMath.wrapAngleTo180;
 
 public class OldRotationUtils {
     private final static Minecraft mc = Minecraft.getMinecraft();

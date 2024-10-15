@@ -3,10 +3,9 @@
 plugins {
     idea
     java
-    id("cc.polyfrost.loom") version "0.10.0.+"
+    id("gg.essential.loom") version "0.10.0.+"
     id("dev.architectury.architectury-pack200") version "0.1.3"
     id("com.github.johnrengelman.shadow") version "8.1.1"
-//    id("io.freefair.lombok") version "8.6"
     id("net.kyori.blossom") version "1.3.1"
 }
 
@@ -35,7 +34,7 @@ loom {
             // If you don't want mixins, remove these lines
             property("mixin.debug", "true")
             property("asmhelper.verbose", "true")
-            arg("--tweakClass", "cc.polyfrost.oneconfig.loader.stage0.LaunchWrapperTweaker")
+            arg("--tweakClass", "gg.essential.loader.stage0.EssentialSetupTweaker")
             arg("-Dfml.coreMods.load", "com.jelly.farmhelperv2.transformer.FMLCore")
             arg("--tweakClass", "com.jelly.farmhelperv2.transformer.Tweaker")
         }
@@ -61,7 +60,6 @@ repositories {
     mavenCentral()
     maven("https://repo.spongepowered.org/maven/")
     maven("https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1")
-    maven("https://repo.polyfrost.cc/releases")
     maven("https://repo.essential.gg/repository/maven-public")
     maven("https://jitpack.io")
 }
@@ -75,8 +73,9 @@ dependencies {
     mappings("de.oceanlabs.mcp:mcp_stable:22-1.8.9")
     forge("net.minecraftforge:forge:1.8.9-11.15.1.2318-1.8.9")
 
-    compileOnly("cc.polyfrost:oneconfig-1.8.9-forge:0.2.1-alpha+")
-    shadowImpl("cc.polyfrost:oneconfig-wrapper-launchwrapper:1.0.0-beta+")
+    shadowImpl("gg.essential:loader-launchwrapper:1.1.3")
+    implementation("gg.essential:loader-launchwrapper:1.1.3")
+    implementation("gg.essential:essential-1.8.9-forge:3662")
 
     compileOnly("org.spongepowered:mixin:0.8.5")
     annotationProcessor("org.spongepowered:mixin:0.8.5")
@@ -115,7 +114,7 @@ tasks.withType(Jar::class) {
         this["ModSide"] = "CLIENT"
 
         // If you don't want mixins, remove these lines
-        this["TweakClass"] = "cc.polyfrost.oneconfig.loader.stage0.LaunchWrapperTweaker"
+        this["TweakClass"] = "gg.essential.loader.stage0.EssentialSetupTweaker"
         this["MixinConfigs"] = "mixins.$modid.json, mixins.baritone.json"
     }
 }

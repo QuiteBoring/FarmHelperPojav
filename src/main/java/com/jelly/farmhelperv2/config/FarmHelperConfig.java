@@ -20,9 +20,6 @@ import com.jelly.farmhelperv2.gui.AutoUpdaterGUI;
 import com.jelly.farmhelperv2.handler.GameStateHandler;
 import com.jelly.farmhelperv2.handler.GameStateHandler.BuffState;
 import com.jelly.farmhelperv2.handler.MacroHandler;
-import com.jelly.farmhelperv2.hud.DebugHUD;
-import com.jelly.farmhelperv2.hud.ProfitCalculatorHUD;
-import com.jelly.farmhelperv2.hud.StatusHUD;
 import com.jelly.farmhelperv2.util.BlockUtils;
 import com.jelly.farmhelperv2.util.LogUtils;
 import com.jelly.farmhelperv2.util.PlayerUtils;
@@ -40,7 +37,6 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
-// THIS IS RAT - CatalizCS
 @SuppressWarnings({"unused", "DefaultAnnotationParam"})
 public class FarmHelperConfig extends Config {
     private transient static final Minecraft mc = Minecraft.getMinecraft();
@@ -58,7 +54,6 @@ public class FarmHelperConfig extends Config {
     private transient static final String AUTO_SPRAYONATOR = "Auto Sprayonator";
     private transient static final String DISCORD_INTEGRATION = "Discord Integration";
     private transient static final String DELAYS = "Delays";
-    private transient static final String HUD = "HUD";
     private transient static final String DEBUG = "Debug";
     private transient static final String EXPERIMENTAL = "Experimental";
 
@@ -304,12 +299,6 @@ public class FarmHelperConfig extends Config {
             description = "Mutes the game while farming"
     )
     public static boolean muteTheGame = false;
-
-    @Switch(
-            name = "Change window's title", category = MISCELLANEOUS, subcategory = "Miscellaneous",
-            description = "Changes the window's title"
-    )
-    public static boolean changeWindowTitle = true;
 
     @Switch(
             name = "Auto Cookie", category = MISCELLANEOUS, subcategory = "Miscellaneous",
@@ -1929,58 +1918,6 @@ public class FarmHelperConfig extends Config {
     public static float rewarpDelayRandomness = 350f;
     //</editor-fold>
 
-    //<editor-fold desc="HUD">
-    @Switch(
-            name = "Streamer mode", category = HUD, subcategory = "Streamer mode",
-            description = "Hides everything Farm Helper related from the screen."
-    )
-    public static boolean streamerMode = false;
-    @Info(
-            text = "Streamer mode does NOT disable failsafe notifications or sounds! It only hides visual elements.",
-            type = InfoType.WARNING,
-            category = HUD,
-            subcategory = "Streamer mode",
-            size = 2
-    )
-    public static boolean streamerModeInfo;
-    @Info(
-            text = "You must restart the game if you want to hide the window title after enabling the streamer mode.",
-            type = InfoType.WARNING,
-            category = HUD,
-            subcategory = "Streamer mode"
-    )
-    public static boolean streamerModeInfo2;
-    @HUD(
-            name = "Status HUD - Visual Settings", category = HUD, subcategory = "Status"
-    )
-    public static StatusHUD statusHUD = new StatusHUD();
-    @Switch(
-            name = "Show Status HUD outside the garden", category = HUD, subcategory = "Status"
-    )
-    public static boolean showStatusHudOutsideGarden = false;
-
-    @Switch(
-            name = "Count RNG to $/Hr in Profit Calculator", category = HUD, subcategory = "Profit Calculator",
-            description = "Count RNG to $/Hr"
-    )
-    public static boolean countRNGToProfitCalc = false;
-    @Switch(
-            name = "Reset stats between disabling", category = HUD, subcategory = "Profit Calculator"
-    )
-    public static boolean resetStatsBetweenDisabling = false;
-//    @Button(
-//            name = "Reset Profit Calculator", category = HUD, subcategory = "Profit Calculator",
-//            text = "Reset Now", size = 2
-//    )
-//    public void resetStats() {
-//        ProfitCalculator.getInstance().resetProfits();
-//    }
-    @HUD(
-            name = "Profit Calculator HUD - Visual Settings", category = HUD, subcategory = " "
-    )
-    public static ProfitCalculatorHUD profitHUD = new ProfitCalculatorHUD();
-    //</editor-fold>
-
     //<editor-fold desc="DEBUG">
     //<editor-fold desc="Debug">
 
@@ -1988,31 +1925,12 @@ public class FarmHelperConfig extends Config {
             name = "Debug Keybind", category = DEBUG, subcategory = "Debug"
     )
     public static OneKeyBind debugKeybind = new OneKeyBind(Keyboard.KEY_NONE);
-//    @KeyBind(
-//            name = "Debug Keybind 2", category = DEBUG
-//    )
-//    public static OneKeyBind debugKeybind2 = new OneKeyBind(Keyboard.KEY_H);
-//    @KeyBind(
-//            name = "Debug Keybind 3", category = DEBUG
-//    )
-//    public static OneKeyBind debugKeybind3 = new OneKeyBind(Keyboard.KEY_J);
 
     @Switch(
             name = "Debug Mode", category = DEBUG, subcategory = "Debug",
             description = "Prints to chat what the bot is currently executing. Useful if you are having issues."
     )
     public static boolean debugMode = false;
-
-
-    //</editor-fold>
-
-    //<editor-fold desc="Debug Hud">
-    @HUD(
-            name = "Debug HUD", category = DEBUG, subcategory = " "
-    )
-    public static DebugHUD debugHUD = new DebugHUD();
-    //</editor-fold>
-    //</editor-fold>
 
     //<editor-fold desc="EXPERIMENTAL">
     //<editor-fold desc="Fastbreak">
@@ -2067,12 +1985,6 @@ public class FarmHelperConfig extends Config {
     public static boolean autoSwitchTool = true;
 
     @Switch(
-            name = "Count profit based on Cultivating enchant", category = EXPERIMENTAL, subcategory = "Profit Calculator",
-            description = "Counts profit based on Cultivating enchant"
-    )
-    public static boolean profitCalculatorCultivatingEnchant = true;
-
-    @Switch(
             name = "Count only current crops for Jacob's Contest excludes", category = EXPERIMENTAL, subcategory = "Jacob's Contest",
             description = "Counts only current crops for Jacob's Contest excludes"
     )
@@ -2089,10 +2001,6 @@ public class FarmHelperConfig extends Config {
 
     @Number(name = "Config Version", category = EXPERIMENTAL, subcategory = "Experimental", min = 0, max = 1337)
     public static int configVersion = 6;
-    @Switch(
-            name = "Shown Welcome GUI", category = EXPERIMENTAL, subcategory = "Experimental"
-    )
-    public static boolean shownWelcomeGUI = false;
 
     public FarmHelperConfig() {
         super(new Mod("Farm Helper", ModType.HYPIXEL, "/farmhelper/icon-mod/icon.png"), "/farmhelper/config.json");
@@ -2253,8 +2161,6 @@ public class FarmHelperConfig extends Config {
 
         this.addDependency("leaveTime", "leaveTimer");
 
-        this.hideIf("shownWelcomeGUI", () -> true);
-
         this.hideIf("configVersion", () -> true);
 
         registerKeyBind(openGuiKeybind, this::openGui);
@@ -2274,18 +2180,6 @@ public class FarmHelperConfig extends Config {
                 LogUtils.sendWarning("[Failsafe] Emergency has been cancelled!");
             }
         });
-//        registerKeyBind(debugKeybind2, () -> {
-//            MovingObjectPosition objectMouseOver = Minecraft.getMinecraft().objectMouseOver;
-//            if (objectMouseOver != null && objectMouseOver.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK) {
-//                BlockPos blockPos = objectMouseOver.getBlockPos();
-//                BlockPos oppositeSide = blockPos.offset(objectMouseOver.sideHit);
-//                LogUtils.sendDebug("Block: " + oppositeSide);
-//                FlyPathfinder.getInstance().setGoal(new GoalBlock(oppositeSide));
-//            }
-//        });
-//        registerKeyBind(debugKeybind3, () -> {
-//                    FlyPathfinder.getInstance().getPathTo(FlyPathfinder.getInstance().getGoal());
-//                });
         save();
     }
 

@@ -1,6 +1,5 @@
 package com.jelly.farmhelperv2.handler;
 
-import cc.polyfrost.oneconfig.utils.Multithreading;
 import com.jelly.farmhelperv2.config.FarmHelperConfig;
 import com.jelly.farmhelperv2.config.struct.Rewarp;
 import com.jelly.farmhelperv2.event.ReceivePacketEvent;
@@ -18,6 +17,7 @@ import com.jelly.farmhelperv2.util.RenderUtils;
 import com.jelly.farmhelperv2.util.helper.AudioManager;
 import com.jelly.farmhelperv2.util.helper.Clock;
 import com.jelly.farmhelperv2.util.helper.Timer;
+import gg.essential.api.utils.Multithreading;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,6 +1,5 @@
 package com.jelly.farmhelperv2.failsafe;
 
-import cc.polyfrost.oneconfig.utils.Multithreading;
 import com.jelly.farmhelperv2.config.FarmHelperConfig;
 import com.jelly.farmhelperv2.event.BlockChangeEvent;
 import com.jelly.farmhelperv2.event.ReceivePacketEvent;
@@ -14,6 +13,7 @@ import com.jelly.farmhelperv2.macro.AbstractMacro;
 import com.jelly.farmhelperv2.util.*;
 import com.jelly.farmhelperv2.util.helper.AudioManager;
 import com.jelly.farmhelperv2.util.helper.Clock;
+import gg.essential.api.utils.Multithreading;
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.client.Minecraft;

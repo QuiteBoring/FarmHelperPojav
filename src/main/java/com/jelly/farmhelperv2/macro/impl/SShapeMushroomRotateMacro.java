@@ -1,6 +1,5 @@
 package com.jelly.farmhelperv2.macro.impl;
 
-import cc.polyfrost.oneconfig.libs.universal.UMath;
 import com.jelly.farmhelperv2.config.FarmHelperConfig;
 import com.jelly.farmhelperv2.handler.GameStateHandler;
 import com.jelly.farmhelperv2.handler.MacroHandler;
@@ -11,6 +10,7 @@ import com.jelly.farmhelperv2.util.KeyBindUtils;
 import com.jelly.farmhelperv2.util.LogUtils;
 import com.jelly.farmhelperv2.util.helper.Rotation;
 import com.jelly.farmhelperv2.util.helper.RotationConfiguration;
+import gg.essential.universal.UMath;
 
 import java.util.Optional;
 

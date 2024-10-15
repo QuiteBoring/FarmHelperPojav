@@ -1,6 +1,5 @@
 package com.jelly.farmhelperv2.feature.impl;
 
-import cc.polyfrost.oneconfig.utils.Multithreading;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.jelly.farmhelperv2.config.FarmHelperConfig;
@@ -13,6 +12,7 @@ import com.jelly.farmhelperv2.handler.MacroHandler;
 import com.jelly.farmhelperv2.util.APIUtils;
 import com.jelly.farmhelperv2.util.LogUtils;
 import com.jelly.farmhelperv2.util.helper.Clock;
+import gg.essential.api.utils.Multithreading;
 import lombok.Getter;
 import net.minecraft.client.Minecraft;
 import net.minecraft.inventory.Slot;

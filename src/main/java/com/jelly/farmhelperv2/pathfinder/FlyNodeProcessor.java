@@ -1,6 +1,5 @@
 package com.jelly.farmhelperv2.pathfinder;
 
-import cc.polyfrost.oneconfig.libs.checker.nullness.qual.Nullable;
 import com.jelly.farmhelperv2.util.BlockUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
@@ -8,6 +7,7 @@ import net.minecraft.pathfinding.PathPoint;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.pathfinder.NodeProcessor;
+import org.jetbrains.annotations.Nullable;
 
 public class FlyNodeProcessor extends NodeProcessor {
 

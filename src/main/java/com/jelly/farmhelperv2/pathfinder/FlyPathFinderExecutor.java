@@ -1,6 +1,5 @@
 package com.jelly.farmhelperv2.pathfinder;
 
-import cc.polyfrost.oneconfig.utils.Multithreading;
 import com.google.common.collect.EvictingQueue;
 import com.jelly.farmhelperv2.config.FarmHelperConfig;
 import com.jelly.farmhelperv2.event.ReceivePacketEvent;
@@ -10,6 +9,7 @@ import com.jelly.farmhelperv2.mixin.client.EntityPlayerAccessor;
 import com.jelly.farmhelperv2.mixin.pathfinder.PathfinderAccessor;
 import com.jelly.farmhelperv2.util.*;
 import com.jelly.farmhelperv2.util.helper.*;
+import gg.essential.api.utils.Multithreading;
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.block.Block;

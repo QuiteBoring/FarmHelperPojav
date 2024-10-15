@@ -1,6 +1,5 @@
 package com.jelly.farmhelperv2.feature.impl;
 
-import cc.polyfrost.oneconfig.utils.Multithreading;
 import com.google.gson.*;
 import com.jelly.farmhelperv2.FarmHelper;
 import com.jelly.farmhelperv2.config.FarmHelperConfig;
@@ -13,6 +12,7 @@ import com.jelly.farmhelperv2.util.FailsafeUtils;
 import com.jelly.farmhelperv2.util.LogUtils;
 import com.jelly.farmhelperv2.util.helper.Clock;
 import com.mojang.authlib.exceptions.AuthenticationException;
+import gg.essential.api.utils.Multithreading;
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.client.Minecraft;
