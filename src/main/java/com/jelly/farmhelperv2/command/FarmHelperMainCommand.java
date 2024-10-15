@@ -13,6 +13,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Vec3;
 
+import java.util.Collections;
 import java.util.Optional;
 import java.util.Set;
 
@@ -29,7 +30,7 @@ public class FarmHelperMainCommand extends Command {
 
     @DefaultHandler
     public void handle() {
-        FarmHelper.config.openGui();
+        EssentialAPI.getGuiUtil().openScreen(FarmHelper.config.gui());
     }
 
 }

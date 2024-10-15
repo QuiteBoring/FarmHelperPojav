@@ -31,7 +31,6 @@ public class Proxy {
             FarmHelperConfig.proxyUsername = username;
         if (!Objects.equals(password, "Password"))
             FarmHelperConfig.proxyPassword = password;
-        FarmHelper.config.save();
     }
 
     public java.net.Proxy getProxy() {

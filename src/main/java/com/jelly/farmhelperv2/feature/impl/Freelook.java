@@ -10,6 +10,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import org.lwjgl.input.Keyboard;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -97,7 +98,7 @@ public class Freelook implements IFeature {
         if (!enabled) return;
         ArrayList<String> textLines = new ArrayList<>();
         textLines.add("Freelook");
-        textLines.add("Press " + FarmHelperConfig.freelookKeybind.getDisplay() + " to disable");
+        textLines.add("Press " + Keyboard.getKeyName(FarmHelperConfig.freelookKeybind.getKeyCode()) + " to disable");
         RenderUtils.drawMultiLineText(textLines, event, Color.YELLOW, 1f);
     }
 

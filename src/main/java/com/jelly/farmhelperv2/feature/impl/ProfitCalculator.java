@@ -162,9 +162,7 @@ public class ProfitCalculator implements IFeature {
 
     @Override
     public void start() {
-        if (FarmHelperConfig.resetStatsBetweenDisabling) {
-            resetProfits();
-        }
+        resetProfits();
         previousCurrentPurse = GameStateHandler.getInstance().getCurrentPurse();
         IFeature.super.start();
     }
@@ -211,7 +209,7 @@ public class ProfitCalculator implements IFeature {
 
         double profit = 0;
         ItemStack currentItem = mc.thePlayer.getHeldItem();
-        if (currentItem != null && currentItem.getItem() != null && FarmHelperConfig.profitCalculatorCultivatingEnchant) {
+        if (currentItem != null && currentItem.getItem() != null) {
             long cultivatingCounter = GameStateHandler.getInstance().getCurrentCultivating().getOrDefault(currentItem.getDisplayName(), 0L);
             long previousCultivatingCounter = previousCultivating.getOrDefault(currentItem.getDisplayName(), 0L);
             if (previousCultivatingCounter == 0) {
@@ -259,11 +257,7 @@ public class ProfitCalculator implements IFeature {
         realProfit = profit;
         realProfit += rngPrice;
 
-        if (FarmHelperConfig.countRNGToProfitCalc) {
-            realHourlyProfit = (realProfit / (MacroHandler.getInstance().getMacroingTimer().getElapsedTime() / 1000f / 60 / 60));
-        } else {
-            realHourlyProfit = profit / (MacroHandler.getInstance().getMacroingTimer().getElapsedTime() / 1000f / 60 / 60);
-        }
+        realHourlyProfit = (realProfit / (MacroHandler.getInstance().getMacroingTimer().getElapsedTime() / 1000f / 60 / 60));
     }
 
     private double previousCurrentPurse = 0;
@@ -300,7 +294,7 @@ public class ProfitCalculator implements IFeature {
             Slot currentSlot = mc.thePlayer.inventoryContainer.getSlot(slotNumber);
             ItemStack heldItem = mc.thePlayer.getHeldItem();
             ItemStack newItem = packet.func_149174_e();
-            if (FarmHelperConfig.profitCalculatorCultivatingEnchant && newItem != null && heldItem != null && StringUtils.stripControlCodes(newItem.getDisplayName()).equals(MacroHandler.getInstance().getCrop().getLocalizedName()) && GameStateHandler.getInstance().getCurrentCultivating().getOrDefault(heldItem.getDisplayName(), 0L) > 0) {
+            if (newItem != null && heldItem != null && StringUtils.stripControlCodes(newItem.getDisplayName()).equals(MacroHandler.getInstance().getCrop().getLocalizedName()) && GameStateHandler.getInstance().getCurrentCultivating().getOrDefault(heldItem.getDisplayName(), 0L) > 0) {
                 return;
             }
             ItemStack oldItem = currentSlot.getStack();

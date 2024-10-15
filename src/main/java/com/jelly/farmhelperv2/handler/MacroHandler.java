@@ -185,7 +185,7 @@ public class MacroHandler {
 
         analyticsTimer.reset();
         Multithreading.schedule(() -> {
-            if (!macroingTimer.isScheduled() || FarmHelperConfig.resetStatsBetweenDisabling) {
+            if (!macroingTimer.isScheduled()) {
                 macroingTimer.schedule();
                 macroingTimer.pause();
             }

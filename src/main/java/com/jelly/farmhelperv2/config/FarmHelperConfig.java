@@ -42,6 +42,8 @@ import java.util.List;
 // @KeyBinding
 @SuppressWarnings({"unused", "DefaultAnnotationParam"})
 public class FarmHelperConfig extends Vigilant {
+    
+    protected final transient Gson gson = new Gson();
     private transient static final Minecraft mc = Minecraft.getMinecraft();
     private transient static final String GENERAL = "General";
     private transient static final String MISCELLANEOUS = "Miscellaneous";
@@ -216,7 +218,6 @@ public class FarmHelperConfig extends Vigilant {
         spawnPosX = 0;
         spawnPosY = 0;
         spawnPosZ = 0;
-        save();
         LogUtils.sendSuccess("Spawn position has been reset!");
     };
 
@@ -1949,7 +1950,7 @@ public class FarmHelperConfig extends Vigilant {
     public String getJson() {
         String json = gson.toJson(this);
         if (json == null || json.equals("{}")) {
-            json = nonProfileSpecificGson.toJson(this);
+            json = gson.toJson(this);
         }
         return json;
     }

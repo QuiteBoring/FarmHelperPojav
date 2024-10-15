@@ -347,7 +347,6 @@ public class PlayerUtils {
         FarmHelperConfig.spawnPosX = pos.getX();
         FarmHelperConfig.spawnPosY = pos.getY();
         FarmHelperConfig.spawnPosZ = pos.getZ();
-        FarmHelper.config.save();
     }
 
     public static Entity getEntityCuttingOtherEntity(Entity e) {

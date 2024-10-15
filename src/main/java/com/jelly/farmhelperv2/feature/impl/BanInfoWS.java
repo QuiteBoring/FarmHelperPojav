@@ -28,6 +28,7 @@ import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.enums.ReadyState;
 import org.java_websocket.handshake.ServerHandshake;
 import org.spongepowered.asm.mixin.Unique;
+import org.lwjgl.input.Keyboard;
 
 import java.io.*;
 import java.math.BigInteger;
@@ -258,7 +259,7 @@ public class BanInfoWS implements IFeature {
             String banId = StringUtils.stripControlCodes(multilineMessage.get(5)).replace("Ban ID: ", "").trim();
             BanInfoWS.getInstance().playerBanned(durationDays, reason, banId, wholeReason);
             LogUtils.webhookLog("[Banned]\\nBanned for " + durationDays + " days for " + reason, true);
-            if (FarmHelperConfig.captureClipAfterFailsafe && !FarmHelperConfig.captureClipKeybind.getKeyBinds().isEmpty()) {
+            if (FarmHelperConfig.captureClipAfterFailsafe && !FarmHelperConfig.captureClipKeybind.getKeyCode() == Keyboard.KEY_NONE) {
                 Multithreading.schedule(() -> {
                     FailsafeUtils.captureClip();
                     LogUtils.sendDebug("[Failsafe] Clip captured!");

@@ -1091,7 +1091,7 @@ public class PestsDestroyer implements IFeature {
             float centerX = (float) (boundingBox.minX + (boundingBox.maxX - boundingBox.minX) / 2);
             float centerZ = (float) (boundingBox.minZ + (boundingBox.maxZ - boundingBox.minZ) / 2);
             boundingBox = boundingBox.offset(-d0, -d1, -d2);
-            RenderUtils.drawBox(boundingBox, FarmHelperConfig.plotHighlightColor.toJavaColor());
+            RenderUtils.drawBox(boundingBox, FarmHelperConfig.plotHighlightColor);
             RenderUtils.drawText("Plot " + plotNumber, centerX, 80, centerZ, 1);
         }
 
@@ -1113,7 +1113,7 @@ public class PestsDestroyer implements IFeature {
         double d2 = Minecraft.getMinecraft().getRenderManager().viewerPosZ;
         boundingBox = boundingBox.offset(-d0, -d1, -d2);
         if (FarmHelperConfig.pestsESP) {
-            Color color = FarmHelperConfig.pestsESPColor.toJavaColor();
+            Color color = FarmHelperConfig.pestsESPColor;
             Vec3 entityPos = new Vec3(entity.posX, entity.posY + entity.getEyeHeight(), entity.posZ);
             double distance = mc.thePlayer.getPositionEyes(1).distanceTo(entityPos);
             boolean isInVacuumRange = distance < currentVacuumRange;
@@ -1134,7 +1134,7 @@ public class PestsDestroyer implements IFeature {
             RenderUtils.drawBox(boundingBox, color);
         }
         if (FarmHelperConfig.pestsTracers) {
-            RenderUtils.drawTracer(new Vec3(entity.posX, entity.posY + entity.getEyeHeight(), entity.posZ), FarmHelperConfig.pestsTracersColor.toJavaColor());
+            RenderUtils.drawTracer(new Vec3(entity.posX, entity.posY + entity.getEyeHeight(), entity.posZ), FarmHelperConfig.pestsTracersColor);
         }
     }
 

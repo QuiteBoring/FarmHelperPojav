@@ -25,6 +25,7 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.network.FMLNetworkEvent;
+import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 
 import java.awt.*;
@@ -279,7 +280,7 @@ public class FailsafeManager {
         LogUtils.sendDebug("[Failsafe] Emergency chosen: " + StringUtils.stripControlCodes(triggeredFailsafe.get().getType().name()));
         FeatureManager.getInstance().disableCurrentlyRunning(Scheduler.getInstance());
         Scheduler.getInstance().pause();
-        if (FarmHelperConfig.captureClipAfterFailsafe && !FarmHelperConfig.captureClipKeybind.getKeyBinds().isEmpty()) {
+        if (FarmHelperConfig.captureClipAfterFailsafe && !FarmHelperConfig.captureClipKeybind.getKeyCode() == Keyboard.KEY_NONE) {
             if (FarmHelperConfig.clipCapturingType) {
                 FailsafeUtils.captureClip();
                 LogUtils.sendDebug("[Failsafe] Recording clip!");
@@ -350,7 +351,7 @@ public class FailsafeManager {
             ArrayList<String> textLines = new ArrayList<>();
             textLines.add("§6" + StringUtils.stripControlCodes(triggeredFailsafe.get().getType().name()).replace("_", " "));
             textLines.add("§c§lYOU ARE DURING STAFF CHECK!");
-            textLines.add("§cPRESS §6" + FarmHelperConfig.toggleMacro.getDisplay() + "§c TO DISABLE THE MACRO");
+            textLines.add("§cPRESS §6" + Keyboard.getKeyName(FarmHelperConfig.toggleMacro.getKeyCode()) + "§c TO DISABLE THE MACRO");
             textLines.add("§cDO §6§lNOT §cLEAVE! REACT!");
             RenderUtils.drawMultiLineText(textLines, event, Color.MAGENTA, 2f);
         }
