@@ -72,7 +72,7 @@ val shadowImpl: Configuration by configurations.creating {
 dependencies {
     minecraft("com.mojang:minecraft:1.8.9")
     mappings("de.oceanlabs.mcp:mcp_stable:22-1.8.9")
-    forge("net.minecraftforge:forge:1.8.9-11.15.1.2318-1.8.9")
+    forge("net.minecraftforge:forge:1.21.1-52.0.21")
 
     shadowImpl("gg.essential:loader-launchwrapper:1.1.3")
     implementation("gg.essential:loader-launchwrapper:1.1.3")
