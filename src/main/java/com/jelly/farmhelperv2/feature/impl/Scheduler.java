@@ -242,7 +242,7 @@ public class Scheduler implements IFeature {
       }
       mc.displayGuiScreen(new GuiMainMenu());
     }
-    if (FarmHelperConfig.toggleMacro.getKeyBinds().contains(Keyboard.getEventKey())) {
+    if (FarmHelperConfig.toggleMacro.getKeyCode() == Keyboard.getEventKey()) {
       farmingTime();
     }
   }
