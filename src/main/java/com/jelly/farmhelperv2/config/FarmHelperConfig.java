@@ -279,13 +279,6 @@ public class FarmHelperConfig extends Vigilant {
             description = "Automatically ungrabs your mouse, so you can safely alt-tab"
     )
     public static boolean autoUngrabMouse = true;
-
-    @Property(
-            type = PropertyType.SWITCH,
-            name = "PiP Mode", category = MISCELLANEOUS, subcategory = "Miscellaneous",
-            description = "Enables Picture-in-Picture mode, hold middle mouse while macroing to move the game window"
-    )
-    public static boolean pipMode = false;
     @Property(
             type = PropertyType.SLIDER,
             name = "Anti Stuck Tries Until Rewarp", category = MISCELLANEOUS, subcategory = "Miscellaneous",

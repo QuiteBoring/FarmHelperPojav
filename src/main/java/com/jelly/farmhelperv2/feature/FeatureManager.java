@@ -47,8 +47,7 @@ public class FeatureManager {
                 ProfitCalculator.getInstance(),
                 Scheduler.getInstance(),
                 UngrabMouse.getInstance(),
-                VisitorsMacro.getInstance(),
-                PiPMode.getInstance()
+                VisitorsMacro.getInstance()
         );
         features.addAll(featuresList);
         return features;

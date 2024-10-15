@@ -232,16 +232,6 @@ public class FailsafeManager {
                     AudioManager.getInstance().playSound();
                 }
 
-                if (FarmHelperConfig.autoAltTab && failsafe.shouldAltTab()) {
-                    FailsafeUtils.bringWindowToFront();
-                }
-                Multithreading.schedule(() -> {
-                    if (FarmHelperConfig.autoAltTab && failsafe.shouldAltTab() && !Display.isActive()) {
-                        FailsafeUtils.bringWindowToFrontUsingRobot();
-                        System.out.println("Bringing window to front using Robot because Winapi failed as usual.");
-                    }
-                }, 750, TimeUnit.MILLISECONDS);
-
                 LogUtils.sendFailsafeMessage(tempFailsafe.getType().label, failsafe.shouldTagEveryone());
                 BanInfoWS.getInstance().sendFailsafeInfo(tempFailsafe.getType());
                 if (failsafe.shouldSendNotification())
