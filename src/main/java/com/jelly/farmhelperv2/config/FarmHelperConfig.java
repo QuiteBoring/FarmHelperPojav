@@ -26,6 +26,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.util.BlockPos;
 import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import org.lwjgl.input.Keyboard;
 
 import java.awt.Color;
@@ -1902,17 +1903,25 @@ public class FarmHelperConfig extends Vigilant {
     public static int configVersion = 6;
 
 
-    public static KeyBinding toggleMacro = new KeyBinding(Keyboard.KEY_GRAVE);
-    public static KeyBinding openGuiKeybind = new KeyBinding(Keyboard.KEY_F);
-    public static KeyBinding freelookKeybind = new KeyBinding(Keyboard.KEY_L);
-    public static KeyBinding cancelFailsafeKeybind = new KeyBinding(Keyboard.KEY_NONE);
-    public static KeyBinding plotCleaningHelperKeybind = new KeyBinding(Keyboard.KEY_P);
-    public static KeyBinding captureClipKeybind = new KeyBinding(Keyboard.KEY_NONE);
-    public static KeyBinding enablePestsDestroyerKeyBind = new KeyBinding(Keyboard.KEY_NONE);
+    public static KeyBinding toggleMacro = new KeyBinding("Toggle Macro", Keyboard.KEY_GRAVE, "Farm Helper");
+    public static KeyBinding openGuiKeybind = new KeyBinding("Open Gui", Keyboard.KEY_F, "Farm Helper");
+    public static KeyBinding freelookKeybind = new KeyBinding("Freelook", Keyboard.KEY_NONE, "Farm Helper");
+    public static KeyBinding cancelFailsafeKeybind = new KeyBinding("Cancel Failsafe", Keyboard.KEY_NONE, "Farm Helper");
+    public static KeyBinding plotCleaningHelperKeybind = new KeyBinding("Plot Cleaning Helper", Keyboard.KEY_NONE, "Farm Helper");
+    public static KeyBinding captureClipKeybind = new KeyBinding("Capture Clip", Keyboard.KEY_NONE, "Farm Helper");
+    public static KeyBinding enablePestsDestroyerKeyBind = new KeyBinding("Enable Pests Destroyer", Keyboard.KEY_NONE, "Farm Helper");
 
     public FarmHelperConfig() {
         super(new File("./farmhelper/config.toml"), "Farm Helper");
         initialize();
+
+        ClientRegistry.registerKeyBinding(toggleMacro);
+        ClientRegistry.registerKeyBinding(openGuiKeybind);
+        ClientRegistry.registerKeyBinding(freelookKeybind);
+        ClientRegistry.registerKeyBinding(cancelFailsafeKeybind);
+        ClientRegistry.registerKeyBinding(plotCleaningHelperKeybind);
+        ClientRegistry.registerKeyBinding(captureClipKeybind);
+        ClientRegistry.registerKeyBinding(enablePestsDestroyerKeyBind);
 
         this.addDependency("macroType", "Macro Type", () -> !MacroHandler.getInstance().isMacroToggled());
 

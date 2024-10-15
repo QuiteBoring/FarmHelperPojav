@@ -192,6 +192,7 @@ public class FarmHelper {
 
     private void initializeFields() {
         config = new FarmHelperConfig();
+        MinecraftForge.EVENT_BUS.register(config);
     }
 
     private void initializeCommands() {
