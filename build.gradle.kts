@@ -77,8 +77,8 @@ dependencies {
     implementation("gg.essential:loader-launchwrapper:1.1.3")
     implementation("gg.essential:essential-1.8.9-forge:3662")
 
-    compileOnly("org.spongepowered:mixin:0.8.5")
-    annotationProcessor("org.spongepowered:mixin:0.8.5")
+    compileOnly("org.spongepowered:mixin:0.8.7")
+    annotationProcessor("org.spongepowered:mixin:0.8.7")
 
     compileOnly("org.projectlombok:lombok:1.18.34")
     annotationProcessor("org.projectlombok:lombok:1.18.34")
