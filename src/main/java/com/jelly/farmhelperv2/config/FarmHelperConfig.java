@@ -1,5 +1,6 @@
 package com.jelly.farmhelperv2.config;
 
+import com.google.gson.Gson;
 import com.jelly.farmhelperv2.FarmHelper;
 import com.jelly.farmhelperv2.config.page.CustomFailsafeMessagesPage;
 import com.jelly.farmhelperv2.config.page.FailsafeNotificationsPage;
@@ -39,7 +40,6 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
-// @KeyBinding
 @SuppressWarnings({"unused", "DefaultAnnotationParam"})
 public class FarmHelperConfig extends Vigilant {
     
