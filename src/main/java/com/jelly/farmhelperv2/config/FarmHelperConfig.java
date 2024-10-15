@@ -25,8 +25,10 @@ import lombok.Getter;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.util.BlockPos;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.input.Keyboard;
 
 import java.awt.Color;
@@ -130,7 +132,7 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.NUMBER,
             name = "Custom Pitch Level", category = GENERAL, subcategory = "Rotation",
             description = "Set custom pitch level after starting the macro",
-            min = -90.0F, max = 90.0F
+            min = -90, max = 90
     )
     public static float customPitchLevel = 0;
 
@@ -145,7 +147,7 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.NUMBER,
             name = "Custom Yaw Level", category = GENERAL, subcategory = "Rotation",
             description = "Set custom yaw level after starting the macro",
-            min = -180.0, max = 180.0
+            min = -180, max = 180
     )
     public static float customYawLevel = 0;
     //</editor-fold>
@@ -403,7 +405,7 @@ public class FarmHelperConfig extends Vigilant {
 
     // Detection Sensitivity
     @Property(
-            type = PropertyType.SLIDER,name = "Teleport Lag Tolerance", category = FAILSAFE, subcategory = "Detection",
+            type = PropertyType.SLIDER, name = "Teleport Lag Tolerance", category = FAILSAFE, subcategory = "Detection",
             description = "Variation in distance between expected and actual positions when lagging",
             min = 0, max = 2)
     public static float teleportLagTolerance = 0.5f;
@@ -429,7 +431,7 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SLIDER,name = "Teleport Distance Threshold", category = FAILSAFE, subcategory = "Detection",
             description = "Minimum teleport distance to trigger failsafe (blocks)",
-            min = 0.5f, max = 20)
+            min = 0, max = 20)
     public static float teleportDistanceThreshold = 4;
 
     @Property(
@@ -590,7 +592,7 @@ public class FarmHelperConfig extends Vigilant {
             description = "The volume of the failsafe sound",
             min = 0, max = 100
     )
-    public static float failsafeSoundVolume = 50.0;
+    public static float failsafeSoundVolume = 50;
     @Property(
             type = PropertyType.SWITCH,
             name = "Max out Master category sounds while pinging", category = FAILSAFE, subcategory = "Failsafe Trigger Sound",
@@ -1244,8 +1246,7 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.TEXT,
             name = "WebHook URL", category = DISCORD_INTEGRATION, subcategory = "Discord Webhook",
             description = "The URL to use for the webhook",
-            placeholder = "https://discord.com/api/webhooks/...",
-            secure = true
+            placeholder = "https://discord.com/api/webhooks/..."
     )
     public static String webHookURL = "";
     //</editor-fold>
@@ -1261,8 +1262,7 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.TEXT,
             name = "Discord Remote Control Bot Token",
             category = DISCORD_INTEGRATION, subcategory = "Remote Control",
-            description = "The bot token to use for remote control",
-            secure = true
+            description = "The bot token to use for remote control"
     )
     public static String discordRemoteControlToken;
     @Property(
