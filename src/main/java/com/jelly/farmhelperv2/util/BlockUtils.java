@@ -25,7 +25,6 @@ import java.util.stream.Collectors;
 
 import static gg.essential.universal.UMath.wrapAngleTo180;
 
-
 public class BlockUtils {
     private static final Minecraft mc = Minecraft.getMinecraft();
     private static final Block[] initialWalkables = {Blocks.air, Blocks.water, Blocks.flowing_water, Blocks.waterlily, Blocks.wall_sign, Blocks.reeds, Blocks.pumpkin_stem, Blocks.melon_stem};
