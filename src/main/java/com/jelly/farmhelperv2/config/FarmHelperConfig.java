@@ -763,7 +763,7 @@ public class FarmHelperConfig extends Vigilant {
     public static boolean schedulerResetOnDisable = true;
     @Property(type = PropertyType.BUTTON, 
         name = "Reset Scheduler", category = SCHEDULER, subcategory = "Scheduler",
-        text = "Reset Scheduler", description = "Resets Scheduler (Only works when macro is of)"
+        description = "Resets Scheduler (Only works when macro is of)"
     )
     public Runnable schedulerReset = () -> {
         if(!MacroHandler.getInstance().isMacroToggled()){

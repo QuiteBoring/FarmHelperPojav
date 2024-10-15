@@ -22,7 +22,6 @@ public class FarmHelperMainCommand extends Command {
         super("fh");
     }
 
-    @Nullable
     @Override
     public Set<Alias> getCommandAliases() {
         return Collections.singleton(new Alias("farmhelper"));
