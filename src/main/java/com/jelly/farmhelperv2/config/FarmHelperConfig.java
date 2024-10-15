@@ -74,6 +74,8 @@ public class FarmHelperConfig extends Vigilant {
 
     //<editor-fold desc="GENERAL">
 
+    public static boolean streamerMode = true;
+
     @Property(type = PropertyType.SELECTOR,
             name = "Macro Type", category = GENERAL,
             description = "Farm Types",
