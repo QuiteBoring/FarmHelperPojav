@@ -30,7 +30,6 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
-import org.lwjgl.opengl.Display;
 
 import java.io.File;
 import java.lang.reflect.Field;
@@ -65,7 +64,7 @@ public class FarmHelper {
         mc.gameSettings.pauseOnLostFocus = false;
         mc.gameSettings.gammaSetting = 1000;
         BanInfoWS.getInstance().loadStatsOnInit();
-        isDebug = java.lang.management.ManagementFactory.getRuntimeMXBean().getInputArguments().toString().contains("-agentlib:jdwp");
+        isDebug = false;
         FailsafeUtils.getInstance();
         PlotUtils.init();
 
