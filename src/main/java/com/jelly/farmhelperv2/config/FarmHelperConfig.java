@@ -10,7 +10,6 @@ import com.jelly.farmhelperv2.failsafe.impl.BedrockCageFailsafe;
 import com.jelly.farmhelperv2.failsafe.impl.DirtFailsafe;
 import com.jelly.farmhelperv2.feature.impl.*;
 import com.jelly.farmhelperv2.feature.impl.Proxy.ProxyType;
-import com.jelly.farmhelperv2.gui.AutoUpdaterGUI;
 import com.jelly.farmhelperv2.handler.GameStateHandler;
 import com.jelly.farmhelperv2.handler.GameStateHandler.BuffState;
 import com.jelly.farmhelperv2.handler.MacroHandler;
@@ -253,15 +252,6 @@ public class FarmHelperConfig extends Vigilant {
 //             right = "Pre-release"
 //     )
     public static boolean autoUpdaterDownloadBetaVersions = false;
-
-    @Property(type = PropertyType.BUTTON, 
-            name = "Check for update", category = MISCELLANEOUS, subcategory = "Miscellaneous",
-            description = "Checks for updates",
-            text = "Check for update"
-    )
-    Runnable _checkForUpdate = () -> {
-        FarmHelperConfig.checkForUpdate();
-    };
 
     @Property(
             type = PropertyType.SWITCH,
@@ -2193,18 +2183,6 @@ public class FarmHelperConfig extends Vigilant {
             json = nonProfileSpecificGson.toJson(this);
         }
         return json;
-    }
-
-    public static void checkForUpdate() {
-        AutoUpdaterGUI.checkedForUpdates = true;
-        AutoUpdaterGUI.shownGui = false;
-        AutoUpdaterGUI.getLatestVersion();
-        if (AutoUpdaterGUI.isOutdated) {
-            LogUtils.sendWarning("You are using an outdated version! The latest version is " + AutoUpdaterGUI.latestVersion + "!");
-            AutoUpdaterGUI.showGUI();
-        } else {
-            LogUtils.sendSuccess("You are using the latest version!");
-        }
     }
 
     public enum MacroEnum {
