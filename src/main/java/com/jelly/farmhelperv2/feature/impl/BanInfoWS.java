@@ -446,7 +446,7 @@ public class BanInfoWS implements IFeature {
         farmHelper.addProperty("pestsDestroyerEnabled", FarmHelperConfig.enablePestsDestroyer);
         farmHelper.addProperty("crop", MacroHandler.getInstance().getCrop().name());
         farmHelper.addProperty("macroType", FarmHelperConfig.getMacro().name());
-        farmHelper.addProperty("fastBreak", FarmHelperConfig.fastBreak);
+        farmHelper.addProperty("fastBreak", false);
         farmHelper.addProperty("lastFailsafes", FailsafeManager.getInstance().getBanInfoWSLastFailsafe());
         farmHelper.addProperty("longestSessionLast7D", getLongestSessionLast7D());
         farmHelper.addProperty("autoCookie", FarmHelperConfig.autoCookie);
@@ -461,7 +461,7 @@ public class BanInfoWS implements IFeature {
         jsonObject.addProperty("id", Minecraft.getMinecraft().getSession().getPlayerID());
         jsonObject.addProperty("modVersion", FarmHelper.VERSION);
         jsonObject.addProperty("timeMacroing", MacroHandler.getInstance().getAnalyticsTimer().getElapsedTime());
-        jsonObject.addProperty("fastBreak", FarmHelperConfig.fastBreak);
+        jsonObject.addProperty("fastBreak", false);
         jsonObject.addProperty("timestamp", System.currentTimeMillis());
 
         JsonArray jsonArray = readJsonArrayFromFile();
@@ -539,7 +539,7 @@ public class BanInfoWS implements IFeature {
         jsonObject.addProperty("checkType", type.name());
         JsonObject additionalInfo = new JsonObject();
         additionalInfo.addProperty("cropType", MacroHandler.getInstance().getCrop().toString());
-        additionalInfo.addProperty("fastBreak", FarmHelperConfig.fastBreak);
+        additionalInfo.addProperty("fastBreak", false);
         additionalInfo.addProperty("farmType", FarmHelperConfig.getMacro().name());
         jsonObject.add("additionalInfo", additionalInfo);
         try {
