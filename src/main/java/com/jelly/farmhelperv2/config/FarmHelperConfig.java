@@ -1,9 +1,5 @@
 package com.jelly.farmhelperv2.config;
 
-import cc.polyfrost.oneconfig.config.annotations.Number;
-import cc.polyfrost.oneconfig.config.annotations.*;
-import cc.polyfrost.oneconfig.config.core.OneKeyBind;
-
 import com.jelly.farmhelperv2.FarmHelper;
 import com.jelly.farmhelperv2.config.page.CustomFailsafeMessagesPage;
 import com.jelly.farmhelperv2.config.page.FailsafeNotificationsPage;
@@ -22,11 +18,13 @@ import com.jelly.farmhelperv2.util.BlockUtils;
 import com.jelly.farmhelperv2.util.LogUtils;
 import com.jelly.farmhelperv2.util.PlayerUtils;
 import com.jelly.farmhelperv2.util.helper.AudioManager;
+import gg.essential.api.EssentialAPI;
 import gg.essential.vigilance.Vigilant;
 import gg.essential.vigilance.data.Property;
 import gg.essential.vigilance.data.PropertyType;
 import lombok.Getter;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.util.BlockPos;
 import net.minecraftforge.fml.common.Loader;
 import org.lwjgl.input.Keyboard;
@@ -39,7 +37,7 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
-// @Page & @OneKeybind
+// @KeyBinding
 @SuppressWarnings({"unused", "DefaultAnnotationParam"})
 public class FarmHelperConfig extends Vigilant {
     private transient static final Minecraft mc = Minecraft.getMinecraft();
@@ -236,35 +234,9 @@ public class FarmHelperConfig extends Vigilant {
 
     //<editor-fold desc="MISC">
     //<editor-fold desc="Keybinds">
-    @KeyBind(
-            name = "Toggle Farm Helper", category = MISCELLANEOUS, subcategory = "Keybinds",
-            description = "Toggles the macro on/off", size = 2
-    )
-    public static OneKeyBind toggleMacro = new OneKeyBind(Keyboard.KEY_GRAVE);
-    @KeyBind(
-            name = "Open GUI", category = MISCELLANEOUS, subcategory = "Keybinds",
-            description = "Opens Farm Helper configuration menu", size = 2
-    )
-
-    public static OneKeyBind openGuiKeybind = new OneKeyBind(Keyboard.KEY_F);
-    @KeyBind(
-            name = "Freelook", category = MISCELLANEOUS, subcategory = "Keybinds",
-            description = "Locks rotation, lets you freely look", size = 2
-    )
-    public static OneKeyBind freelookKeybind = new OneKeyBind(Keyboard.KEY_L);
-    @KeyBind(
-            name = "Cancel failsafe", category = MISCELLANEOUS, subcategory = "Keybinds",
-            description = "Cancels failsafe and continues macroing", size = 2
-    )
-    public static OneKeyBind cancelFailsafeKeybind = new OneKeyBind(Keyboard.KEY_NONE);
     //</editor-fold>
 
     //<editor-fold desc="Plot Cleaning Helper">
-    @KeyBind(
-            name = "Plot Cleaning Helper", category = MISCELLANEOUS, subcategory = "Plot Cleaning Helper",
-            description = "Toggles the plot cleaning helper on/off", size = 2
-    )
-    public static OneKeyBind plotCleaningHelperKeybind = new OneKeyBind(Keyboard.KEY_P);
     @Property(
             type = PropertyType.SWITCH,
             name = "Automatically choose a tool to destroy the block", category = MISCELLANEOUS, subcategory = "Plot Cleaning Helper",
@@ -274,12 +246,12 @@ public class FarmHelperConfig extends Vigilant {
     //</editor-fold>
 
     //<editor-fold desc="Miscellaneous">
-    @DualOption(
-            name = "AutoUpdater Version Type", category = MISCELLANEOUS, subcategory = "Miscellaneous",
-            description = "The version type to use",
-            left = "Release",
-            right = "Pre-release"
-    )
+//     @DualOption(
+//             name = "AutoUpdater Version Type", category = MISCELLANEOUS, subcategory = "Miscellaneous",
+//             description = "The version type to use",
+//             left = "Release",
+//             right = "Pre-release"
+//     )
     public static boolean autoUpdaterDownloadBetaVersions = false;
 
     @Property(type = PropertyType.BUTTON, 
@@ -550,19 +522,14 @@ public class FarmHelperConfig extends Vigilant {
             description = "Captures a clip after getting banned by pressing a key combination"
     )
     public static boolean captureClipAfterGettingBanned = false;
-    @DualOption(
-            name = "Clip Capturing Type", category = FAILSAFE, subcategory = "Clip Capturing",
-            description = "The clip capturing type to use",
-            left = "Replay Buffer",
-            right = "Recording"
-    )
+//     @DualOption(
+//             name = "Clip Capturing Type", category = FAILSAFE, subcategory = "Clip Capturing",
+//             description = "The clip capturing type to use",
+//             left = "Replay Buffer",
+//             right = "Recording"
+//     )
     public static boolean clipCapturingType = false;
-    @KeyBind(
-            name = "Keybind",
-            category = FAILSAFE, subcategory = "Clip Capturing",
-            description = "Captures a clip after triggering failsafe"
-    )
-    public static OneKeyBind captureClipKeybind = new OneKeyBind(Keyboard.KEY_NONE);
+
     @Property(
             type = PropertyType.SLIDER,
             name = "Clip Capturing Delay (in seconds)", category = FAILSAFE, subcategory = "Clip Capturing",
@@ -571,14 +538,6 @@ public class FarmHelperConfig extends Vigilant {
     )
     public static int captureClipDelay = 30;
 
-    //</editor-fold>
-
-    //<editor-fold desc="Failsafes conf page">
-    @Page(
-            name = "Failsafe Notifications", category = FAILSAFE, subcategory = "Failsafe Notifications", location = PageLocation.BOTTOM,
-            description = "Click here to customize failsafe notifications"
-    )
-    public FailsafeNotificationsPage failsafeNotificationsPage = new FailsafeNotificationsPage();
     //</editor-fold>
 
     //<editor-fold desc="Desync">
@@ -604,13 +563,13 @@ public class FarmHelperConfig extends Vigilant {
             description = "Makes a sound when a failsafe has been triggered"
     )
     public static boolean enableFailsafeSound = true;
-    @DualOption(
-            name = "Failsafe Sound Type", category = FAILSAFE, subcategory = "Failsafe Trigger Sound",
-            description = "The failsafe sound type to play when a failsafe has been triggered",
-            left = "Minecraft",
-            right = "Custom",
-            size = 2
-    )
+//     @DualOption(
+//             name = "Failsafe Sound Type", category = FAILSAFE, subcategory = "Failsafe Trigger Sound",
+//             description = "The failsafe sound type to play when a failsafe has been triggered",
+//             left = "Minecraft",
+//             right = "Custom",
+//             size = 2
+//     )
     public static boolean failsafeSoundType = false;
     @Property(type = PropertyType.SELECTOR, 
             name = "Minecraft Sound", category = FAILSAFE, subcategory = "Failsafe Trigger Sound",
@@ -709,12 +668,12 @@ public class FarmHelperConfig extends Vigilant {
             description = "Automatically disconnects from the server or pauses the macro when a banwave is detected"
     )
     public static boolean enableLeavePauseOnBanwave = false;
-    @DualOption(
-            name = "Banwave Action", category = FAILSAFE, subcategory = "Banwave Checker",
-            description = "The action taken when banwave detected",
-            left = "Leave",
-            right = "Pause"
-    )
+//     @DualOption(
+//             name = "Banwave Action", category = FAILSAFE, subcategory = "Banwave Checker",
+//             description = "The action taken when banwave detected",
+//             left = "Leave",
+//             right = "Pause"
+//     )
     public static boolean banwaveAction = false;
     @Property(type = PropertyType.SELECTOR, 
             name = "Base Threshold on", category = FAILSAFE, subcategory = "Banwave Checker",
@@ -750,11 +709,6 @@ public class FarmHelperConfig extends Vigilant {
             description = "Sends a chat message when a failsafe has been triggered"
     )
     public static boolean sendFailsafeMessage = false;
-    @Page(
-            name = "Custom Failsafe Messages", category = FAILSAFE, subcategory = "Failsafe Messages", location = PageLocation.BOTTOM,
-            description = "Click here to edit custom failsafe messages"
-    )
-    public static CustomFailsafeMessagesPage customFailsafeMessagesPage = new CustomFailsafeMessagesPage();
     //</editor-fold>
     //</editor-fold>
 
@@ -886,12 +840,12 @@ public class FarmHelperConfig extends Vigilant {
             description = "Stops farming once a crop threshold has been met"
     )
     public static boolean enableJacobFailsafes = false;
-    @DualOption(
-            name = "Jacob Failsafe Action", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
-            description = "The action to take when a failsafe has been triggered",
-            left = "Leave",
-            right = "Pause"
-    )
+//     @DualOption(
+//             name = "Jacob Failsafe Action", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
+//             description = "The action to take when a failsafe has been triggered",
+//             left = "Leave",
+//             right = "Pause"
+//     )
     public static boolean jacobFailsafeAction = true;
     @Property(
             type = PropertyType.SLIDER,
@@ -1020,12 +974,12 @@ public class FarmHelperConfig extends Vigilant {
     )
     public static boolean visitorsMacroAfkInfiniteMode = false;
 
-    @DualOption(
-            name = "Travel method", category = VISITORS_MACRO, subcategory = "Visitors Macro",
-            description = "The travel method to use to get to the visitor stand",
-            left = "Fly",
-            right = "Walk"
-    )
+//     @DualOption(
+//             name = "Travel method", category = VISITORS_MACRO, subcategory = "Visitors Macro",
+//             description = "The travel method to use to get to the visitor stand",
+//             left = "Fly",
+//             right = "Walk"
+//     )
     public static boolean visitorsExchangeTravelMethod = false;
 
     @Property(type = PropertyType.BUTTON, 
@@ -1042,19 +996,19 @@ public class FarmHelperConfig extends Vigilant {
         VisitorsMacro.getInstance().start();
     };
 
-    @DualOption(
-            name = "Visitors Filtering Method", category = VISITORS_MACRO, subcategory = "Visitors Macro",
-            description = "",
-            left = "By Rarity", right = "By Name"
-    )
+//     @DualOption(
+//             name = "Visitors Filtering Method", category = VISITORS_MACRO, subcategory = "Visitors Macro",
+//             description = "",
+//             left = "By Rarity", right = "By Name"
+//     )
     @Deprecated // Just here to keep the old settings for automatic migration
     public static boolean visitorsFilteringMethod = false;
 
-    @DualOption(
-            name = "Full Inventory Action", category = VISITORS_MACRO, subcategory = "Visitors Macro",
-            description = "The action to take when the items don't fit in your inventory",
-            left = "Reject", right = "Ignore"
-    )
+//     @DualOption(
+//             name = "Full Inventory Action", category = VISITORS_MACRO, subcategory = "Visitors Macro",
+//             description = "The action to take when the items don't fit in your inventory",
+//             left = "Reject", right = "Ignore"
+//     )
     public static boolean fullInventoryAction = true;
 
     //</editor-fold>
@@ -1068,18 +1022,18 @@ public class FarmHelperConfig extends Vigilant {
     )
     public static boolean filterVisitorsByName = false;
 
-    @DualOption(
-            name = "Name Filtering Type", category = VISITORS_MACRO, subcategory = "Name Filtering",
-            description = "The name filtering method to use",
-            left = "Blacklist", right = "Whitelist"
-    )
+//     @DualOption(
+//             name = "Name Filtering Type", category = VISITORS_MACRO, subcategory = "Name Filtering",
+//             description = "The name filtering method to use",
+//             left = "Blacklist", right = "Whitelist"
+//     )
     public static boolean nameFilteringType = false;
 
-    @DualOption(
-            name = "Name Action Type", category = VISITORS_MACRO, subcategory = "Name Filtering",
-            description = "The action to execute when a visitor's name does not match your set filter",
-            left = "Reject", right = "Ignore"
-    )
+//     @DualOption(
+//             name = "Name Action Type", category = VISITORS_MACRO, subcategory = "Name Filtering",
+//             description = "The action to execute when a visitor's name does not match your set filter",
+//             left = "Reject", right = "Ignore"
+//     )
     public static boolean nameActionType = true;
 
     @Property(
@@ -1261,13 +1215,6 @@ public class FarmHelperConfig extends Vigilant {
             category = PESTS_DESTROYER, subcategory = "Pests Destroyer on the track"
     )
     public static boolean dontKillPestsOnTrackDuringJacobsContest = true;
-
-    @KeyBind(
-            name = "Enable Pests Destroyer", category = PESTS_DESTROYER, subcategory = "Pests Destroyer",
-            description = "Enables the pests destroyer",
-            size = 2
-    )
-    public static OneKeyBind enablePestsDestroyerKeyBind = new OneKeyBind(Keyboard.KEY_NONE);
 
     //</editor-fold>
 
@@ -1453,12 +1400,12 @@ public class FarmHelperConfig extends Vigilant {
             description = "Only start the Auto Pest Exchange if the next Jacob's contest contains the current crop you are farming"
     )
     public static boolean autoPestExchangeOnlyStartRelevant = false;
-    @DualOption(
-            name = "Travel method", category = AUTO_PEST_EXCHANGE, subcategory = "Auto Pest Exchange",
-            description = "The travel method to use to get to the pest exchange desk",
-            left = "Fly",
-            right = "Walk"
-    )
+//     @DualOption(
+//             name = "Travel method", category = AUTO_PEST_EXCHANGE, subcategory = "Auto Pest Exchange",
+//             description = "The travel method to use to get to the pest exchange desk",
+//             left = "Fly",
+//             right = "Walk"
+//     )
     public static boolean autoPestExchangeTravelMethod = false;
     @Property(
             type = PropertyType.SLIDER,
@@ -1563,12 +1510,12 @@ public class FarmHelperConfig extends Vigilant {
     )
     public static boolean autoGodPotFromBackpack = true;
 
-    @DualOption(
-            name = "Storage Type", category = AUTO_GOD_POT, subcategory = "God Pot",
-            description = "The storage type to get god pots from",
-            left = "Backpack",
-            right = "Ender Chest"
-    )
+//     @DualOption(
+//             name = "Storage Type", category = AUTO_GOD_POT, subcategory = "God Pot",
+//             description = "The storage type to get god pots from",
+//             left = "Backpack",
+//             right = "Ender Chest"
+//     )
     public static boolean autoGodPotStorageType = true;
 
     @Property(
@@ -1603,12 +1550,12 @@ public class FarmHelperConfig extends Vigilant {
     )
     public static boolean enableAutoSell = false;
 
-    @DualOption(
-            name = "Market type", category = AUTO_SELL, subcategory = "Auto Sell",
-            description = "The market type to sell crops to",
-            left = "BZ",
-            right = "NPC"
-    )
+//     @DualOption(
+//             name = "Market type", category = AUTO_SELL, subcategory = "Auto Sell",
+//             description = "The market type to sell crops to",
+//             left = "BZ",
+//             right = "NPC"
+//     )
     public static boolean autoSellMarketType = false;
 
     @Property(
@@ -1618,13 +1565,13 @@ public class FarmHelperConfig extends Vigilant {
     )
     public static boolean autoSellSacks = false;
 
-    @DualOption(
-            name = "Sacks placement",
-            category = AUTO_SELL, subcategory = "Auto Sell",
-            description = "The sacks placement",
-            left = "Inventory",
-            right = "Sack of sacks"
-    )
+//     @DualOption(
+//             name = "Sacks placement",
+//             category = AUTO_SELL, subcategory = "Auto Sell",
+//             description = "The sacks placement",
+//             left = "Inventory",
+//             right = "Sack of sacks"
+//     )
     public static boolean autoSellSacksPlacement = true;
 
     @Property(
@@ -1693,12 +1640,12 @@ public class FarmHelperConfig extends Vigilant {
     )
     public static boolean autoPestRepellent = false;
 
-    @DualOption(
-            name = "Pest Repellent Type", category = AUTO_REPELLANT, subcategory = "Pest Repellent",
-            description = "The pest repellent type to use",
-            left = "Pest Repellent",
-            right = "Pest Repellent MAX"
-    )
+//     @DualOption(
+//             name = "Pest Repellent Type", category = AUTO_REPELLANT, subcategory = "Pest Repellent",
+//             description = "The pest repellent type to use",
+//             left = "Pest Repellent",
+//             right = "Pest Repellent MAX"
+//     )
     public static boolean pestRepellentType = true;
 
     @Property(
@@ -1927,11 +1874,6 @@ public class FarmHelperConfig extends Vigilant {
     //<editor-fold desc="DEBUG">
     //<editor-fold desc="Debug">
 
-    @KeyBind(
-            name = "Debug Keybind", category = DEBUG, subcategory = "Debug"
-    )
-    public static OneKeyBind debugKeybind = new OneKeyBind(Keyboard.KEY_NONE);
-
     @Property(
             type = PropertyType.SWITCH,
             name = "Debug Mode", category = DEBUG, subcategory = "Debug",
@@ -1968,6 +1910,15 @@ public class FarmHelperConfig extends Vigilant {
 
     @Property(type = PropertyType.NUMBER,name = "Config Version", category = EXPERIMENTAL, subcategory = "Experimental", min = 0, max = 1337)
     public static int configVersion = 6;
+
+
+    public static KeyBinding toggleMacro = new KeyBinding(Keyboard.KEY_GRAVE);
+    public static KeyBinding openGuiKeybind = new KeyBinding(Keyboard.KEY_F);
+    public static KeyBinding freelookKeybind = new KeyBinding(Keyboard.KEY_L);
+    public static KeyBinding cancelFailsafeKeybind = new KeyBinding(Keyboard.KEY_NONE);
+    public static KeyBinding plotCleaningHelperKeybind = new KeyBinding(Keyboard.KEY_P);
+    public static KeyBinding captureClipKeybind = new KeyBinding(Keyboard.KEY_NONE);
+    public static KeyBinding enablePestsDestroyerKeyBind = new KeyBinding(Keyboard.KEY_NONE);
 
     public FarmHelperConfig() {
         super(new File("./farmhelper/config.toml"), "Farm Helper");
@@ -2123,25 +2074,28 @@ public class FarmHelperConfig extends Vigilant {
         this.addDependency("leaveTime", "leaveTimer");
 
         this.hideIf("configVersion", () -> true);
+        save();
+    }
 
-        registerKeyBind(openGuiKeybind, this::openGui);
-        registerKeyBind(toggleMacro, () -> MacroHandler.getInstance().toggleMacro());
-        registerKeyBind(debugKeybind, () -> {
-        });
-        registerKeyBind(freelookKeybind, () -> Freelook.getInstance().toggle());
-        registerKeyBind(plotCleaningHelperKeybind, () -> PlotCleaningHelper.getInstance().toggle());
-        registerKeyBind(enablePestsDestroyerKeyBind, () -> {
+    @SubscribeEvent
+    public void onTick(TickEvent.ClientTickEvent event) {
+        if (mc.theWorld == null || mc.thePlayer == null) return;
+
+        if (openGuiKeybind.isPressed()) EssentialAPI.getGuiUtil().openScreen(gui());
+        if (toggleMacro.isPressed()) MacroHandler.getInstance().toggleMacro());
+        if (freelookKeybind.isPressed()) Freelook.getInstance().toggle());
+        if (plotCleaningHelperKeybind.isPressed()) PlotCleaningHelper.getInstance().toggle());
+        if (enablePestsDestroyerKeyBind.isPressed()) {
             if (PestsDestroyer.getInstance().canEnableMacro(true)) {
                 PestsDestroyer.getInstance().start();
             }
-        });
-        registerKeyBind(cancelFailsafeKeybind, () -> {
+        };
+        if (cancelFailsafeKeybind.isPressed()) {
             if (FailsafeManager.getInstance().getChooseEmergencyDelay().isScheduled()) {
                 FailsafeManager.getInstance().stopFailsafes();
                 LogUtils.sendWarning("[Failsafe] Emergency has been cancelled!");
             }
-        });
-        save();
+        }
     }
 
     public static void addRewarp() {
