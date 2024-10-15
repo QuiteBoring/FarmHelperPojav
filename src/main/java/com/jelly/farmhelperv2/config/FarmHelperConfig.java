@@ -828,77 +828,15 @@ public class FarmHelperConfig extends Vigilant {
 //             right = "Pause"
 //     )
     public static boolean jacobFailsafeAction = true;
-    @Property(
-            type = PropertyType.SLIDER,
-            name = "Nether Wart Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
-            description = "The nether wart cap",
-            min = 10000, max = 20000000000
-    )
     public static int jacobNetherWartCap = 800000;
-    @Property(
-            type = PropertyType.SLIDER,
-            name = "Potato Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
-            description = "The potato cap",
-            min = 10000, max = 20000000000
-    )
     public static int jacobPotatoCap = 830000;
-    @Property(
-            type = PropertyType.SLIDER,
-            name = "Carrot Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
-            description = "The carrot cap",
-            min = 10000, max = 20000000000
-    )
     public static int jacobCarrotCap = 860000;
-    @Property(
-            type = PropertyType.SLIDER,
-            name = "Wheat Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
-            description = "The wheat cap",
-            min = 10000, max = 20000000000
-    )
     public static int jacobWheatCap = 265000;
-    @Property(
-            type = PropertyType.SLIDER,
-            name = "Sugar Cane Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
-            description = "The sugar cane cap",
-            min = 10000, max = 20000000000
-    )
     public static int jacobSugarCaneCap = 575000;
-    @Property(
-            type = PropertyType.SLIDER,
-            name = "Mushroom Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
-            description = "The mushroom cap",
-            min = 10000, max = 20000000000
-    )
     public static int jacobMushroomCap = 250000;
-    @Property(
-            type = PropertyType.SLIDER,
-            name = "Melon Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
-            description = "The melon cap",
-            min = 10000, max = 20000000000
-    )
     public static int jacobMelonCap = 1234000;
-
-    @Property(
-            type = PropertyType.SLIDER,
-            name = "Pumpkin Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
-            description = "The pumpkin cap",
-            min = 10000, max = 20000000000
-    )
     public static int jacobPumpkinCap = 240000;
-
-    @Property(
-            type = PropertyType.SLIDER,
-            name = "Cocoa Beans Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
-            description = "The cocoa beans cap",
-            min = 10000, max = 20000000000
-    )
     public static int jacobCocoaBeansCap = 725000;
-    @Property(
-            type = PropertyType.SLIDER,
-            name = "Cactus Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
-            description = "The cactus cap",
-            min = 10000, max = 20000000000
-    )
     public static int jacobCactusCap = 470000;
 
     //</editor-fold>
