@@ -2081,9 +2081,9 @@ public class FarmHelperConfig extends Vigilant {
         if (mc.theWorld == null || mc.thePlayer == null) return;
 
         if (openGuiKeybind.isPressed()) EssentialAPI.getGuiUtil().openScreen(gui());
-        if (toggleMacro.isPressed()) MacroHandler.getInstance().toggleMacro());
-        if (freelookKeybind.isPressed()) Freelook.getInstance().toggle());
-        if (plotCleaningHelperKeybind.isPressed()) PlotCleaningHelper.getInstance().toggle());
+        if (toggleMacro.isPressed()) MacroHandler.getInstance().toggleMacro();
+        if (freelookKeybind.isPressed()) Freelook.getInstance().toggle();
+        if (plotCleaningHelperKeybind.isPressed()) PlotCleaningHelper.getInstance().toggle();
         if (enablePestsDestroyerKeyBind.isPressed()) {
             if (PestsDestroyer.getInstance().canEnableMacro(true)) {
                 PestsDestroyer.getInstance().start();
