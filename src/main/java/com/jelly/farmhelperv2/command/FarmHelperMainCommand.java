@@ -14,6 +14,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.Vec3;
 
 import java.util.Optional;
+import java.util.Set;
 
 public class FarmHelperMainCommand extends Command {
 

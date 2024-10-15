@@ -90,7 +90,7 @@ public class FarmHelperConfig extends Vigilant {
                     "S Shape - Mushroom (30° with rotations)", // 11
                     "S Shape - Mushroom SDS", // 12
                     "Circle - Crops (Wheat, Carrot, Potato, NW)" // 13
-            }, size = 2
+            }
     )
     public static int macroType = 0;
 
@@ -105,19 +105,19 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SWITCH,
             name = "Rotate After Warped", category = GENERAL, subcategory = "Rotation",
-            description = "Rotates the player after re-warping", size = 1
+            description = "Rotates the player after re-warping"
     )
     public static boolean rotateAfterWarped = false;
     @Property(
             type = PropertyType.SWITCH,
             name = "Rotate After Drop", category = GENERAL, subcategory = "Rotation",
-            description = "Rotates after the player falls down", size = 1
+            description = "Rotates after the player falls down"
     )
     public static boolean rotateAfterDrop = false;
     @Property(
             type = PropertyType.SWITCH,
             name = "Don't fix micro rotations after warp", category = GENERAL, subcategory = "Rotation",
-            description = "The macro doesn't do micro-rotations after rewarp if the current yaw and target yaw are the same", size = 2
+            description = "The macro doesn't do micro-rotations after rewarp if the current yaw and target yaw are the same"
     )
     public static boolean dontFixAfterWarping = false;
     @Property(
@@ -145,7 +145,7 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.NUMBER,
             name = "Custom Yaw Level", category = GENERAL, subcategory = "Rotation",
             description = "Set custom yaw level after starting the macro",
-            min = -180.0F, max = 180.0F
+            min = -180.0, max = 180.0
     )
     public static float customYawLevel = 0;
     //</editor-fold>
@@ -154,27 +154,23 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SWITCH,
             name = "Highlight rewarp points", category = GENERAL, subcategory = "Rewarp",
-            description = "Highlights all rewarp points you have added",
-            size = OptionSize.DUAL
+            description = "Highlights all rewarp points you have added"
     )
     public static boolean highlightRewarp = true;
 
     @Property(type = PropertyType.BUTTON, 
             name = "Add Rewarp", category = GENERAL, subcategory = "Rewarp",
-            description = "Adds a rewarp position",
-            text = "Add Rewarp"
+            description = "Adds a rewarp position"
     )
     Runnable _addRewarp = FarmHelperConfig::addRewarp;
     @Property(type = PropertyType.BUTTON, 
             name = "Remove Rewarp", category = GENERAL, subcategory = "Rewarp",
-            description = "Removes a rewarp position",
-            text = "Remove Rewarp"
+            description = "Removes a rewarp position"
     )
     Runnable _removeRewarp = FarmHelperConfig::removeRewarp;
     @Property(type = PropertyType.BUTTON, 
             name = "Remove All Rewarps", category = GENERAL, subcategory = "Rewarp",
-            description = "Removes all rewarp positions",
-            text = "Remove All Rewarps"
+            description = "Removes all rewarp positions"
     )
     Runnable _removeAllRewarps = FarmHelperConfig::removeAllRewarps;
     //</editor-fold>
@@ -205,14 +201,12 @@ public class FarmHelperConfig extends Vigilant {
 
     @Property(type = PropertyType.BUTTON, 
             name = "Set SpawnPos", category = GENERAL, subcategory = "Spawn Position",
-            description = "Sets the spawn position to your current position",
-            text = "Set SpawnPos"
+            description = "Sets the spawn position to your current position"
     )
     Runnable _setSpawnPos = PlayerUtils::setSpawnLocation;
     @Property(type = PropertyType.BUTTON, 
             name = "Reset SpawnPos", category = GENERAL, subcategory = "Spawn Position",
-            description = "Resets the spawn position",
-            text = "Reset SpawnPos"
+            description = "Resets the spawn position"
     )
     Runnable _resetSpawnPos = () -> {
         spawnPosX = 0;
@@ -417,7 +411,7 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SLIDER,name = "Detection Time Window", category = FAILSAFE, subcategory = "Detection",
             description = "Time frame for teleport/rotation checks (ms)",
-            min = 50, max = 4000, step = 50)
+            min = 50, max = 40000)
     public static int detectionTimeWindow = 500;
 
     @Property(
@@ -435,13 +429,13 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SLIDER,name = "Teleport Distance Threshold", category = FAILSAFE, subcategory = "Detection",
             description = "Minimum teleport distance to trigger failsafe (blocks)",
-            min = 0.5f, max = 20f)
+            min = 0.5f, max = 20)
     public static float teleportDistanceThreshold = 4;
 
     @Property(
             type = PropertyType.SLIDER,name = "Vertical Knockback Threshold", category = FAILSAFE, subcategory = "Detection",
             description = "Minimum vertical knockback to trigger failsafe",
-            min = 2000, max = 10000, step = 1000)
+            min = 2000, max = 10000000)
     public static float verticalKnockbackThreshold = 4000;
 
     // BPS Check
@@ -454,12 +448,11 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.SLIDER,name = "Minimum BPS", category = FAILSAFE, subcategory = "BPS",
             description = "Trigger failsafe if BPS falls below this value",
             min = 5, max = 15)
-    public static float minBpsThreshold = 10f;
+    public static float minBpsThreshold = 10;
 
     // Failsafe Testing
     @Property(type = PropertyType.BUTTON, name = "Test Failsafe", category = FAILSAFE, subcategory = "Testing",
-            description = "Simulate a failsafe trigger",
-            text = "Run Test")
+            description = "Simulate a failsafe trigger")
     Runnable _testFailsafe = () -> {
         if (!MacroHandler.getInstance().isMacroToggled()) {
             LogUtils.sendError("You need to start the macro first!");
@@ -550,7 +543,7 @@ public class FarmHelperConfig extends Vigilant {
     //<editor-fold desc="Failsafe Trigger Sound">
     @Property(
             type = PropertyType.SWITCH,
-            name = "Enable Failsafe Trigger Sound", category = FAILSAFE, subcategory = "Failsafe Trigger Sound", size = OptionSize.DUAL,
+            name = "Enable Failsafe Trigger Sound", category = FAILSAFE, subcategory = "Failsafe Trigger Sound",
             description = "Makes a sound when a failsafe has been triggered"
     )
     public static boolean enableFailsafeSound = true;
@@ -597,7 +590,7 @@ public class FarmHelperConfig extends Vigilant {
             description = "The volume of the failsafe sound",
             min = 0, max = 100
     )
-    public static float failsafeSoundVolume = 50.0f;
+    public static float failsafeSoundVolume = 50.0;
     @Property(
             type = PropertyType.SWITCH,
             name = "Max out Master category sounds while pinging", category = FAILSAFE, subcategory = "Failsafe Trigger Sound",
@@ -607,14 +600,12 @@ public class FarmHelperConfig extends Vigilant {
 
     @Property(type = PropertyType.BUTTON, 
             name = "", category = FAILSAFE, subcategory = "Failsafe Trigger Sound",
-            description = "Plays the selected sound",
-            text = "Play"
+            description = "Plays the selected sound"
     )
     Runnable _playFailsafeSoundButton = () -> AudioManager.getInstance().playSound();
     @Property(type = PropertyType.BUTTON, 
             name = "", category = FAILSAFE, subcategory = "Failsafe Trigger Sound",
-            description = "Stops playing the selected sound",
-            text = "Stop"
+            description = "Stops playing the selected sound"
     )
     Runnable _stopFailsafeSoundButton = () -> AudioManager.getInstance().resetSound();
 
@@ -649,8 +640,7 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SWITCH,
             name = "Enable Banwave Checker", category = FAILSAFE, subcategory = "Banwave Checker",
-            description = "Checks for banwave and shows you the number of players banned in the last 15 minutes",
-            size = 2
+            description = "Checks for banwave and shows you the number of players banned in the last 15 minutes"
     )
     public static boolean banwaveCheckerEnabled = true;
     @Property(
@@ -668,7 +658,7 @@ public class FarmHelperConfig extends Vigilant {
     public static boolean banwaveAction = false;
     @Property(type = PropertyType.SELECTOR, 
             name = "Base Threshold on", category = FAILSAFE, subcategory = "Banwave Checker",
-            options = {"Global bans", "FarmHelper bans", "Both"}, size = 2
+            options = {"Global bans", "FarmHelper bans", "Both"}
     )
     public static int banwaveThresholdType = 0;
     @Property(
@@ -682,7 +672,7 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.NUMBER,
             name = "Delay Before Reconnecting", category = FAILSAFE, subcategory = "Banwave Checker",
             description = "The delay before reconnecting after leaving on banwave (in seconds)",
-            min = 1, max = 20, size = 2
+            min = 1, max = 20
     )
     public static int delayBeforeReconnecting = 5;
     @Property(
@@ -707,7 +697,7 @@ public class FarmHelperConfig extends Vigilant {
     //<editor-fold desc="Scheduler">
     @Property(
             type = PropertyType.SWITCH,
-            name = "Enable Scheduler", category = SCHEDULER, subcategory = "Scheduler", size = OptionSize.DUAL,
+            name = "Enable Scheduler", category = SCHEDULER, subcategory = "Scheduler",
             description = "Farms for X amount of minutes then takes a break for X amount of minutes"
     )
     public static boolean enableScheduler = true;
@@ -715,28 +705,28 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.SLIDER,
             name = "Farming time (in minutes)", category = SCHEDULER, subcategory = "Scheduler",
             description = "How long to farm",
-            min = 1, max = 300, step = 1
+            min = 1, max = 300
     )
     public static int schedulerFarmingTime = 60;
     @Property(
             type = PropertyType.SLIDER,
             name = "Farming time randomness (in minutes)", category = SCHEDULER, subcategory = "Scheduler",
             description = "How much randomness to add to the farming time",
-            min = 0, max = 15, step = 1
+            min = 0, max = 15
     )
     public static int schedulerFarmingTimeRandomness = 5;
     @Property(
             type = PropertyType.SLIDER,
             name = "Break time (in minutes)", category = SCHEDULER, subcategory = "Scheduler",
             description = "How long to take a break",
-            min = 1, max = 120, step = 1
+            min = 1, max = 120
     )
     public static int schedulerBreakTime = 5;
     @Property(
             type = PropertyType.SLIDER,
             name = "Break time randomness (in minutes)", category = SCHEDULER, subcategory = "Scheduler",
             description = "How much randomness to add to the break time",
-            min = 0, max = 15, step = 1
+            min = 0, max = 15
     )
     public static int schedulerBreakTimeRandomness = 5;
     @Property(
@@ -794,7 +784,7 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.SLIDER,
             name = "Leave time", category = SCHEDULER, subcategory = "Leave Timer",
             description = "The time to leave the server (in minutes)",
-            min = 15, max = 720, step = 5
+            min = 15, max = 720
     )
     public static int leaveTime = 60;
     //</editor-fold>
@@ -842,49 +832,49 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.SLIDER,
             name = "Nether Wart Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
             description = "The nether wart cap",
-            min = 10000, max = 2000000, step = 10000
+            min = 10000, max = 20000000000
     )
     public static int jacobNetherWartCap = 800000;
     @Property(
             type = PropertyType.SLIDER,
             name = "Potato Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
             description = "The potato cap",
-            min = 10000, max = 2000000, step = 10000
+            min = 10000, max = 20000000000
     )
     public static int jacobPotatoCap = 830000;
     @Property(
             type = PropertyType.SLIDER,
             name = "Carrot Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
             description = "The carrot cap",
-            min = 10000, max = 2000000, step = 10000
+            min = 10000, max = 20000000000
     )
     public static int jacobCarrotCap = 860000;
     @Property(
             type = PropertyType.SLIDER,
             name = "Wheat Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
             description = "The wheat cap",
-            min = 10000, max = 2000000, step = 10000
+            min = 10000, max = 20000000000
     )
     public static int jacobWheatCap = 265000;
     @Property(
             type = PropertyType.SLIDER,
             name = "Sugar Cane Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
             description = "The sugar cane cap",
-            min = 10000, max = 2000000, step = 10000
+            min = 10000, max = 20000000000
     )
     public static int jacobSugarCaneCap = 575000;
     @Property(
             type = PropertyType.SLIDER,
             name = "Mushroom Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
             description = "The mushroom cap",
-            min = 10000, max = 2000000, step = 10000
+            min = 10000, max = 20000000000
     )
     public static int jacobMushroomCap = 250000;
     @Property(
             type = PropertyType.SLIDER,
             name = "Melon Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
             description = "The melon cap",
-            min = 10000, max = 2000000, step = 10000
+            min = 10000, max = 20000000000
     )
     public static int jacobMelonCap = 1234000;
 
@@ -892,7 +882,7 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.SLIDER,
             name = "Pumpkin Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
             description = "The pumpkin cap",
-            min = 10000, max = 2000000, step = 10000
+            min = 10000, max = 20000000000
     )
     public static int jacobPumpkinCap = 240000;
 
@@ -900,14 +890,14 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.SLIDER,
             name = "Cocoa Beans Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
             description = "The cocoa beans cap",
-            min = 10000, max = 2000000, step = 10000
+            min = 10000, max = 20000000000
     )
     public static int jacobCocoaBeansCap = 725000;
     @Property(
             type = PropertyType.SLIDER,
             name = "Cactus Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
             description = "The cactus cap",
-            min = 10000, max = 2000000, step = 10000
+            min = 10000, max = 20000000000
     )
     public static int jacobCactusCap = 470000;
 
@@ -953,9 +943,9 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SLIDER,
             name = "Max Spend Limit (in Millions Per Purchase)", category = VISITORS_MACRO, subcategory = "Visitors Macro",
-            min = 0.2f, max = 7.5f
+            min = 0, max = 7
     )
-    public static float visitorsMacroMaxSpendLimit = 0.7f;
+    public static float visitorsMacroMaxSpendLimit = 1;
 
     @Property(
             type = PropertyType.SWITCH,
@@ -975,8 +965,7 @@ public class FarmHelperConfig extends Vigilant {
 
     @Property(type = PropertyType.BUTTON, 
             name = "Start the macro manually", category = VISITORS_MACRO, subcategory = "Visitors Macro",
-            description = "Triggers the visitors macro",
-            text = "Trigger now"
+            description = "Triggers the visitors macro"
     )
     public static Runnable triggerVisitorsMacro = () -> {
         if (!PlayerUtils.isInBarn()) {
@@ -1009,7 +998,7 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SWITCH,
             name = "Filter by name", category = VISITORS_MACRO, subcategory = "Name Filtering",
-            description = "Filters visitors by name", size = 2
+            description = "Filters visitors by name"
     )
     public static boolean filterVisitorsByName = false;
 
@@ -1031,8 +1020,7 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.TEXT,
             name = "Name Filter", category = VISITORS_MACRO, subcategory = "Name Filtering",
             description = "Visitor names to filter. Use | to split the messages.",
-            placeholder = "Visitor names to filter. Use | to split the messages.",
-            size = 2
+            placeholder = "Visitor names to filter. Use | to split the messages."
     )
     public static String nameFilter = "Librarian|Maeve|Spaceman";
 
@@ -1047,36 +1035,31 @@ public class FarmHelperConfig extends Vigilant {
     @Property(type = PropertyType.SELECTOR, 
             name = "Uncommon", category = VISITORS_MACRO, subcategory = "Rarity Filtering",
             description = "The action taken when an uncommon visitor arrives",
-            options = {"Accept", "Accept if profitable only", "Decline", "Ignore"},
-            size = 2
+            options = {"Accept", "Accept if profitable only", "Decline", "Ignore"}
     )
     public static int visitorsActionUncommon = 0;
     @Property(type = PropertyType.SELECTOR, 
             name = "Rare", category = VISITORS_MACRO, subcategory = "Rarity Filtering",
             description = "The action taken when a rare visitor arrives",
-            options = {"Accept", "Accept if profitable only", "Decline", "Ignore"},
-            size = 2
+            options = {"Accept", "Accept if profitable only", "Decline", "Ignore"}
     )
     public static int visitorsActionRare = 0;
     @Property(type = PropertyType.SELECTOR, 
             name = "Legendary", category = VISITORS_MACRO, subcategory = "Rarity Filtering",
             description = "The action taken when a legendary visitor arrives",
-            options = {"Accept", "Accept if profitable only", "Decline", "Ignore"},
-            size = 2
+            options = {"Accept", "Accept if profitable only", "Decline", "Ignore"}
     )
     public static int visitorsActionLegendary = 0;
     @Property(type = PropertyType.SELECTOR, 
             name = "Mythic", category = VISITORS_MACRO, subcategory = "Rarity Filtering",
             description = "The action taken when a mythic visitor arrives",
-            options = {"Accept", "Accept if profitable only", "Decline", "Ignore"},
-            size = 2
+            options = {"Accept", "Accept if profitable only", "Decline", "Ignore"}
     )
     public static int visitorsActionMythic = 0;
     @Property(type = PropertyType.SELECTOR, 
             name = "Special", category = VISITORS_MACRO, subcategory = "Rarity Filtering",
             description = "The action taken when a special visitor arrives",
-            options = {"Accept", "Accept if profitable only", "Decline", "Ignore"},
-            size = 2
+            options = {"Accept", "Accept if profitable only", "Decline", "Ignore"}
     )
     public static int visitorsActionSpecial = 3;
     //</editor-fold>
@@ -1140,15 +1123,13 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SWITCH,
             name = "Pause the Pests Destroyer during Jacob's contests", category = PESTS_DESTROYER, subcategory = "Pests Destroyer",
-            description = "Pauses the Pests Destroyer during Jacob's contests",
-            size = 2
+            description = "Pauses the Pests Destroyer during Jacob's contests"
     )
     public static boolean pausePestsDestroyerDuringJacobsContest = true;
 
     @Property(type = PropertyType.BUTTON, 
             name = "Trigger now Pests Destroyer", category = PESTS_DESTROYER, subcategory = "Pests Destroyer",
-            description = "Triggers the pests destroyer manually",
-            text = "Trigger now"
+            description = "Triggers the pests destroyer manually"
     )
     public static void triggerManuallyPestsDestroyer() {
         if (PestsDestroyer.getInstance().canEnableMacro(true)) {
@@ -1427,8 +1408,7 @@ public class FarmHelperConfig extends Vigilant {
 
     @Property(type = PropertyType.BUTTON, 
             name = "Trigger now Auto Pest Exchange", category = AUTO_PEST_EXCHANGE, subcategory = "Auto Pest Exchange",
-            description = "Triggers the auto pest exchange manually",
-            text = "Trigger now"
+            description = "Triggers the auto pest exchange manually"
     )
     public static void triggerManuallyAutoPestExchange() {
         AutoPestExchange.getInstance().setManuallyStarted(true);
@@ -1437,8 +1417,7 @@ public class FarmHelperConfig extends Vigilant {
 
     @Property(type = PropertyType.BUTTON, 
             name = "Set the pest exchange location", category = AUTO_PEST_EXCHANGE, subcategory = "Auto Pest Exchange",
-            description = "Sets the pest exchange location",
-            text = "Set desk"
+            description = "Sets the pest exchange location"
     )
     public static Runnable setPestExchangeLocation = () -> {
         if (!PlayerUtils.isInBarn()) {
@@ -1456,8 +1435,7 @@ public class FarmHelperConfig extends Vigilant {
 
     @Property(type = PropertyType.BUTTON, 
             name = "Reset the pest exchange location", category = AUTO_PEST_EXCHANGE, subcategory = "Auto Pest Exchange",
-            description = "Resets the pest exchange location",
-            text = "Reset desk"
+            description = "Resets the pest exchange location"
     )
     public static Runnable resetPestExchangeLocation = () -> {
         pestExchangeDeskX = 0;
@@ -1491,13 +1469,13 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SWITCH,
             name = "Auto God Pot", category = AUTO_GOD_POT, subcategory = "God Pot",
-            description = "Automatically purchases and consumes a God Pot", size = 2
+            description = "Automatically purchases and consumes a God Pot"
     )
     public static boolean autoGodPot = false;
 
     @Property(
             type = PropertyType.SWITCH,
-            name = "Get God Pot from Backpack", category = AUTO_GOD_POT, subcategory = "God Pot", size = 2
+            name = "Get God Pot from Backpack", category = AUTO_GOD_POT, subcategory = "God Pot"
     )
     public static boolean autoGodPotFromBackpack = true;
 
@@ -1589,8 +1567,7 @@ public class FarmHelperConfig extends Vigilant {
     public static int inventoryFullRatio = 65;
     @Property(type = PropertyType.BUTTON, 
             name = "Sell Inventory Now", category = AUTO_SELL, subcategory = "Auto Sell",
-            description = "Sells crops in your inventory",
-            text = "Sell Inventory Now"
+            description = "Sells crops in your inventory"
     )
     Runnable autoSellFunction = () -> {
         PlayerUtils.closeScreen();
@@ -1617,8 +1594,7 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.TEXT,
             name = "Custom Items", category = AUTO_SELL, subcategory = "Customize items sold to NPC",
             description = "Add custom items to AutoSell here. Use | to split the messages.",
-            placeholder = "Custom items to auto sell. Use | to split the messages.",
-            size = 2
+            placeholder = "Custom items to auto sell. Use | to split the messages."
     )
     public static String autoSellCustomItems = "";
     //</editor-fold>
@@ -1648,7 +1624,6 @@ public class FarmHelperConfig extends Vigilant {
 
     @Property(type = PropertyType.BUTTON, 
             name = "Reset Failsafe", category = AUTO_REPELLANT, subcategory = "Pest Repellent",
-            text = "Click Here",
             description = "Resets the failsafe timer for repellent"
     )
     Runnable resetFailsafe = () -> {
@@ -1681,7 +1656,7 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.SLIDER,
             name = "Additional Delay", category = AUTO_SPRAYONATOR, subcategory = "Auto Sprayonator",
             description = "Additional delay between actions (in milliseconds)",
-            min = 0, max = 5000, step = 1
+            min = 0, max = 5000
     )
     public static int autoSprayonatorAdditionalDelay = 500;
 
@@ -1709,14 +1684,14 @@ public class FarmHelperConfig extends Vigilant {
             description = "The minimum time to wait before changing rows (in milliseconds)",
             min = 0, max = 2000
     )
-    public static float timeBetweenChangingRows = 400f;
+    public static float timeBetweenChangingRows = 400;
     @Property(
             type = PropertyType.SLIDER,
             name = "Additional random time between changing rows", category = DELAYS, subcategory = "Changing rows",
             description = "The maximum time to wait before changing rows (in milliseconds)",
             min = 0, max = 2000
     )
-    public static float randomTimeBetweenChangingRows = 200f;
+    public static float randomTimeBetweenChangingRows = 200;
     @Property(
             type = PropertyType.SWITCH,
             name = "Custom row change delays during Jacob's Contest", category = DELAYS, subcategory = "Changing rows",
@@ -1729,14 +1704,14 @@ public class FarmHelperConfig extends Vigilant {
             description = "The minimum time to wait before changing rows (in milliseconds)",
             min = 0, max = 2000
     )
-    public static float timeBetweenChangingRowsDuringJacob = 400f;
+    public static float timeBetweenChangingRowsDuringJacob = 400;
     @Property(
             type = PropertyType.SLIDER,
             name = "Additional random time between changing rows during Jacob's Contest", category = DELAYS, subcategory = "Changing rows",
             description = "The maximum time to wait before changing rows (in milliseconds)",
             min = 0, max = 2000
     )
-    public static float randomTimeBetweenChangingRowsDuringJacob = 200f;
+    public static float randomTimeBetweenChangingRowsDuringJacob = 200;
     //</editor-fold>
 
     //<editor-fold desc="Rotation Time">
@@ -1744,14 +1719,14 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.SLIDER,
             name = "Rotation Time", category = DELAYS, subcategory = "Rotations",
             description = "The time it takes to rotate the player",
-            min = 200f, max = 2000f
+            min = 200, max = 2000
     )
-    public static float rotationTime = 500f;
+    public static float rotationTime = 500;
     @Property(
             type = PropertyType.SLIDER,
             name = "Additional random Rotation Time", category = DELAYS, subcategory = "Rotations",
             description = "The maximum random time added to the delay time it takes to rotate the player (in milliseconds)",
-            min = 0f, max = 2000f
+            min = 0, max = 2000
     )
     public static float rotationTimeRandomness = 300;
     @Property(
@@ -1764,14 +1739,14 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.SLIDER,
             name = "Rotation Time during Jacob's Contest", category = DELAYS, subcategory = "Rotations",
             description = "The time it takes to rotate the player",
-            min = 200f, max = 2000f
+            min = 200, max = 2000
     )
-    public static float rotationTimeDuringJacob = 500f;
+    public static float rotationTimeDuringJacob = 500;
     @Property(
             type = PropertyType.SLIDER,
             name = "Additional random Rotation Time during Jacob's Contest", category = DELAYS, subcategory = "Rotations",
             description = "The maximum random time added to the delay time it takes to rotate the player (in milliseconds)",
-            min = 0f, max = 2000f
+            min = 0, max = 2000
     )
     public static float rotationTimeRandomnessDuringJacob = 300;
     //</editor-fold>
@@ -1781,14 +1756,14 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.SLIDER,
             name = "Fly PathExecutioner Rotation Time", category = DELAYS, subcategory = "Fly PathExecutioner",
             description = "The time it takes to rotate the player",
-            min = 200f, max = 2000f
+            min = 200, max = 2000
     )
-    public static float flyPathExecutionerRotationTime = 500f;
+    public static float flyPathExecutionerRotationTime = 500;
     @Property(
             type = PropertyType.SLIDER,
             name = "Fly PathExecutioner Additional random Rotation Time", category = DELAYS, subcategory = "Fly PathExecutioner",
             description = "The maximum random time added to the delay time it takes to rotate the player (in milliseconds)",
-            min = 0f, max = 2000f
+            min = 0, max = 2000
     )
     public static float flyPathExecutionerRotationTimeRandomness = 300;
     //</editor-fold>
@@ -1815,16 +1790,16 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.SLIDER,
             name = "GUI Delay", category = DELAYS, subcategory = "GUI Delays",
             description = "The delay between clicking during GUI macros (in milliseconds)",
-            min = 50f, max = 2000f
+            min = 50, max = 2000
     )
-    public static float macroGuiDelay = 400f;
+    public static float macroGuiDelay = 400;
     @Property(
             type = PropertyType.SLIDER,
             name = "Additional random GUI Delay", category = DELAYS, subcategory = "GUI Delays",
             description = "The maximum random time added to the delay time between clicking during GUI macros (in milliseconds)",
-            min = 0f, max = 2000f
+            min = 0, max = 2000
     )
-    public static float macroGuiDelayRandomness = 350f;
+    public static float macroGuiDelayRandomness = 350;
     //</editor-fold>
 
     //<editor-fold desc="Plot Cleaning Time">
@@ -1832,14 +1807,14 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.SLIDER,
             name = "Plot Cleaning Helper Rotation Time", category = DELAYS, subcategory = "Plot Cleaning Helper",
             description = "The time it takes to rotate the player",
-            min = 20f, max = 500f
+            min = 20, max = 500
     )
     public static float plotCleaningHelperRotationTime = 50;
     @Property(
             type = PropertyType.SLIDER,
             name = "Additional random Plot Cleaning Helper Rotation Time", category = DELAYS, subcategory = "Plot Cleaning Helper",
             description = "The maximum random time added to the delay time it takes to rotate the player (in milliseconds)",
-            min = 0f, max = 500f
+            min = 0, max = 500
     )
 
     public static float plotCleaningHelperRotationTimeRandomness = 50;
@@ -1850,16 +1825,16 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.SLIDER,
             name = "Rewarp Delay", category = DELAYS, subcategory = "Rewarp",
             description = "The delay between rewarping (in milliseconds)",
-            min = 250f, max = 2000f
+            min = 250, max = 2000
     )
-    public static float rewarpDelay = 400f;
+    public static float rewarpDelay = 400;
     @Property(
             type = PropertyType.SLIDER,
             name = "Additional random Rewarp Delay", category = DELAYS, subcategory = "Rewarp",
             description = "The maximum random time added to the delay time between rewarping (in milliseconds)",
-            min = 0f, max = 2000f
+            min = 0, max = 2000
     )
-    public static float rewarpDelayRandomness = 350f;
+    public static float rewarpDelayRandomness = 350;
     //</editor-fold>
 
     //<editor-fold desc="DEBUG">

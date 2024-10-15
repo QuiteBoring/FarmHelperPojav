@@ -1,7 +1,5 @@
 package com.jelly.farmhelperv2.config.page;
 
-import cc.polyfrost.oneconfig.config.annotations.Switch;
-
 public class FailsafeNotificationsPage {
 
     public static boolean notifyOnRotationFailsafe = true;
