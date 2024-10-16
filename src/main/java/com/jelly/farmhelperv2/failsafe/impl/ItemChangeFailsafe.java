@@ -51,10 +51,6 @@ public class ItemChangeFailsafe extends Failsafe {
         return FailsafeNotificationsPage.tagEveryoneOnItemChangeFailsafe;
     }
 
-    @Override
-    public boolean shouldAltTab() {
-        return FailsafeNotificationsPage.autoAltTabOnItemChangeFailsafe;
-    }
 
     @Override
     public void onReceivedPacketDetection(ReceivePacketEvent event) {

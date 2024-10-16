@@ -54,11 +54,6 @@ public class LowerAvgBpsFailsafe extends Failsafe {
     }
 
     @Override
-    public boolean shouldAltTab() {
-        return FailsafeNotificationsPage.autoAltTabOnLowerAverageBPS;
-    }
-
-    @Override
     public void onTickDetection(TickEvent.ClientTickEvent event) {
         if (event.phase != TickEvent.Phase.START) return;
 

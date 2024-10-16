@@ -51,11 +51,6 @@ public class JacobFailsafe extends Failsafe {
     }
 
     @Override
-    public boolean shouldAltTab() {
-        return FailsafeNotificationsPage.autoAltTabOnJacobFailsafe;
-    }
-
-    @Override
     public void onTickDetection(TickEvent.ClientTickEvent event) {
         if (!FarmHelperConfig.enableJacobFailsafes) return;
         if (!GameStateHandler.getInstance().getJacobsContestCrop().isPresent()) return;

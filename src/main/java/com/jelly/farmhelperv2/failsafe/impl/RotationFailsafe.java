@@ -60,11 +60,6 @@ public class RotationFailsafe extends Failsafe {
     }
 
     @Override
-    public boolean shouldAltTab() {
-        return FailsafeNotificationsPage.autoAltTabOnRotationFailsafe;
-    }
-
-    @Override
     public void onReceivedPacketDetection(ReceivePacketEvent event) {
         if (MacroHandler.getInstance().isTeleporting())
             return;

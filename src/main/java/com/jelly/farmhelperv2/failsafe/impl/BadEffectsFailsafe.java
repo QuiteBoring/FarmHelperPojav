@@ -55,10 +55,6 @@ public class BadEffectsFailsafe extends Failsafe {
     }
 
     @Override
-    public boolean shouldAltTab() {
-        return FailsafeNotificationsPage.autoAltTabOnBadEffectsFailsafe;
-    }
-    @Override
     public void onTickDetection(TickEvent.ClientTickEvent event) {
         if (FailsafeManager.getInstance().isHadEmergency())
             return;

@@ -50,11 +50,6 @@ public class GuestVisitFailsafe extends Failsafe {
     }
 
     @Override
-    public boolean shouldAltTab() {
-        return FailsafeNotificationsPage.autoAltTabOnGuestVisit;
-    }
-
-    @Override
     public void onTickDetection(TickEvent.ClientTickEvent event) {
         tabListCheckDelay.schedule(5000L);
         if (FarmHelperConfig.pauseOnGuestArrival && wasGuestInGarden && GameStateHandler.getInstance().isGuestInGarden()) {

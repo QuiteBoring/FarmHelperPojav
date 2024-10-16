@@ -53,11 +53,6 @@ public class WorldChangeFailsafe extends Failsafe {
     }
 
     @Override
-    public boolean shouldAltTab() {
-        return FailsafeNotificationsPage.autoAltTabOnWorldChangeFailsafe;
-    }
-
-    @Override
     public void onTickDetection(TickEvent.ClientTickEvent event) {
         if (mc.thePlayer == null || mc.theWorld == null) return;
         if (!MacroHandler.getInstance().isMacroToggled()) return;

@@ -49,12 +49,7 @@ public class BanwaveFailsafe extends Failsafe {
     public boolean shouldTagEveryone() {
         return FailsafeNotificationsPage.tagEveryoneOnBanwaveFailsafe;
     }
-
-    @Override
-    public boolean shouldAltTab() {
-        return FailsafeNotificationsPage.autoAltTabOnBanwaveFailsafe;
-    }
-
+    
     @Override
     public void duringFailsafeTrigger() {
         if (FarmHelperConfig.banwaveAction) {

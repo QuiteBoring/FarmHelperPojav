@@ -61,11 +61,6 @@ public class KnockbackFailsafe extends Failsafe {
     }
 
     @Override
-    public boolean shouldAltTab() {
-        return FailsafeNotificationsPage.autoAltTabOnKnockbackFailsafe;
-    }
-
-    @Override
     public void onReceivedPacketDetection(ReceivePacketEvent event) {
         if (MacroHandler.getInstance().isTeleporting())
             return;

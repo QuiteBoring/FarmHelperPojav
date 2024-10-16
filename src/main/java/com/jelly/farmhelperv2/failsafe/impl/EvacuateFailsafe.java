@@ -48,11 +48,6 @@ public class EvacuateFailsafe extends Failsafe {
     }
 
     @Override
-    public boolean shouldAltTab() {
-        return FailsafeNotificationsPage.autoAltTabOnEvacuateFailsafe;
-    }
-
-    @Override
     public void onTickDetection(TickEvent.ClientTickEvent event) {
         if (!MacroHandler.getInstance().isMacroToggled()) return;
         if (!FarmHelperConfig.autoEvacuateOnServerReboot) return;

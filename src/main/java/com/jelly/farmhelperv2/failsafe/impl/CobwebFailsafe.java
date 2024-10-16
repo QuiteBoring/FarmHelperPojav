@@ -58,11 +58,6 @@ public class CobwebFailsafe extends Failsafe {
     }
 
     @Override
-    public boolean shouldAltTab() {
-        return FailsafeNotificationsPage.autoAltTabOnCobwebFailsafe;
-    }
-
-    @Override
     public void duringFailsafeTrigger() {
         switch (cobwebCheckState) {
             case NONE:

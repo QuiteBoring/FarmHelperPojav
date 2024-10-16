@@ -58,11 +58,6 @@ public class DirtFailsafe extends Failsafe {
     }
 
     @Override
-    public boolean shouldAltTab() {
-        return FailsafeNotificationsPage.autoAltTabOnDirtFailsafe;
-    }
-
-    @Override
     public void onBlockChange(BlockChangeEvent event) {
         if (FailsafeManager.getInstance().firstCheckReturn()) return;
         if (event.update.getBlock().equals(Blocks.air) && !CropUtils.isCrop(event.old.getBlock())) {

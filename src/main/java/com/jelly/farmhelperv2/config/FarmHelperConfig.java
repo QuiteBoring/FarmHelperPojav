@@ -345,11 +345,6 @@ public class FarmHelperConfig extends Vigilant {
     public static boolean popUpNotifications = true;
 
     @Property(
-            type = PropertyType.SWITCH,name = "Auto Alt-Tab", category = FAILSAFE, subcategory = "General",
-            description = "Switch to game window when failsafe triggers")
-    public static boolean autoAltTab = false;
-
-    @Property(
             type = PropertyType.SLIDER,name = "Failsafe Stop Delay", category = FAILSAFE, subcategory = "General",
             description = "Delay before stopping macro after failsafe (ms)",
             min = 1000, max = 7500)

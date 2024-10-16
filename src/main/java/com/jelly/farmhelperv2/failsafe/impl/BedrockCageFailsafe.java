@@ -59,11 +59,6 @@ public class BedrockCageFailsafe extends Failsafe {
     }
 
     @Override
-    public boolean shouldAltTab() {
-        return FailsafeNotificationsPage.autoAltTabOnBedrockCageFailsafe;
-    }
-
-    @Override
     public void onReceivedPacketDetection(ReceivePacketEvent event) {
         if (MacroHandler.getInstance().isTeleporting()) return;
         if (!(event.packet instanceof S08PacketPlayerPosLook)) {

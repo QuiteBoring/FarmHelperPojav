@@ -21,8 +21,6 @@ public abstract class Failsafe {
 
     public abstract boolean shouldTagEveryone();
 
-    public abstract boolean shouldAltTab();
-
     public void onBlockChange(BlockChangeEvent event) {
     }
 
