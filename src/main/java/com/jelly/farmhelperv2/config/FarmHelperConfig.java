@@ -138,7 +138,7 @@ public class FarmHelperConfig extends Vigilant {
             description = "Set custom pitch level after starting the macro",
             min = -90, max = 90
     )
-    public static float customPitchLevel = 0;
+    public static int customPitchLevel = 0;
 
     @Property(
             type = PropertyType.SWITCH,
@@ -153,7 +153,7 @@ public class FarmHelperConfig extends Vigilant {
             description = "Set custom yaw level after starting the macro",
             min = -180, max = 180
     )
-    public static float customYawLevel = 0;
+    public static int customYawLevel = 0;
     //</editor-fold>
 
     //<editor-fold desc="Rewarp">
@@ -404,7 +404,7 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.SLIDER, name = "Teleport Lag Tolerance", category = FAILSAFE, subcategory = "Detection",
             description = "Variation in distance between expected and actual positions when lagging",
             min = 0, max = 2)
-    public static float teleportLagTolerance = 0.5f;
+    public static int teleportLagTolerance = 1;
 
     @Property(
             type = PropertyType.SLIDER,name = "Detection Time Window", category = FAILSAFE, subcategory = "Detection",
@@ -416,25 +416,25 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.SLIDER,name = "Pitch Sensitivity", category = FAILSAFE, subcategory = "Detection",
             description = "Pitch change sensitivity (lower = stricter)",
             min = 1, max = 30)
-    public static float pitchSensitivity = 7;
+    public static int pitchSensitivity = 7;
 
     @Property(
             type = PropertyType.SLIDER,name = "Yaw Sensitivity", category = FAILSAFE, subcategory = "Detection",
             description = "Yaw change sensitivity (lower = stricter)",
             min = 1, max = 30)
-    public static float yawSensitivity = 5;
+    public static int yawSensitivity = 5;
 
     @Property(
             type = PropertyType.SLIDER,name = "Teleport Distance Threshold", category = FAILSAFE, subcategory = "Detection",
             description = "Minimum teleport distance to trigger failsafe (blocks)",
             min = 0, max = 20)
-    public static float teleportDistanceThreshold = 4;
+    public static int teleportDistanceThreshold = 4;
 
     @Property(
             type = PropertyType.SLIDER,name = "Vertical Knockback Threshold", category = FAILSAFE, subcategory = "Detection",
             description = "Minimum vertical knockback to trigger failsafe",
             min = 2000, max = 10000000)
-    public static float verticalKnockbackThreshold = 4000;
+    public static int verticalKnockbackThreshold = 4000;
 
     // BPS Check
     @Property(
@@ -446,7 +446,7 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.SLIDER,name = "Minimum BPS", category = FAILSAFE, subcategory = "BPS",
             description = "Trigger failsafe if BPS falls below this value",
             min = 5, max = 15)
-    public static float minBpsThreshold = 10;
+    public static int minBpsThreshold = 10;
 
     // Failsafe Testing
     @Property(type = PropertyType.BUTTON, name = "Test Failsafe", category = FAILSAFE, subcategory = "Testing",
@@ -588,7 +588,7 @@ public class FarmHelperConfig extends Vigilant {
             description = "The volume of the failsafe sound",
             min = 0, max = 100
     )
-    public static float failsafeSoundVolume = 50;
+    public static int failsafeSoundVolume = 50;
     @Property(
             type = PropertyType.SWITCH,
             name = "Max out Master category sounds while pinging", category = FAILSAFE, subcategory = "Failsafe Trigger Sound",
@@ -881,7 +881,7 @@ public class FarmHelperConfig extends Vigilant {
             name = "Max Spend Limit (in Millions Per Purchase)", category = VISITORS_MACRO, subcategory = "Visitors Macro",
             min = 0, max = 7
     )
-    public static float visitorsMacroMaxSpendLimit = 1;
+    public static int visitorsMacroMaxSpendLimit = 1;
 
     @Property(
             type = PropertyType.SWITCH,
@@ -1618,14 +1618,14 @@ public class FarmHelperConfig extends Vigilant {
             description = "The minimum time to wait before changing rows (in milliseconds)",
             min = 0, max = 2000
     )
-    public static float timeBetweenChangingRows = 400;
+    public static int timeBetweenChangingRows = 400;
     @Property(
             type = PropertyType.SLIDER,
             name = "Additional random time between changing rows", category = DELAYS, subcategory = "Changing rows",
             description = "The maximum time to wait before changing rows (in milliseconds)",
             min = 0, max = 2000
     )
-    public static float randomTimeBetweenChangingRows = 200;
+    public static int randomTimeBetweenChangingRows = 200;
     @Property(
             type = PropertyType.SWITCH,
             name = "Custom row change delays during Jacob's Contest", category = DELAYS, subcategory = "Changing rows",
@@ -1638,14 +1638,14 @@ public class FarmHelperConfig extends Vigilant {
             description = "The minimum time to wait before changing rows (in milliseconds)",
             min = 0, max = 2000
     )
-    public static float timeBetweenChangingRowsDuringJacob = 400;
+    public static int timeBetweenChangingRowsDuringJacob = 400;
     @Property(
             type = PropertyType.SLIDER,
             name = "Additional random time between changing rows during Jacob's Contest", category = DELAYS, subcategory = "Changing rows",
             description = "The maximum time to wait before changing rows (in milliseconds)",
             min = 0, max = 2000
     )
-    public static float randomTimeBetweenChangingRowsDuringJacob = 200;
+    public static int randomTimeBetweenChangingRowsDuringJacob = 200;
     //</editor-fold>
 
     //<editor-fold desc="Rotation Time">
@@ -1655,14 +1655,14 @@ public class FarmHelperConfig extends Vigilant {
             description = "The time it takes to rotate the player",
             min = 200, max = 2000
     )
-    public static float rotationTime = 500;
+    public static int rotationTime = 500;
     @Property(
             type = PropertyType.SLIDER,
             name = "Additional random Rotation Time", category = DELAYS, subcategory = "Rotations",
             description = "The maximum random time added to the delay time it takes to rotate the player (in milliseconds)",
             min = 0, max = 2000
     )
-    public static float rotationTimeRandomness = 300;
+    public static int rotationTimeRandomness = 300;
     @Property(
             type = PropertyType.SWITCH,
             name = "Custom rotation delays during Jacob's Contest", category = DELAYS, subcategory = "Rotations",
@@ -1675,14 +1675,14 @@ public class FarmHelperConfig extends Vigilant {
             description = "The time it takes to rotate the player",
             min = 200, max = 2000
     )
-    public static float rotationTimeDuringJacob = 500;
+    public static int rotationTimeDuringJacob = 500;
     @Property(
             type = PropertyType.SLIDER,
             name = "Additional random Rotation Time during Jacob's Contest", category = DELAYS, subcategory = "Rotations",
             description = "The maximum random time added to the delay time it takes to rotate the player (in milliseconds)",
             min = 0, max = 2000
     )
-    public static float rotationTimeRandomnessDuringJacob = 300;
+    public static int rotationTimeRandomnessDuringJacob = 300;
     //</editor-fold>
 
     //<editor-fold desc="Fly Pathexecutioner Rotation Time">
@@ -1692,14 +1692,14 @@ public class FarmHelperConfig extends Vigilant {
             description = "The time it takes to rotate the player",
             min = 200, max = 2000
     )
-    public static float flyPathExecutionerRotationTime = 500;
+    public static int flyPathExecutionerRotationTime = 500;
     @Property(
             type = PropertyType.SLIDER,
             name = "Fly PathExecutioner Additional random Rotation Time", category = DELAYS, subcategory = "Fly PathExecutioner",
             description = "The maximum random time added to the delay time it takes to rotate the player (in milliseconds)",
             min = 0, max = 2000
     )
-    public static float flyPathExecutionerRotationTimeRandomness = 300;
+    public static int flyPathExecutionerRotationTimeRandomness = 300;
     //</editor-fold>
 
     //<editor-fold desc="Pests Destroyer Time">
@@ -1709,7 +1709,7 @@ public class FarmHelperConfig extends Vigilant {
             description = "Pests Destroyer Stuck Time (in minutes) for single pest",
             min = 1, max = 7
     )
-    public static float pestsKillerStuckTime = 3;
+    public static int pestsKillerStuckTime = 3;
     @Property(
             type = PropertyType.SLIDER,
             name = "Pests Destroyer Ticks of not seeing pest.", category = DELAYS, subcategory = "Pests Destroyer",
@@ -1726,14 +1726,14 @@ public class FarmHelperConfig extends Vigilant {
             description = "The delay between clicking during GUI macros (in milliseconds)",
             min = 50, max = 2000
     )
-    public static float macroGuiDelay = 400;
+    public static int macroGuiDelay = 400;
     @Property(
             type = PropertyType.SLIDER,
             name = "Additional random GUI Delay", category = DELAYS, subcategory = "GUI Delays",
             description = "The maximum random time added to the delay time between clicking during GUI macros (in milliseconds)",
             min = 0, max = 2000
     )
-    public static float macroGuiDelayRandomness = 350;
+    public static int macroGuiDelayRandomness = 350;
     //</editor-fold>
 
     //<editor-fold desc="Plot Cleaning Time">
@@ -1743,7 +1743,7 @@ public class FarmHelperConfig extends Vigilant {
             description = "The time it takes to rotate the player",
             min = 20, max = 500
     )
-    public static float plotCleaningHelperRotationTime = 50;
+    public static int plotCleaningHelperRotationTime = 50;
     @Property(
             type = PropertyType.SLIDER,
             name = "Additional random Plot Cleaning Helper Rotation Time", category = DELAYS, subcategory = "Plot Cleaning Helper",
@@ -1751,7 +1751,7 @@ public class FarmHelperConfig extends Vigilant {
             min = 0, max = 500
     )
 
-    public static float plotCleaningHelperRotationTimeRandomness = 50;
+    public static int plotCleaningHelperRotationTimeRandomness = 50;
     //</editor-fold>
 
     //<editor-fold desc="Rewarp Time">
@@ -1761,14 +1761,14 @@ public class FarmHelperConfig extends Vigilant {
             description = "The delay between rewarping (in milliseconds)",
             min = 250, max = 2000
     )
-    public static float rewarpDelay = 400;
+    public static int rewarpDelay = 400;
     @Property(
             type = PropertyType.SLIDER,
             name = "Additional random Rewarp Delay", category = DELAYS, subcategory = "Rewarp",
             description = "The maximum random time added to the delay time between rewarping (in milliseconds)",
             min = 0, max = 2000
     )
-    public static float rewarpDelayRandomness = 350;
+    public static int rewarpDelayRandomness = 350;
     //</editor-fold>
 
     //<editor-fold desc="DEBUG">
@@ -1910,8 +1910,8 @@ public class FarmHelperConfig extends Vigilant {
 
     public static long getRandomTimeBetweenChangingRows() {
         if (customRowChangeDelaysDuringJacob && GameStateHandler.getInstance().inJacobContest())
-            return (long) (timeBetweenChangingRowsDuringJacob + (float) Math.random() * randomTimeBetweenChangingRowsDuringJacob);
-        return (long) (timeBetweenChangingRows + (float) Math.random() * randomTimeBetweenChangingRows);
+            return (long) (timeBetweenChangingRowsDuringJacob + (int) Math.random() * randomTimeBetweenChangingRowsDuringJacob);
+        return (long) (timeBetweenChangingRows + (int) Math.random() * randomTimeBetweenChangingRows);
     }
 
     public static long getMaxTimeBetweenChangingRows() {
@@ -1920,24 +1920,24 @@ public class FarmHelperConfig extends Vigilant {
 
     public static long getRandomRotationTime() {
         if (customRotationDelaysDuringJacob && GameStateHandler.getInstance().inJacobContest())
-            return (long) (rotationTimeDuringJacob + (float) Math.random() * rotationTimeRandomnessDuringJacob);
-        return (long) (rotationTime + (float) Math.random() * rotationTimeRandomness);
+            return (long) (rotationTimeDuringJacob + (int) Math.random() * rotationTimeRandomnessDuringJacob);
+        return (long) (rotationTime + (int) Math.random() * rotationTimeRandomness);
     }
 
     public static long getRandomFlyPathExecutionerRotationTime() {
-        return (long) (flyPathExecutionerRotationTime + (float) Math.random() * flyPathExecutionerRotationTimeRandomness);
+        return (long) (flyPathExecutionerRotationTime + (int) Math.random() * flyPathExecutionerRotationTimeRandomness);
     }
 
     public static long getRandomGUIMacroDelay() {
-        return (long) (macroGuiDelay + (float) Math.random() * macroGuiDelayRandomness);
+        return (long) (macroGuiDelay + (int) Math.random() * macroGuiDelayRandomness);
     }
 
     public static long getRandomPlotCleaningHelperRotationTime() {
-        return (long) (plotCleaningHelperRotationTime + (float) Math.random() * plotCleaningHelperRotationTimeRandomness);
+        return (long) (plotCleaningHelperRotationTime + (int) Math.random() * plotCleaningHelperRotationTimeRandomness);
     }
 
     public static long getRandomRewarpDelay() {
-        return (long) (rewarpDelay + (float) Math.random() * rewarpDelayRandomness);
+        return (long) (rewarpDelay + (int) Math.random() * rewarpDelayRandomness);
     }
 
     public String getJson() {
