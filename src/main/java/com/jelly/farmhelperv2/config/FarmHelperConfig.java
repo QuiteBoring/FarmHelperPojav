@@ -1867,6 +1867,17 @@ public class FarmHelperConfig extends Vigilant {
         }
     }
 
+    public static void loadRewarpConfig() {
+        try {
+            if (!configRewarpFile.exists())
+                Files.createFile(configRewarpFile.toPath());
+
+            rewarpList = Arrays.asList(FarmHelper.gson.fromJson(Files.readString(configRewarpFile.toPath()), Rewarp[].class));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void addRewarp() {
         if (FarmHelperConfig.rewarpList.stream().anyMatch(rewarp -> rewarp.isTheSameAs(BlockUtils.getRelativeBlockPos(0, 0, 0)))) {
             LogUtils.sendError("Rewarp location has already been set!");
