@@ -1636,7 +1636,7 @@ public class FarmHelperConfig extends Vigilant {
 
     @Property(
             type = PropertyType.BUTTON,
-            name = "Failsafe Notifications", category = FAILSAFE, subcategory = "Failsafe Notifications", location = PageLocation.BOTTOM,
+            name = "Failsafe Notifications", category = FAILSAFE, subcategory = "Failsafe Notifications", 
             description = "Click here to customize failsafe notifications"
     )
     public static void _failsafeNotificationsPage() {
@@ -1645,7 +1645,7 @@ public class FarmHelperConfig extends Vigilant {
 
     @Property(
             type = PropertyType.BUTTON,
-            name = "Custom Failsafe Messages", category = FAILSAFE, subcategory = "Failsafe Messages", location = PageLocation.BOTTOM,
+            name = "Custom Failsafe Messages", category = FAILSAFE, subcategory = "Failsafe Messages", 
             description = "Click here to edit custom failsafe messages"
     )
     public static void _customFailsafeMessagesPage() {
