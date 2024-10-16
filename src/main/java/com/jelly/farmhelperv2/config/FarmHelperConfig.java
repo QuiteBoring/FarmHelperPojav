@@ -1369,7 +1369,7 @@ public class FarmHelperConfig extends Vigilant {
             name = "Set the pest exchange location", category = AUTO_PEST_EXCHANGE, subcategory = "Auto Pest Exchange",
             description = "Sets the pest exchange location"
     )
-    public static public void setPestExchangeLocation() {
+    public static void setPestExchangeLocation() {
         if (!PlayerUtils.isInBarn()) {
             LogUtils.sendError("[Auto Pest Exchange] You need to be in the barn to set the pest exchange location!");
             return;
@@ -1387,7 +1387,7 @@ public class FarmHelperConfig extends Vigilant {
             name = "Reset the pest exchange location", category = AUTO_PEST_EXCHANGE, subcategory = "Auto Pest Exchange",
             description = "Resets the pest exchange location"
     )
-    public static public void resetPestExchangeLocation() {
+    public static void resetPestExchangeLocation() {
         pestExchangeDeskX = 0;
         pestExchangeDeskY = 0;
         pestExchangeDeskZ = 0;
