@@ -526,8 +526,8 @@ public class FarmHelperConfig extends Vigilant {
 
     @Property(
             type = PropertyType.SLIDER,
-            name = "Clip Capturing Delay (in seconds)", category = FAILSAFE, subcategory = "Clip Capturing",
-            description = "The delay to capture a clip after triggering failsafe (in seconds)",
+            name = "Clip Capturing Delay in seconds", category = FAILSAFE, subcategory = "Clip Capturing",
+            description = "The delay to capture a clip after triggering failsafe in seconds",
             min = 10, max = 200
     )
     public static int captureClipDelay = 30;
@@ -544,7 +544,7 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SLIDER,
             name = "Pause for X milliseconds after desync triggered", category = FAILSAFE, subcategory = "Desync",
-            description = "The delay to pause after desync triggered (in milliseconds)",
+            description = "The delay to pause after desync triggered in milliseconds",
             min = 3000, max = 10000
     )
     public static int desyncPauseDelay = 5000;
@@ -596,7 +596,7 @@ public class FarmHelperConfig extends Vigilant {
     public static int failsafeSoundTimes = 13;
     @Property(
             type = PropertyType.SLIDER,
-            name = "Failsafe Sound Volume (in %)", category = FAILSAFE, subcategory = "Failsafe Trigger Sound",
+            name = "Failsafe Sound Volume", category = FAILSAFE, subcategory = "Failsafe Trigger Sound",
             description = "The volume of the failsafe sound",
             min = 0, max = 100
     )
@@ -636,16 +636,16 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SLIDER,
             name = "Restart Delay", category = FAILSAFE, subcategory = "Restart After FailSafe",
-            description = "The delay to restart after failsafe (in minutes)",
+            description = "The delay to restart after failsafe in minutes",
             min = 0, max = 20
     )
     public static int restartAfterFailSafeDelay = 0;
 
     @Property(
             type = PropertyType.SWITCH,
-            name = "Always teleport to /warp garden after the failsafe",
+            name = "Always teleport to garden after the failsafe",
             category = FAILSAFE, subcategory = "Restart After FailSafe",
-            description = "Always teleports to /warp garden after the failsafe"
+            description = "Always teleports to garden after the failsafe"
     )
     public static boolean alwaysTeleportToGarden = false;
 
@@ -660,7 +660,7 @@ public class FarmHelperConfig extends Vigilant {
     public static boolean banwaveCheckerEnabled = true;
     @Property(
             type = PropertyType.SWITCH,
-            name = "Leave/pause during banwave", category = FAILSAFE, subcategory = "Banwave Checker",
+            name = "Leave or pause during banwave", category = FAILSAFE, subcategory = "Banwave Checker",
             description = "Automatically disconnects from the server or pauses the macro when a banwave is detected"
     )
     public static boolean enableLeavePauseOnBanwave = false;
@@ -686,7 +686,7 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.NUMBER,
             name = "Delay Before Reconnecting", category = FAILSAFE, subcategory = "Banwave Checker",
-            description = "The delay before reconnecting after leaving on banwave (in seconds)",
+            description = "The delay before reconnecting after leaving on banwave in seconds",
             min = 1, max = 20
     )
     public static int delayBeforeReconnecting = 5;
@@ -718,28 +718,28 @@ public class FarmHelperConfig extends Vigilant {
     public static boolean enableScheduler = true;
     @Property(
             type = PropertyType.SLIDER,
-            name = "Farming time (in minutes)", category = SCHEDULER, subcategory = "Scheduler",
+            name = "Farming time in minutes", category = SCHEDULER, subcategory = "Scheduler",
             description = "How long to farm",
             min = 1, max = 300
     )
     public static int schedulerFarmingTime = 60;
     @Property(
             type = PropertyType.SLIDER,
-            name = "Farming time randomness (in minutes)", category = SCHEDULER, subcategory = "Scheduler",
+            name = "Farming time randomness in minutes", category = SCHEDULER, subcategory = "Scheduler",
             description = "How much randomness to add to the farming time",
             min = 0, max = 15
     )
     public static int schedulerFarmingTimeRandomness = 5;
     @Property(
             type = PropertyType.SLIDER,
-            name = "Break time (in minutes)", category = SCHEDULER, subcategory = "Scheduler",
+            name = "Break time in minutes", category = SCHEDULER, subcategory = "Scheduler",
             description = "How long to take a break",
             min = 1, max = 120
     )
     public static int schedulerBreakTime = 5;
     @Property(
             type = PropertyType.SLIDER,
-            name = "Break time randomness (in minutes)", category = SCHEDULER, subcategory = "Scheduler",
+            name = "Break time randomness in minutes", category = SCHEDULER, subcategory = "Scheduler",
             description = "How much randomness to add to the break time",
             min = 0, max = 15
     )
@@ -798,7 +798,7 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SLIDER,
             name = "Leave time", category = SCHEDULER, subcategory = "Leave Timer",
-            description = "The time to leave the server (in minutes)",
+            description = "The time to leave the server in minutes",
             min = 15, max = 720
     )
     public static int leaveTime = 60;
@@ -818,7 +818,7 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SLIDER,
             name = "Pet Swap Delay", category = JACOBS_CONTEST, subcategory = "Pet Swapper",
-            description = "The delay between clicking GUI during swapping the pet (in milliseconds)",
+            description = "The delay between clicking GUI during swapping the pet in milliseconds",
             min = 200, max = 3000
     )
     public static int petSwapperDelay = 1000;
@@ -887,7 +887,7 @@ public class FarmHelperConfig extends Vigilant {
 
     @Property(
             type = PropertyType.SLIDER,
-            name = "The minimum amount of coins to start the macro (in thousands)", category = VISITORS_MACRO, subcategory = "Visitors Macro",
+            name = "The minimum amount of coins to start the macro in thousands", category = VISITORS_MACRO, subcategory = "Visitors Macro",
             description = "The minimum amount of coins you need to have in your purse to start the visitors macro",
             min = 1000, max = 20000
     )
@@ -895,7 +895,7 @@ public class FarmHelperConfig extends Vigilant {
 
     @Property(
             type = PropertyType.SLIDER,
-            name = "Max Spend Limit (in Millions Per Purchase)", category = VISITORS_MACRO, subcategory = "Visitors Macro",
+            name = "Max Spend Limit in Millions Per Purchase", category = VISITORS_MACRO, subcategory = "Visitors Macro",
             min = 0, max = 7
     )
     public static int visitorsMacroMaxSpendLimit = 1;
@@ -1232,7 +1232,7 @@ public class FarmHelperConfig extends Vigilant {
     public static boolean sendStatusUpdates = false;
     @Property(
             type = PropertyType.NUMBER,
-            name = "Status Update Interval (in minutes)", category = DISCORD_INTEGRATION, subcategory = "Discord Webhook",
+            name = "Status Update Interval in minutes", category = DISCORD_INTEGRATION, subcategory = "Discord Webhook",
             description = "The interval between sending messages about status updates",
             min = 1, max = 60
     )
@@ -1332,7 +1332,7 @@ public class FarmHelperConfig extends Vigilant {
     public static boolean autoPestExchangeTravelMethod = false;
     @Property(
             type = PropertyType.SLIDER,
-            name = "Trigger before contest starts (in minutes)", category = AUTO_PEST_EXCHANGE, subcategory = "Auto Pest Exchange",
+            name = "Trigger before contest starts in minutes", category = AUTO_PEST_EXCHANGE, subcategory = "Auto Pest Exchange",
             description = "The time before the contest starts to trigger the auto pest exchange",
             min = 1, max = 40
     )
@@ -1606,7 +1606,7 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SLIDER,
             name = "Additional Delay", category = AUTO_SPRAYONATOR, subcategory = "Auto Sprayonator",
-            description = "Additional delay between actions (in milliseconds)",
+            description = "Additional delay between actions in milliseconds",
             min = 0, max = 5000
     )
     public static int autoSprayonatorAdditionalDelay = 500;
@@ -1632,14 +1632,14 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SLIDER,
             name = "Time between changing rows", category = DELAYS, subcategory = "Changing rows",
-            description = "The minimum time to wait before changing rows (in milliseconds)",
+            description = "The minimum time to wait before changing rows in milliseconds",
             min = 0, max = 2000
     )
     public static int timeBetweenChangingRows = 400;
     @Property(
             type = PropertyType.SLIDER,
             name = "Additional random time between changing rows", category = DELAYS, subcategory = "Changing rows",
-            description = "The maximum time to wait before changing rows (in milliseconds)",
+            description = "The maximum time to wait before changing rows in milliseconds",
             min = 0, max = 2000
     )
     public static int randomTimeBetweenChangingRows = 200;
@@ -1652,14 +1652,14 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SLIDER,
             name = "Time between changing rows during Jacobs Contest", category = DELAYS, subcategory = "Changing rows",
-            description = "The minimum time to wait before changing rows (in milliseconds)",
+            description = "The minimum time to wait before changing rows in milliseconds",
             min = 0, max = 2000
     )
     public static int timeBetweenChangingRowsDuringJacob = 400;
     @Property(
             type = PropertyType.SLIDER,
             name = "Additional random time between changing rows during Jacobs Contest", category = DELAYS, subcategory = "Changing rows",
-            description = "The maximum time to wait before changing rows (in milliseconds)",
+            description = "The maximum time to wait before changing rows in milliseconds",
             min = 0, max = 2000
     )
     public static int randomTimeBetweenChangingRowsDuringJacob = 200;
@@ -1676,7 +1676,7 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SLIDER,
             name = "Additional random Rotation Time", category = DELAYS, subcategory = "Rotations",
-            description = "The maximum random time added to the delay time it takes to rotate the player (in milliseconds)",
+            description = "The maximum random time added to the delay time it takes to rotate the player in milliseconds",
             min = 0, max = 2000
     )
     public static int rotationTimeRandomness = 300;
@@ -1696,7 +1696,7 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SLIDER,
             name = "Additional random Rotation Time during Jacobs Contest", category = DELAYS, subcategory = "Rotations",
-            description = "The maximum random time added to the delay time it takes to rotate the player (in milliseconds)",
+            description = "The maximum random time added to the delay time it takes to rotate the player in milliseconds",
             min = 0, max = 2000
     )
     public static int rotationTimeRandomnessDuringJacob = 300;
@@ -1713,7 +1713,7 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SLIDER,
             name = "Fly PathExecutioner Additional random Rotation Time", category = DELAYS, subcategory = "Fly PathExecutioner",
-            description = "The maximum random time added to the delay time it takes to rotate the player (in milliseconds)",
+            description = "The maximum random time added to the delay time it takes to rotate the player in milliseconds",
             min = 0, max = 2000
     )
     public static int flyPathExecutionerRotationTimeRandomness = 300;
@@ -1722,8 +1722,8 @@ public class FarmHelperConfig extends Vigilant {
     //<editor-fold desc="Pests Destroyer Time">
     @Property(
             type = PropertyType.SLIDER,
-            name = "Pests Destroyer Stuck Time (in minutes)", category = DELAYS, subcategory = "Pests Destroyer",
-            description = "Pests Destroyer Stuck Time (in minutes) for single pest",
+            name = "Pests Destroyer Stuck Time in minutes", category = DELAYS, subcategory = "Pests Destroyer",
+            description = "Pests Destroyer Stuck Time in minutes for single pest",
             min = 1, max = 7
     )
     public static int pestsKillerStuckTime = 3;
@@ -1740,14 +1740,14 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SLIDER,
             name = "GUI Delay", category = DELAYS, subcategory = "GUI Delays",
-            description = "The delay between clicking during GUI macros (in milliseconds)",
+            description = "The delay between clicking during GUI macros in milliseconds",
             min = 50, max = 2000
     )
     public static int macroGuiDelay = 400;
     @Property(
             type = PropertyType.SLIDER,
             name = "Additional random GUI Delay", category = DELAYS, subcategory = "GUI Delays",
-            description = "The maximum random time added to the delay time between clicking during GUI macros (in milliseconds)",
+            description = "The maximum random time added to the delay time between clicking during GUI macros in milliseconds",
             min = 0, max = 2000
     )
     public static int macroGuiDelayRandomness = 350;
@@ -1764,7 +1764,7 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SLIDER,
             name = "Additional random Plot Cleaning Helper Rotation Time", category = DELAYS, subcategory = "Plot Cleaning Helper",
-            description = "The maximum random time added to the delay time it takes to rotate the player (in milliseconds)",
+            description = "The maximum random time added to the delay time it takes to rotate the player in milliseconds",
             min = 0, max = 500
     )
 
@@ -1775,14 +1775,14 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SLIDER,
             name = "Rewarp Delay", category = DELAYS, subcategory = "Rewarp",
-            description = "The delay between rewarping (in milliseconds)",
+            description = "The delay between rewarping in milliseconds",
             min = 250, max = 2000
     )
     public static int rewarpDelay = 400;
     @Property(
             type = PropertyType.SLIDER,
             name = "Additional random Rewarp Delay", category = DELAYS, subcategory = "Rewarp",
-            description = "The maximum random time added to the delay time between rewarping (in milliseconds)",
+            description = "The maximum random time added to the delay time between rewarping in milliseconds",
             min = 0, max = 2000
     )
     public static int rewarpDelayRandomness = 350;
