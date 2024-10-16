@@ -1276,7 +1276,7 @@ public class FarmHelperConfig extends Vigilant {
             category = DISCORD_INTEGRATION, subcategory = "Remote Control",
             description = "The bot token to use for remote control"
     )
-    public static String discordRemoteControlToken;
+    public static String discordRemoteControlToken = "";
     @Property(
             type = PropertyType.TEXT,
             name = "Discord Remote Control Address",
