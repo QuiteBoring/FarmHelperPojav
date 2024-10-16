@@ -7,6 +7,7 @@ import gg.essential.vigilance.data.PropertyType;
 public class CustomFailsafeMessagesPage extends Vigilant {
 
     @Property(
+            category = "Main",
             type = PropertyType.PARAGRAPH,
             name = "Custom messages sent during Jacob's Contest",
             description = "The messages to send to the chat when the failsafe has been triggered and you are during Jacob's Contest (use '|' to split the messages)",
@@ -14,6 +15,7 @@ public class CustomFailsafeMessagesPage extends Vigilant {
     )
     public static String customJacobMessages = "";
     @Property(
+            category = "Main",
             type = PropertyType.SLIDER,
             name = "Custom Jacob's Contest message chance",
             description = "The chance that the custom Jacob's Contest message will be sent to the chat",
@@ -23,6 +25,7 @@ public class CustomFailsafeMessagesPage extends Vigilant {
     public static int customJacobChance = 50;
 
     @Property(
+            category = "Main",
             type = PropertyType.PARAGRAPH,
             name = "Custom continue messages",
             description = "The messages to send to the chat when the failsafe has been triggered and you want to ask if you can continue (use '|' to split the messages)",
@@ -30,6 +33,7 @@ public class CustomFailsafeMessagesPage extends Vigilant {
     )
     public static String customContinueMessages = "";
     @Property(
+            category = "Main",
             type = PropertyType.PARAGRAPH,
             name = "Rotation failsafe messages",
             description = "The messages to send to the chat when the rotation failsafe has been triggered (use '|' to split the messages)",
@@ -37,6 +41,7 @@ public class CustomFailsafeMessagesPage extends Vigilant {
     )
     public static String customRotationMessages = "";
     @Property(
+            category = "Main",
             type = PropertyType.PARAGRAPH,
             name = "Teleportation failsafe messages",
             description = "The messages to send to the chat when the teleportation failsafe has been triggered (use '|' to split the messages)",
@@ -44,6 +49,7 @@ public class CustomFailsafeMessagesPage extends Vigilant {
     )
     public static String customTeleportationMessages = "";
     @Property(
+            category = "Main",
             type = PropertyType.PARAGRAPH,
             name = "Knockback failsafe messages",
             description = "The messages to send to the chat when the knockback failsafe has been triggered (use '|' to split the messages)",
@@ -52,6 +58,7 @@ public class CustomFailsafeMessagesPage extends Vigilant {
     public static String customKnockbackMessages = "";
 
     @Property(
+            category = "Main",
             type = PropertyType.PARAGRAPH,
             name = "Bedrock failsafe messages",
             description = "The messages to send to the chat when the bedrock failsafe has been triggered (use '|' to split the messages)",
@@ -60,6 +67,7 @@ public class CustomFailsafeMessagesPage extends Vigilant {
     public static String customBedrockMessages = "";
 
     @Property(
+            category = "Main",
             type = PropertyType.PARAGRAPH,
             name = "Dirt failsafe messages",
             description = "The messages to send to the chat when the dirt failsafe has been triggered (use '|' to split the messages)",
