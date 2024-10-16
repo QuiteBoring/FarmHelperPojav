@@ -146,7 +146,7 @@ public class FarmHelper {
             LogUtils.sendError("Auto Ungrab Mouse feature doesn't work properly on Mac OS. It has been disabled automatically.");
         }
         if (FarmHelperConfig.configVersion < 3) {
-            FarmHelperConfig.visitorsMacroMaxSpendLimit = 0.7f;
+            FarmHelperConfig.visitorsMacroMaxSpendLimit = 1;
             LogUtils.sendNotification("Farm Helper", "'Max Spend Limit' in Visitors Macro settings has been set to 0.7 automatically, because of change of type. Make sure to update it to your preferences", 15000);
             LogUtils.sendWarning("'Max Spend Limit' in Visitors Macro settings has been set to 0.7 automatically, because of change of type. Make sure to update it to your preferences");
         }
