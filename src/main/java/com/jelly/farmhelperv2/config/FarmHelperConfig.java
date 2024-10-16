@@ -44,7 +44,7 @@ import java.util.List;
 @SuppressWarnings({"unused", "DefaultAnnotationParam"})
 public class FarmHelperConfig extends Vigilant {
     
-    protected final transient Gson gson = new Gson();
+    protected transient final Gson gson = new Gson();
     private transient static final Minecraft mc = Minecraft.getMinecraft();
     private transient static final String GENERAL = "General";
     private transient static final String MISCELLANEOUS = "Miscellaneous";
@@ -65,19 +65,19 @@ public class FarmHelperConfig extends Vigilant {
     private transient static final File configRewarpFile = new File("farmhelper_rewarp.json");
 
 
-    public static List<Rewarp> rewarpList = new ArrayList<>();
+    public transient static List<Rewarp> rewarpList = new ArrayList<>();
 
     //<editor-fold desc="PROXY">
-    public static boolean proxyEnabled = false;
-    public static String proxyAddress = "";
-    public static String proxyUsername = "";
-    public static String proxyPassword = "";
-    public static ProxyType proxyType = ProxyType.HTTP;
+    public transient static boolean proxyEnabled = false;
+    public transient static String proxyAddress = "";
+    public transient static String proxyUsername = "";
+    public transient static String proxyPassword = "";
+    public transient static ProxyType proxyType = ProxyType.HTTP;
     //</editor-fold>
 
     //<editor-fold desc="GENERAL">
 
-    public static boolean streamerMode = false;
+    public transient static boolean streamerMode = false;
 
     @Property(type = PropertyType.SELECTOR,
             name = "Macro Type", category = GENERAL,
@@ -263,7 +263,7 @@ public class FarmHelperConfig extends Vigilant {
 //             left = "Release",
 //             right = "Pre-release"
 //     )
-    public static boolean autoUpdaterDownloadBetaVersions = false;
+    public transient static boolean autoUpdaterDownloadBetaVersions = false;
 
     @Property(
             type = PropertyType.SWITCH,
@@ -522,7 +522,7 @@ public class FarmHelperConfig extends Vigilant {
 //             left = "Replay Buffer",
 //             right = "Recording"
 //     )
-    public static boolean clipCapturingType = false;
+    public transient static boolean clipCapturingType = false;
 
     @Property(
             type = PropertyType.SLIDER,
@@ -564,7 +564,7 @@ public class FarmHelperConfig extends Vigilant {
 //             right = "Custom",
 //             size = 2
 //     )
-    public static boolean failsafeSoundType = false;
+    public transient static boolean failsafeSoundType = false;
     @Property(type = PropertyType.SELECTOR, 
             name = "Minecraft Sound", category = FAILSAFE, subcategory = "Failsafe Trigger Sound",
             description = "The Minecraft sound to play when a failsafe has been triggered",
@@ -670,7 +670,7 @@ public class FarmHelperConfig extends Vigilant {
 //             left = "Leave",
 //             right = "Pause"
 //     )
-    public static boolean banwaveAction = false;
+    public transient static boolean banwaveAction = false;
     @Property(type = PropertyType.SELECTOR, 
             name = "Base Threshold on", category = FAILSAFE, subcategory = "Banwave Checker",
             options = {"Global bans", "FarmHelper bans", "Both"}
@@ -842,17 +842,17 @@ public class FarmHelperConfig extends Vigilant {
 //             left = "Leave",
 //             right = "Pause"
 //     )
-    public static boolean jacobFailsafeAction = true;
-    public static int jacobNetherWartCap = 800000;
-    public static int jacobPotatoCap = 830000;
-    public static int jacobCarrotCap = 860000;
-    public static int jacobWheatCap = 265000;
-    public static int jacobSugarCaneCap = 575000;
-    public static int jacobMushroomCap = 250000;
-    public static int jacobMelonCap = 1234000;
-    public static int jacobPumpkinCap = 240000;
-    public static int jacobCocoaBeansCap = 725000;
-    public static int jacobCactusCap = 470000;
+    public transient static boolean jacobFailsafeAction = true;
+    public transient static int jacobNetherWartCap = 800000;
+    public transient static int jacobPotatoCap = 830000;
+    public transient static int jacobCarrotCap = 860000;
+    public transient static int jacobWheatCap = 265000;
+    public transient static int jacobSugarCaneCap = 575000;
+    public transient static int jacobMushroomCap = 250000;
+    public transient static int jacobMelonCap = 1234000;
+    public transient static int jacobPumpkinCap = 240000;
+    public transient static int jacobCocoaBeansCap = 725000;
+    public transient static int jacobCactusCap = 470000;
 
     //</editor-fold>
 
@@ -914,7 +914,7 @@ public class FarmHelperConfig extends Vigilant {
 //             left = "Fly",
 //             right = "Walk"
 //     )
-    public static boolean visitorsExchangeTravelMethod = false;
+    public transient static boolean visitorsExchangeTravelMethod = false;
 
     @Property(type = PropertyType.BUTTON, 
             name = "Start the macro manually", category = VISITORS_MACRO, subcategory = "Visitors Macro",
@@ -935,14 +935,14 @@ public class FarmHelperConfig extends Vigilant {
 //             left = "By Rarity", right = "By Name"
 //     )
     @Deprecated // Just here to keep the old settings for automatic migration
-    public static boolean visitorsFilteringMethod = false;
+    public transient static boolean visitorsFilteringMethod = false;
 
 //     @DualOption(
 //             name = "Full Inventory Action", category = VISITORS_MACRO, subcategory = "Visitors Macro",
 //             description = "The action to take when the items don't fit in your inventory",
 //             left = "Reject", right = "Ignore"
 //     )
-    public static boolean fullInventoryAction = true;
+    public transient static boolean fullInventoryAction = true;
 
     //</editor-fold>
 
@@ -960,14 +960,14 @@ public class FarmHelperConfig extends Vigilant {
 //             description = "The name filtering method to use",
 //             left = "Blacklist", right = "Whitelist"
 //     )
-    public static boolean nameFilteringType = false;
+    public transient static boolean nameFilteringType = false;
 
 //     @DualOption(
 //             name = "Name Action Type", category = VISITORS_MACRO, subcategory = "Name Filtering",
 //             description = "The action to execute when a visitor's name does not match your set filter",
 //             left = "Reject", right = "Ignore"
 //     )
-    public static boolean nameActionType = true;
+    public transient static boolean nameActionType = true;
 
     @Property(
             type = PropertyType.TEXT,
@@ -1329,7 +1329,7 @@ public class FarmHelperConfig extends Vigilant {
 //             left = "Fly",
 //             right = "Walk"
 //     )
-    public static boolean autoPestExchangeTravelMethod = false;
+    public transient static boolean autoPestExchangeTravelMethod = false;
     @Property(
             type = PropertyType.SLIDER,
             name = "Trigger before contest starts (in minutes)", category = AUTO_PEST_EXCHANGE, subcategory = "Auto Pest Exchange",
@@ -1436,7 +1436,7 @@ public class FarmHelperConfig extends Vigilant {
 //             left = "Backpack",
 //             right = "Ender Chest"
 //     )
-    public static boolean autoGodPotStorageType = true;
+    public transient static boolean autoGodPotStorageType = true;
 
     @Property(
             type = PropertyType.NUMBER,
@@ -1476,7 +1476,7 @@ public class FarmHelperConfig extends Vigilant {
 //             left = "BZ",
 //             right = "NPC"
 //     )
-    public static boolean autoSellMarketType = false;
+    public transient static boolean autoSellMarketType = false;
 
     @Property(
             type = PropertyType.SWITCH,
@@ -1492,7 +1492,7 @@ public class FarmHelperConfig extends Vigilant {
 //             left = "Inventory",
 //             right = "Sack of sacks"
 //     )
-    public static boolean autoSellSacksPlacement = true;
+    public transient static boolean autoSellSacksPlacement = true;
 
     @Property(
             type = PropertyType.SWITCH,
@@ -1564,7 +1564,7 @@ public class FarmHelperConfig extends Vigilant {
 //             left = "Pest Repellent",
 //             right = "Pest Repellent MAX"
 //     )
-    public static boolean pestRepellentType = true;
+    public transient static boolean pestRepellentType = true;
 
     @Property(
             type = PropertyType.SWITCH,
@@ -1824,15 +1824,15 @@ public class FarmHelperConfig extends Vigilant {
 
 
     //</editor-fold>
-    public static int configVersion = 6;
+    public transient static int configVersion = 6;
 
-    public static KeyBinding toggleMacro = new KeyBinding("Toggle Macro", Keyboard.KEY_GRAVE, "Farm Helper");
-    public static KeyBinding openGuiKeybind = new KeyBinding("Open Gui", Keyboard.KEY_F, "Farm Helper");
-    public static KeyBinding freelookKeybind = new KeyBinding("Freelook", Keyboard.KEY_NONE, "Farm Helper");
-    public static KeyBinding cancelFailsafeKeybind = new KeyBinding("Cancel Failsafe", Keyboard.KEY_NONE, "Farm Helper");
-    public static KeyBinding plotCleaningHelperKeybind = new KeyBinding("Plot Cleaning Helper", Keyboard.KEY_NONE, "Farm Helper");
-    public static KeyBinding captureClipKeybind = new KeyBinding("Capture Clip", Keyboard.KEY_NONE, "Farm Helper");
-    public static KeyBinding enablePestsDestroyerKeyBind = new KeyBinding("Enable Pests Destroyer", Keyboard.KEY_NONE, "Farm Helper");
+    public transient static KeyBinding toggleMacro = new KeyBinding("Toggle Macro", Keyboard.KEY_GRAVE, "Farm Helper");
+    public transient static KeyBinding openGuiKeybind = new KeyBinding("Open Gui", Keyboard.KEY_F, "Farm Helper");
+    public transient static KeyBinding freelookKeybind = new KeyBinding("Freelook", Keyboard.KEY_NONE, "Farm Helper");
+    public transient static KeyBinding cancelFailsafeKeybind = new KeyBinding("Cancel Failsafe", Keyboard.KEY_NONE, "Farm Helper");
+    public transient static KeyBinding plotCleaningHelperKeybind = new KeyBinding("Plot Cleaning Helper", Keyboard.KEY_NONE, "Farm Helper");
+    public transient static KeyBinding captureClipKeybind = new KeyBinding("Capture Clip", Keyboard.KEY_NONE, "Farm Helper");
+    public transient static KeyBinding enablePestsDestroyerKeyBind = new KeyBinding("Enable Pests Destroyer", Keyboard.KEY_NONE, "Farm Helper");
 
     public FarmHelperConfig() {
         super(new File("./farmhelper/config.toml"), "Farm Helper");
