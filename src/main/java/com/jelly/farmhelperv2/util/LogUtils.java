@@ -24,7 +24,7 @@ public class LogUtils {
     private static int retries = 0;
 
     public synchronized static void sendLog(ChatComponentText chat) {
-        if (mc.thePlayer != null && !FarmHelperConfig.streamerMode)
+        if (mc.thePlayer != null)
             mc.thePlayer.addChatMessage(chat);
         else if (mc.thePlayer == null)
             System.out.println("[Farm Helper] " + chat.getUnformattedText());
