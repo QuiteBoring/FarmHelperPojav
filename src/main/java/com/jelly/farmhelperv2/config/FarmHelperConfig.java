@@ -50,7 +50,7 @@ public class FarmHelperConfig extends Vigilant {
     private transient static final String MISCELLANEOUS = "Miscellaneous";
     private transient static final String FAILSAFE = "Failsafe";
     private transient static final String SCHEDULER = "Scheduler";
-    private transient static final String JACOBS_CONTEST = "Jacob's Contest";
+    private transient static final String JACOBS_CONTEST = "Jacobs Contest";
     private transient static final String VISITORS_MACRO = "Visitors Macro";
     private transient static final String PESTS_DESTROYER = "Pests Destroyer";
     private transient static final String AUTO_PEST_EXCHANGE = "Auto Pest Exchange";
@@ -123,8 +123,8 @@ public class FarmHelperConfig extends Vigilant {
     public static boolean rotateAfterDrop = false;
     @Property(
             type = PropertyType.SWITCH,
-            name = "Don't fix micro rotations after warp", category = GENERAL, subcategory = "Rotation",
-            description = "The macro doesn't do micro-rotations after rewarp if the current yaw and target yaw are the same"
+            name = "Don not fix micro rotations after warp", category = GENERAL, subcategory = "Rotation",
+            description = "The macro doesn not do micro-rotations after rewarp if the current yaw and target yaw are the same"
     )
     public static boolean dontFixAfterWarping = false;
     @Property(
@@ -304,7 +304,7 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SWITCH,
             name = "Performance Mode", category = MISCELLANEOUS, subcategory = "Performance Mode",
-            description = "Set render distance to 2, set max fps to 15 and doesn't render crops"
+            description = "Set render distance to 2, set max fps to 15 and doesn not render crops"
     )
     public static boolean performanceMode = false;
 
@@ -472,7 +472,7 @@ public class FarmHelperConfig extends Vigilant {
         PlayerUtils.closeScreen();
         Failsafe testingFailsafe = FailsafeManager.getInstance().failsafes.get(testFailsafeType);
         if (testingFailsafe.equals(DirtFailsafe.getInstance()) || testingFailsafe.equals(BedrockCageFailsafe.getInstance())) {
-            LogUtils.sendError("You can't test this failsafe because it requires specific conditions to trigger!");
+            LogUtils.sendError("You can not test this failsafe because it requires specific conditions to trigger!");
             return;
         }
         FailsafeManager.getInstance().possibleDetection(testingFailsafe);
@@ -692,8 +692,8 @@ public class FarmHelperConfig extends Vigilant {
     public static int delayBeforeReconnecting = 5;
     @Property(
             type = PropertyType.SWITCH,
-            name = "Don't leave during Jacob's Contest", category = FAILSAFE, subcategory = "Banwave Checker",
-            description = "Prevents the macro from leaving during Jacob's Contest even when banwave detected"
+            name = "Don not leave during Jacobs Contest", category = FAILSAFE, subcategory = "Banwave Checker",
+            description = "Prevents the macro from leaving during Jacobs Contest even when banwave detected"
     )
     public static boolean banwaveDontLeaveDuringJacobsContest = true;
     //</editor-fold>
@@ -746,8 +746,8 @@ public class FarmHelperConfig extends Vigilant {
     public static int schedulerBreakTimeRandomness = 5;
     @Property(
             type = PropertyType.SWITCH,
-            name = "Pause the scheduler during Jacob's Contest", category = SCHEDULER, subcategory = "Scheduler",
-            description = "Pauses and delays the scheduler during Jacob's Contest"
+            name = "Pause the scheduler during Jacobs Contest", category = SCHEDULER, subcategory = "Scheduler",
+            description = "Pauses and delays the scheduler during Jacobs Contest"
     )
     public static boolean pauseSchedulerDuringJacobsContest = true;
     @Property(
@@ -805,13 +805,13 @@ public class FarmHelperConfig extends Vigilant {
     //</editor-fold>
     //</editor-fold>
 
-    //<editor-fold desc="JACOB'S CONTEST">
+    //<editor-fold desc="JACOBs CONTEST">
 
     //<editor-fold desc="Pet Swapper">
     @Property(
             type = PropertyType.SWITCH,
-            name = "Swap pet during Jacob's contest", category = JACOBS_CONTEST, subcategory = "Pet Swapper",
-            description = "Swaps pet to the selected pet during Jacob's contest. Selects the first one from the pet list."
+            name = "Swap pet during Jacobs contest", category = JACOBS_CONTEST, subcategory = "Pet Swapper",
+            description = "Swaps pet to the selected pet during Jacobs contest. Selects the first one from the pet list."
     )
     public static boolean enablePetSwapper = false;
 
@@ -832,12 +832,12 @@ public class FarmHelperConfig extends Vigilant {
 
     @Property(
             type = PropertyType.SWITCH,
-            name = "Enable Jacob Failsafes", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
+            name = "Enable Jacob Failsafes", category = JACOBS_CONTEST, subcategory = "Jacobs Contest",
             description = "Stops farming once a crop threshold has been met"
     )
     public static boolean enableJacobFailsafes = false;
 //     @DualOption(
-//             name = "Jacob Failsafe Action", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
+//             name = "Jacob Failsafe Action", category = JACOBS_CONTEST, subcategory = "Jacobs Contest",
 //             description = "The action to take when a failsafe has been triggered",
 //             left = "Leave",
 //             right = "Pause"
@@ -880,8 +880,8 @@ public class FarmHelperConfig extends Vigilant {
     public static boolean visitorsMacroAutosellBeforeServing = false;
     @Property(
             type = PropertyType.SWITCH,
-            name = "Pause the visitors macro during Jacob's contests", category = VISITORS_MACRO, subcategory = "Visitors Macro",
-            description = "Pauses the visitors macro during Jacob's contests"
+            name = "Pause the visitors macro during Jacobs contests", category = VISITORS_MACRO, subcategory = "Visitors Macro",
+            description = "Pauses the visitors macro during Jacobs contests"
     )
     public static boolean pauseVisitorsMacroDuringJacobsContest = true;
 
@@ -939,7 +939,7 @@ public class FarmHelperConfig extends Vigilant {
 
 //     @DualOption(
 //             name = "Full Inventory Action", category = VISITORS_MACRO, subcategory = "Visitors Macro",
-//             description = "The action to take when the items don't fit in your inventory",
+//             description = "The action to take when the items don not fit in your inventory",
 //             left = "Reject", right = "Ignore"
 //     )
     public static boolean fullInventoryAction = true;
@@ -964,7 +964,7 @@ public class FarmHelperConfig extends Vigilant {
 
 //     @DualOption(
 //             name = "Name Action Type", category = VISITORS_MACRO, subcategory = "Name Filtering",
-//             description = "The action to execute when a visitor's name does not match your set filter",
+//             description = "The action to execute when a visitors name does not match your set filter",
 //             left = "Reject", right = "Ignore"
 //     )
     public static boolean nameActionType = true;
@@ -1039,7 +1039,7 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SLIDER,
             name = "Additional GUI Delay (ms)", category = PESTS_DESTROYER, subcategory = "Pests Destroyer",
-            description = "Extra time to wait between clicks. By default it's 500-1000 ms.",
+            description = "Extra time to wait between clicks. By default its 500-1000 ms.",
             min = 0, max = 5000
     )
     public static int pestAdditionalGUIDelay = 0;
@@ -1060,7 +1060,7 @@ public class FarmHelperConfig extends Vigilant {
 
     @Property(
             type = PropertyType.SWITCH,
-            name = "Don't teleport to plots when the spawn is not obstructed", category = PESTS_DESTROYER, subcategory = "Pests Destroyer",
+            name = "Don not teleport to plots when the spawn is not obstructed", category = PESTS_DESTROYER, subcategory = "Pests Destroyer",
             description = "Prevents the macro from teleporting to plots"
     )
     public static boolean dontTeleportToPlots = false;
@@ -1075,8 +1075,8 @@ public class FarmHelperConfig extends Vigilant {
 
     @Property(
             type = PropertyType.SWITCH,
-            name = "Pause the Pests Destroyer during Jacob's contests", category = PESTS_DESTROYER, subcategory = "Pests Destroyer",
-            description = "Pauses the Pests Destroyer during Jacob's contests"
+            name = "Pause the Pests Destroyer during Jacobs contests", category = PESTS_DESTROYER, subcategory = "Pests Destroyer",
+            description = "Pauses the Pests Destroyer during Jacobs contests"
     )
     public static boolean pausePestsDestroyerDuringJacobsContest = true;
 
@@ -1135,8 +1135,8 @@ public class FarmHelperConfig extends Vigilant {
 
     @Property(
             type = PropertyType.SWITCH,
-            name = "Don't kill pests on track during Jacob's Contest",
-            description = "Prevents the macro from killing pests on the track during Jacob's Contest",
+            name = "Don not kill pests on track during Jacobs Contest",
+            description = "Prevents the macro from killing pests on the track during Jacobs Contest",
             category = PESTS_DESTROYER, subcategory = "Pests Destroyer on the track"
     )
     public static boolean dontKillPestsOnTrackDuringJacobsContest = true;
@@ -1307,20 +1307,20 @@ public class FarmHelperConfig extends Vigilant {
     public static boolean autoPestExchange = false;
     @Property(
             type = PropertyType.SWITCH,
-            name = "Pause the Auto Pest Exchange during Jacob's contests", category = AUTO_PEST_EXCHANGE, subcategory = "Auto Pest Exchange",
-            description = "Pauses the Auto Pest Exchange during Jacob's contests"
+            name = "Pause the Auto Pest Exchange during Jacobs contests", category = AUTO_PEST_EXCHANGE, subcategory = "Auto Pest Exchange",
+            description = "Pauses the Auto Pest Exchange during Jacobs contests"
     )
     public static boolean pauseAutoPestExchangeDuringJacobsContest = true;
     @Property(
             type = PropertyType.SWITCH,
-            name = "Ignore Jacob's Contest", category = AUTO_PEST_EXCHANGE, subcategory = "Auto Pest Exchange",
-            description = "Start the Auto Pest Exchange regardless of the next Jacob's contests"
+            name = "Ignore Jacobs Contest", category = AUTO_PEST_EXCHANGE, subcategory = "Auto Pest Exchange",
+            description = "Start the Auto Pest Exchange regardless of the next Jacobs contests"
     )
     public static boolean autoPestExchangeIgnoreJacobsContest = false;
     @Property(
             type = PropertyType.SWITCH,
-            name = "Only start on relevant Jacob's Contests", category = AUTO_PEST_EXCHANGE, subcategory = "Auto Pest Exchange",
-            description = "Only start the Auto Pest Exchange if the next Jacob's contest contains the current crop you are farming"
+            name = "Only start on relevant Jacobs Contests", category = AUTO_PEST_EXCHANGE, subcategory = "Auto Pest Exchange",
+            description = "Only start the Auto Pest Exchange if the next Jacobs contest contains the current crop you are farming"
     )
     public static boolean autoPestExchangeOnlyStartRelevant = false;
 //     @DualOption(
@@ -1455,7 +1455,7 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SWITCH,
             name = "Get God Pot from Auction House", category = AUTO_GOD_POT, subcategory = "God Pot",
-            description = "If the user doesn't have a cookie, it will go to the hub and buy from AH"
+            description = "If the user doesn not have a cookie, it will go to the hub and buy from AH"
     )
     public static boolean autoGodPotFromAH = false;
 
@@ -1496,8 +1496,8 @@ public class FarmHelperConfig extends Vigilant {
 
     @Property(
             type = PropertyType.SWITCH,
-            name = "Pause Auto Sell during Jacob's contest", category = AUTO_SELL, subcategory = "Auto Sell",
-            description = "Pauses auto sell during Jacob's contest"
+            name = "Pause Auto Sell during Jacobs contest", category = AUTO_SELL, subcategory = "Auto Sell",
+            description = "Pauses auto sell during Jacobs contest"
     )
     public static boolean pauseAutoSellDuringJacobsContest = false;
 
@@ -1554,7 +1554,7 @@ public class FarmHelperConfig extends Vigilant {
     @Property(
             type = PropertyType.SWITCH,
             name = "Auto Pest Repellent", category = AUTO_REPELLANT, subcategory = "Pest Repellent",
-            description = "Automatically uses pest repellent when it's not active"
+            description = "Automatically uses pest repellent when its not active"
     )
     public static boolean autoPestRepellent = false;
 
@@ -1568,8 +1568,8 @@ public class FarmHelperConfig extends Vigilant {
 
     @Property(
             type = PropertyType.SWITCH,
-            name = "Pause Auto Pest Repellent during Jacob's contest", category = AUTO_REPELLANT, subcategory = "Pest Repellent",
-            description = "Pauses auto pest repellent during Jacob's contest"
+            name = "Pause Auto Pest Repellent during Jacobs contest", category = AUTO_REPELLANT, subcategory = "Pest Repellent",
+            description = "Pauses auto pest repellent during Jacobs contest"
     )
     public static boolean pauseAutoPestRepellentDuringJacobsContest = false;
 
@@ -1645,20 +1645,20 @@ public class FarmHelperConfig extends Vigilant {
     public static int randomTimeBetweenChangingRows = 200;
     @Property(
             type = PropertyType.SWITCH,
-            name = "Custom row change delays during Jacob's Contest", category = DELAYS, subcategory = "Changing rows",
-            description = "Custom row change delays during Jacob's Contest"
+            name = "Custom row change delays during Jacobs Contest", category = DELAYS, subcategory = "Changing rows",
+            description = "Custom row change delays during Jacobs Contest"
     )
     public static boolean customRowChangeDelaysDuringJacob = false;
     @Property(
             type = PropertyType.SLIDER,
-            name = "Time between changing rows during Jacob's Contest", category = DELAYS, subcategory = "Changing rows",
+            name = "Time between changing rows during Jacobs Contest", category = DELAYS, subcategory = "Changing rows",
             description = "The minimum time to wait before changing rows (in milliseconds)",
             min = 0, max = 2000
     )
     public static int timeBetweenChangingRowsDuringJacob = 400;
     @Property(
             type = PropertyType.SLIDER,
-            name = "Additional random time between changing rows during Jacob's Contest", category = DELAYS, subcategory = "Changing rows",
+            name = "Additional random time between changing rows during Jacobs Contest", category = DELAYS, subcategory = "Changing rows",
             description = "The maximum time to wait before changing rows (in milliseconds)",
             min = 0, max = 2000
     )
@@ -1682,20 +1682,20 @@ public class FarmHelperConfig extends Vigilant {
     public static int rotationTimeRandomness = 300;
     @Property(
             type = PropertyType.SWITCH,
-            name = "Custom rotation delays during Jacob's Contest", category = DELAYS, subcategory = "Rotations",
-            description = "Custom rotation delays during Jacob's Contest"
+            name = "Custom rotation delays during Jacobs Contest", category = DELAYS, subcategory = "Rotations",
+            description = "Custom rotation delays during Jacobs Contest"
     )
     public static boolean customRotationDelaysDuringJacob = false;
     @Property(
             type = PropertyType.SLIDER,
-            name = "Rotation Time during Jacob's Contest", category = DELAYS, subcategory = "Rotations",
+            name = "Rotation Time during Jacobs Contest", category = DELAYS, subcategory = "Rotations",
             description = "The time it takes to rotate the player",
             min = 200, max = 2000
     )
     public static int rotationTimeDuringJacob = 500;
     @Property(
             type = PropertyType.SLIDER,
-            name = "Additional random Rotation Time during Jacob's Contest", category = DELAYS, subcategory = "Rotations",
+            name = "Additional random Rotation Time during Jacobs Contest", category = DELAYS, subcategory = "Rotations",
             description = "The maximum random time added to the delay time it takes to rotate the player (in milliseconds)",
             min = 0, max = 2000
     )
@@ -1810,8 +1810,8 @@ public class FarmHelperConfig extends Vigilant {
 
     @Property(
             type = PropertyType.SWITCH,
-            name = "Count only current crops for Jacob's Contest excludes", category = EXPERIMENTAL, subcategory = "Jacob's Contest",
-            description = "Counts only current crops for Jacob's Contest excludes"
+            name = "Count only current crops for Jacobs Contest excludes", category = EXPERIMENTAL, subcategory = "Jacobs Contest",
+            description = "Counts only current crops for Jacobs Contest excludes"
     )
     public static boolean jacobContestCurrentCropsOnly = true;
 
