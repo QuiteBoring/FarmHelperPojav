@@ -20,6 +20,7 @@ import com.jelly.farmhelperv2.util.*;
 import com.jelly.farmhelperv2.util.helper.AudioManager;
 import com.jelly.farmhelperv2.util.helper.BaritoneEventListener;
 import com.jelly.farmhelperv2.util.helper.TickTask;
+import gg.essential.vigilance.Vigilance;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
@@ -191,6 +192,8 @@ public class FarmHelper {
 
     private void initializeFields() {
         config = new FarmHelperConfig();
+        Vigilance.initialize();
+        config.preload();
         MinecraftForge.EVENT_BUS.register(config);
     }
 
