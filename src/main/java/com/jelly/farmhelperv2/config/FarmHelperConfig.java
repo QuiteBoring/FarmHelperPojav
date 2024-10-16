@@ -168,7 +168,7 @@ public class FarmHelperConfig extends Vigilant {
             name = "Add Rewarp", category = GENERAL, subcategory = "Rewarp",
             description = "Adds a rewarp position"
     )
-    public void addRewarpButton() {
+    public void _addRewarp() {
         FarmHelperConfig.addRewarp();
     }
 
@@ -176,7 +176,7 @@ public class FarmHelperConfig extends Vigilant {
             name = "Remove Rewarp", category = GENERAL, subcategory = "Rewarp",
             description = "Removes a rewarp position"
     )
-    public void removeRewarpButton() {
+    public void _removeRewarp() {
         FarmHelperConfig.removeRewarp();
     }
 
@@ -184,7 +184,7 @@ public class FarmHelperConfig extends Vigilant {
             name = "Remove All Rewarps", category = GENERAL, subcategory = "Rewarp",
             description = "Removes all rewarp positions"
     )
-    public void removeAllRewarpsButton() {
+    public void _removeAllRewarps() {
         FarmHelperConfig.removeAllRewarps();
     }
     //</editor-fold>
@@ -217,17 +217,20 @@ public class FarmHelperConfig extends Vigilant {
             name = "Set SpawnPos", category = GENERAL, subcategory = "Spawn Position",
             description = "Sets the spawn position to your current position"
     )
-    Runnable _setSpawnPos = PlayerUtils::setSpawnLocation;
+    public void _setSpawnPos() {
+        PlayerUtils.setSpawnLocation();   
+    }
+    
     @Property(type = PropertyType.BUTTON, 
             name = "Reset SpawnPos", category = GENERAL, subcategory = "Spawn Position",
             description = "Resets the spawn position"
     )
-    Runnable _resetSpawnPos = () -> {
+    public void _resetSpawnPos() {
         spawnPosX = 0;
         spawnPosY = 0;
         spawnPosZ = 0;
         LogUtils.sendSuccess("Spawn position has been reset!");
-    };
+    }
 
     @Property(
             type = PropertyType.SWITCH,
@@ -459,7 +462,7 @@ public class FarmHelperConfig extends Vigilant {
     // Failsafe Testing
     @Property(type = PropertyType.BUTTON, name = "Test Failsafe", category = FAILSAFE, subcategory = "Testing",
             description = "Simulate a failsafe trigger")
-    Runnable _testFailsafe = () -> {
+    public void _testFailsafe() {
         if (!MacroHandler.getInstance().isMacroToggled()) {
             LogUtils.sendError("You need to start the macro first!");
             return;
@@ -472,7 +475,7 @@ public class FarmHelperConfig extends Vigilant {
             return;
         }
         FailsafeManager.getInstance().possibleDetection(testingFailsafe);
-    };
+    }
 
     @Property(type = PropertyType.SELECTOR, name = "Test Failsafe Type", category = FAILSAFE, subcategory = "Testing",
             description = "Select failsafe scenario to test",
@@ -608,12 +611,17 @@ public class FarmHelperConfig extends Vigilant {
             name = "", category = FAILSAFE, subcategory = "Failsafe Trigger Sound",
             description = "Plays the selected sound"
     )
-    Runnable _playFailsafeSoundButton = () -> AudioManager.getInstance().playSound();
+    public void _playFailsafeSoundButton() {
+        AudioManager.getInstance().playSound();
+    }
+    
     @Property(type = PropertyType.BUTTON, 
             name = "", category = FAILSAFE, subcategory = "Failsafe Trigger Sound",
             description = "Stops playing the selected sound"
     )
-    Runnable _stopFailsafeSoundButton = () -> AudioManager.getInstance().resetSound();
+    public void _stopFailsafeSoundButton() {
+        AudioManager.getInstance().resetSound();
+    }
 
     //</editor-fold>
 
@@ -769,14 +777,14 @@ public class FarmHelperConfig extends Vigilant {
         name = "Reset Scheduler", category = SCHEDULER, subcategory = "Scheduler",
         description = "Resets Scheduler (Only works when macro is of)"
     )
-    public Runnable schedulerReset = () -> {
+    public void schedulerReset() {
         if(!MacroHandler.getInstance().isMacroToggled()){
             boolean old = FarmHelperConfig.schedulerResetOnDisable;
             FarmHelperConfig.schedulerResetOnDisable = true;
             Scheduler.getInstance().stop();
             FarmHelperConfig.schedulerResetOnDisable = old;
         }
-    };
+    }
     //</editor-fold>
 
     //<editor-fold desc="Leave timer">
@@ -911,14 +919,14 @@ public class FarmHelperConfig extends Vigilant {
             name = "Start the macro manually", category = VISITORS_MACRO, subcategory = "Visitors Macro",
             description = "Triggers the visitors macro"
     )
-    public static Runnable triggerVisitorsMacro = () -> {
+    public static void triggerVisitorsMacro() {
         if (!PlayerUtils.isInBarn()) {
             LogUtils.sendError("[Visitors Macro] You need to be in the barn to start the macro!");
             return;
         }
         VisitorsMacro.getInstance().setManuallyStarted(true);
         VisitorsMacro.getInstance().start();
-    };
+    }
 
 //     @DualOption(
 //             name = "Visitors Filtering Method", category = VISITORS_MACRO, subcategory = "Visitors Macro",
@@ -1361,7 +1369,7 @@ public class FarmHelperConfig extends Vigilant {
             name = "Set the pest exchange location", category = AUTO_PEST_EXCHANGE, subcategory = "Auto Pest Exchange",
             description = "Sets the pest exchange location"
     )
-    public static Runnable setPestExchangeLocation = () -> {
+    public static public void setPestExchangeLocation() {
         if (!PlayerUtils.isInBarn()) {
             LogUtils.sendError("[Auto Pest Exchange] You need to be in the barn to set the pest exchange location!");
             return;
@@ -1373,18 +1381,18 @@ public class FarmHelperConfig extends Vigilant {
                 + FarmHelperConfig.pestExchangeDeskX + ", "
                 + FarmHelperConfig.pestExchangeDeskY + ", "
                 + FarmHelperConfig.pestExchangeDeskZ);
-    };
+    }
 
     @Property(type = PropertyType.BUTTON, 
             name = "Reset the pest exchange location", category = AUTO_PEST_EXCHANGE, subcategory = "Auto Pest Exchange",
             description = "Resets the pest exchange location"
     )
-    public static Runnable resetPestExchangeLocation = () -> {
+    public static public void resetPestExchangeLocation() {
         pestExchangeDeskX = 0;
         pestExchangeDeskY = 0;
         pestExchangeDeskZ = 0;
         LogUtils.sendSuccess("[Auto Pest Exchange] Reset the pest exchange location");
-    };
+    }
 
     @Property(
             type = PropertyType.NUMBER,
@@ -1511,10 +1519,10 @@ public class FarmHelperConfig extends Vigilant {
             name = "Sell Inventory Now", category = AUTO_SELL, subcategory = "Auto Sell",
             description = "Sells crops in your inventory"
     )
-    Runnable autoSellFunction = () -> {
+    public void autoSellFunction() {
         PlayerUtils.closeScreen();
         AutoSell.getInstance().enable(true);
-    };
+    }
 
     @Property(
             type = PropertyType.SWITCH,name = "Runes", category = AUTO_SELL, subcategory = "Customize items sold to NPC")
@@ -1568,9 +1576,9 @@ public class FarmHelperConfig extends Vigilant {
             name = "Reset Failsafe", category = AUTO_REPELLANT, subcategory = "Pest Repellent",
             description = "Resets the failsafe timer for repellent"
     )
-    Runnable resetFailsafe = () -> {
+    public void resetFailsafe() {
         AutoRepellent.repellentFailsafeClock.schedule(0);
-    };
+    }
     //</editor-fold>
 
     //<editor-fold desc="Auto Sprayonator">
@@ -1850,7 +1858,7 @@ public class FarmHelperConfig extends Vigilant {
             if (PestsDestroyer.getInstance().canEnableMacro(true)) {
                 PestsDestroyer.getInstance().start();
             }
-        };
+        }
         if (cancelFailsafeKeybind.isPressed()) {
             if (FailsafeManager.getInstance().getChooseEmergencyDelay().isScheduled()) {
                 FailsafeManager.getInstance().stopFailsafes();
