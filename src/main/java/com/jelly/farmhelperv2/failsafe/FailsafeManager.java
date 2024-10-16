@@ -270,16 +270,6 @@ public class FailsafeManager {
         LogUtils.sendDebug("[Failsafe] Emergency chosen: " + StringUtils.stripControlCodes(triggeredFailsafe.get().getType().name()));
         FeatureManager.getInstance().disableCurrentlyRunning(Scheduler.getInstance());
         Scheduler.getInstance().pause();
-        if (FarmHelperConfig.captureClipAfterFailsafe && !(FarmHelperConfig.captureClipKeybind.getKeyCode() == Keyboard.KEY_NONE)) {
-            if (FarmHelperConfig.clipCapturingType) {
-                FailsafeUtils.captureClip();
-                LogUtils.sendDebug("[Failsafe] Recording clip!");
-            }
-            Multithreading.schedule(() -> {
-                FailsafeUtils.captureClip();
-                LogUtils.sendDebug("[Failsafe] Clip captured!");
-            }, FarmHelperConfig.captureClipDelay, TimeUnit.SECONDS);
-        }
     }
 
     @SubscribeEvent

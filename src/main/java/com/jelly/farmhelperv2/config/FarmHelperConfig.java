@@ -67,16 +67,18 @@ public class FarmHelperConfig extends Vigilant {
 
     public static List<Rewarp> rewarpList = new ArrayList<>();
 
-    //<editor-fold desc="PROXY">
     public static boolean proxyEnabled = false;
     public static String proxyAddress = "";
     public static String proxyUsername = "";
     public static String proxyPassword = "";
     public static ProxyType proxyType = ProxyType.HTTP;
-    //</editor-fold>
 
-    //<editor-fold desc="GENERAL">
-
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "Streamer Mode",
+            description = "Hides everything Farm Helper related from the screen.",
+            category = GENERAL
+    )
     public static boolean streamerMode = false;
 
     @Property(type = PropertyType.SELECTOR,
@@ -108,7 +110,6 @@ public class FarmHelperConfig extends Vigilant {
     )
     public static boolean alwaysHoldW = false;
 
-    //<editor-fold desc="Rotation">
     @Property(
             type = PropertyType.SWITCH,
             name = "Rotate After Warped", category = GENERAL, subcategory = "Rotation",
@@ -155,9 +156,6 @@ public class FarmHelperConfig extends Vigilant {
             min = -180, max = 180
     )
     public static int customYawLevel = 0;
-    //</editor-fold>
-
-    //<editor-fold desc="Rewarp">
     @Property(
             type = PropertyType.SWITCH,
             name = "Highlight rewarp points", category = GENERAL, subcategory = "Rewarp",
@@ -188,9 +186,6 @@ public class FarmHelperConfig extends Vigilant {
     public void _removeAllRewarps() {
         FarmHelperConfig.removeAllRewarps();
     }
-    //</editor-fold>
-
-    //<editor-fold desc="Spawn">
     @Property(
             type = PropertyType.NUMBER,
             name = "SpawnPos X", category = GENERAL, subcategory = "Spawn Position",
@@ -239,30 +234,13 @@ public class FarmHelperConfig extends Vigilant {
             description = "Draws the spawn location"
     )
     public static boolean drawSpawnLocation = true;
-    //</editor-fold>
-
-    //</editor-fold>
-
-    //<editor-fold desc="MISC">
-    //<editor-fold desc="Keybinds">
-    //</editor-fold>
-
-    //<editor-fold desc="Plot Cleaning Helper">
     @Property(
             type = PropertyType.SWITCH,
             name = "Automatically choose a tool to destroy the block", category = MISCELLANEOUS, subcategory = "Plot Cleaning Helper",
             description = "Automatically chooses the best tool to destroy the block"
     )
     public static boolean autoChooseTool = false;
-    //</editor-fold>
 
-    //<editor-fold desc="Miscellaneous">
-//     @DualOption(
-//             name = "AutoUpdater Version Type", category = MISCELLANEOUS, subcategory = "Miscellaneous",
-//             description = "The version type to use",
-//             left = "Release",
-//             right = "Pre-release"
-//     )
     public static boolean autoUpdaterDownloadBetaVersions = false;
 
     @Property(
@@ -298,9 +276,7 @@ public class FarmHelperConfig extends Vigilant {
             min = 3, max = 10
     )
     public static int antiStuckTriesUntilRewarp = 5;
-    //</editor-fold>
 
-    //<editor-fold desc="Performance Mod">
     @Property(
             type = PropertyType.SWITCH,
             name = "Performance Mode", category = MISCELLANEOUS, subcategory = "Performance Mode",
@@ -321,9 +297,7 @@ public class FarmHelperConfig extends Vigilant {
             min = 10, max = 60
     )
     public static int performanceModeMaxFPS = 20;
-    //</editor-fold>
 
-    //<editor-fold desc="Crop Utils">
     @Property(
             type = PropertyType.SWITCH,
             name = "Increase Cocoa Hitboxes", category = MISCELLANEOUS, subcategory = "Crop Utils",
@@ -358,22 +332,13 @@ public class FarmHelperConfig extends Vigilant {
             description = "Allows you to farm cactus more efficiently at higher speeds by making the cactus pingless"
     )
     public static boolean pinglessCactus = true;
-    //</editor-fold>
 
-    //<editor-fold desc="Analytics">
     @Property(
             type = PropertyType.SWITCH,
             name = "Send analytic data", category = MISCELLANEOUS, subcategory = "Analytics",
             description = "Sends analytic data to the server to improve the macro and learn how to detect staff checks"
     )
     public static boolean sendAnalyticData = true;
-    //</editor-fold>
-
-    //</editor-fold>
-
-    //<editor-fold desc="FAILSAFES">
-
-    // General Settings
     @Property(
             type = PropertyType.SWITCH,name = "Pop-up Notifications", category = FAILSAFE, subcategory = "General",
             description = "Enable on-screen failsafe notifications")
@@ -500,41 +465,6 @@ public class FarmHelperConfig extends Vigilant {
             })
     public static int testFailsafeType = 0;
 
-    //</editor-fold>
-
-    //<editor-fold desc="Clip Capturing">
-
-    @Property(
-            type = PropertyType.SWITCH,
-            name = "Capture Clip After Failsafe", category = FAILSAFE, subcategory = "Clip Capturing",
-            description = "Captures a clip after triggering failsafe by pressing a key combination"
-    )
-    public static boolean captureClipAfterFailsafe = false;
-    @Property(
-            type = PropertyType.SWITCH,
-            name = "Capture Clip After Getting Banned (Replay Buffer Only)", category = FAILSAFE, subcategory = "Clip Capturing",
-            description = "Captures a clip after getting banned by pressing a key combination"
-    )
-    public static boolean captureClipAfterGettingBanned = false;
-//     @DualOption(
-//             name = "Clip Capturing Type", category = FAILSAFE, subcategory = "Clip Capturing",
-//             description = "The clip capturing type to use",
-//             left = "Replay Buffer",
-//             right = "Recording"
-//     )
-    public static boolean clipCapturingType = false;
-
-    @Property(
-            type = PropertyType.SLIDER,
-            name = "Clip Capturing Delay in seconds", category = FAILSAFE, subcategory = "Clip Capturing",
-            description = "The delay to capture a clip after triggering failsafe in seconds",
-            min = 10, max = 200
-    )
-    public static int captureClipDelay = 30;
-
-    //</editor-fold>
-
-    //<editor-fold desc="Desync">
     @Property(
             type = PropertyType.SWITCH,
             name = "Check Desync", category = FAILSAFE, subcategory = "Desync",
@@ -548,22 +478,17 @@ public class FarmHelperConfig extends Vigilant {
             min = 3000, max = 10000
     )
     public static int desyncPauseDelay = 5000;
-    //</editor-fold>
-
-    //<editor-fold desc="Failsafe Trigger Sound">
     @Property(
             type = PropertyType.SWITCH,
             name = "Enable Failsafe Trigger Sound", category = FAILSAFE, subcategory = "Failsafe Trigger Sound",
             description = "Makes a sound when a failsafe has been triggered"
     )
     public static boolean enableFailsafeSound = true;
-//     @DualOption(
-//             name = "Failsafe Sound Type", category = FAILSAFE, subcategory = "Failsafe Trigger Sound",
-//             description = "The failsafe sound type to play when a failsafe has been triggered",
-//             left = "Minecraft",
-//             right = "Custom",
-//             size = 2
-//     )
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "Failsafe Sound Type", category = FAILSAFE, subcategory = "Failsafe Trigger Sound",
+            description = "The failsafe sound type to play when a failsafe has been triggered (On=Custom, Off=Minecraft)"
+    )
     public static boolean failsafeSoundType = false;
     @Property(type = PropertyType.SELECTOR, 
             name = "Minecraft Sound", category = FAILSAFE, subcategory = "Failsafe Trigger Sound",
@@ -623,10 +548,6 @@ public class FarmHelperConfig extends Vigilant {
     public void _stopFailsafeSoundButton() {
         AudioManager.getInstance().resetSound();
     }
-
-    //</editor-fold>
-
-    //<editor-fold desc="Restart after failsafe">
     @Property(
             type = PropertyType.SWITCH,
             name = "Enable Restart After FailSafe", category = FAILSAFE, subcategory = "Restart After FailSafe",
@@ -648,10 +569,6 @@ public class FarmHelperConfig extends Vigilant {
             description = "Always teleports to garden after the failsafe"
     )
     public static boolean alwaysTeleportToGarden = false;
-
-    //</editor-fold>
-
-    //<editor-fold desc="Banwave">
     @Property(
             type = PropertyType.SWITCH,
             name = "Enable Banwave Checker", category = FAILSAFE, subcategory = "Banwave Checker",
@@ -664,12 +581,11 @@ public class FarmHelperConfig extends Vigilant {
             description = "Automatically disconnects from the server or pauses the macro when a banwave is detected"
     )
     public static boolean enableLeavePauseOnBanwave = false;
-//     @DualOption(
-//             name = "Banwave Action", category = FAILSAFE, subcategory = "Banwave Checker",
-//             description = "The action taken when banwave detected",
-//             left = "Leave",
-//             right = "Pause"
-//     )
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "Banwave Action", category = FAILSAFE, subcategory = "Banwave Checker",
+            description = "The action taken when banwave detected (On=Pause, Off=Leave)"
+    )
     public static boolean banwaveAction = false;
     @Property(type = PropertyType.SELECTOR, 
             name = "Base Threshold on", category = FAILSAFE, subcategory = "Banwave Checker",
@@ -696,20 +612,12 @@ public class FarmHelperConfig extends Vigilant {
             description = "Prevents the macro from leaving during Jacobs Contest even when banwave detected"
     )
     public static boolean banwaveDontLeaveDuringJacobsContest = true;
-    //</editor-fold>
-
-    //<editor-fold desc="Failsafe Messages">
     @Property(
             type = PropertyType.SWITCH,
             name = "Send Chat Message During Failsafe", category = FAILSAFE, subcategory = "Failsafe Messages",
             description = "Sends a chat message when a failsafe has been triggered"
     )
     public static boolean sendFailsafeMessage = false;
-    //</editor-fold>
-    //</editor-fold>
-
-    //<editor-fold desc="SCHEDULER">
-    //<editor-fold desc="Scheduler">
     @Property(
             type = PropertyType.SWITCH,
             name = "Enable Scheduler", category = SCHEDULER, subcategory = "Scheduler",
@@ -786,9 +694,6 @@ public class FarmHelperConfig extends Vigilant {
             FarmHelperConfig.schedulerResetOnDisable = old;
         }
     }
-    //</editor-fold>
-
-    //<editor-fold desc="Leave timer">
     @Property(
             type = PropertyType.SWITCH,
             name = "Enable leave timer", category = SCHEDULER, subcategory = "Leave Timer",
@@ -802,12 +707,6 @@ public class FarmHelperConfig extends Vigilant {
             min = 15, max = 720
     )
     public static int leaveTime = 60;
-    //</editor-fold>
-    //</editor-fold>
-
-    //<editor-fold desc="JACOBs CONTEST">
-
-    //<editor-fold desc="Pet Swapper">
     @Property(
             type = PropertyType.SWITCH,
             name = "Swap pet during Jacobs contest", category = JACOBS_CONTEST, subcategory = "Pet Swapper",
@@ -828,7 +727,6 @@ public class FarmHelperConfig extends Vigilant {
             category = JACOBS_CONTEST, subcategory = "Pet Swapper"
     )
     public static String petSwapperName = "";
-    //</editor-fold>
 
     @Property(
             type = PropertyType.SWITCH,
@@ -836,12 +734,7 @@ public class FarmHelperConfig extends Vigilant {
             description = "Stops farming once a crop threshold has been met"
     )
     public static boolean enableJacobFailsafes = false;
-//     @DualOption(
-//             name = "Jacob Failsafe Action", category = JACOBS_CONTEST, subcategory = "Jacobs Contest",
-//             description = "The action to take when a failsafe has been triggered",
-//             left = "Leave",
-//             right = "Pause"
-//     )
+
     public static boolean jacobFailsafeAction = true;
     public static int jacobNetherWartCap = 800000;
     public static int jacobPotatoCap = 830000;
@@ -853,11 +746,6 @@ public class FarmHelperConfig extends Vigilant {
     public static int jacobPumpkinCap = 240000;
     public static int jacobCocoaBeansCap = 725000;
     public static int jacobCactusCap = 470000;
-
-    //</editor-fold>
-
-    //<editor-fold desc="VISITORS">
-    //<editor-fold desc="Visitors Main">
 
     @Property(
             type = PropertyType.SWITCH,
@@ -908,12 +796,11 @@ public class FarmHelperConfig extends Vigilant {
     )
     public static boolean visitorsMacroAfkInfiniteMode = false;
 
-//     @DualOption(
-//             name = "Travel method", category = VISITORS_MACRO, subcategory = "Visitors Macro",
-//             description = "The travel method to use to get to the visitor stand",
-//             left = "Fly",
-//             right = "Walk"
-//     )
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "Travel method", category = VISITORS_MACRO, subcategory = "Visitors Macro",
+            description = "The travel method to use to get to the visitor stand (On=Walk, Off=Fly)"
+    )
     public static boolean visitorsExchangeTravelMethod = false;
 
     @Property(type = PropertyType.BUTTON, 
@@ -929,24 +816,19 @@ public class FarmHelperConfig extends Vigilant {
         VisitorsMacro.getInstance().start();
     }
 
-//     @DualOption(
-//             name = "Visitors Filtering Method", category = VISITORS_MACRO, subcategory = "Visitors Macro",
-//             description = "",
-//             left = "By Rarity", right = "By Name"
-//     )
-    @Deprecated // Just here to keep the old settings for automatic migration
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "Visitors Filtering Method", category = VISITORS_MACRO, subcategory = "Visitors Macro",
+            description = "On=By Name, Off=By Rarity"
+    )
     public static boolean visitorsFilteringMethod = false;
 
-//     @DualOption(
-//             name = "Full Inventory Action", category = VISITORS_MACRO, subcategory = "Visitors Macro",
-//             description = "The action to take when the items don not fit in your inventory",
-//             left = "Reject", right = "Ignore"
-//     )
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "Full Inventory Action", category = VISITORS_MACRO, subcategory = "Visitors Macro",
+            description = "The action to take when the items don not fit in your inventory (On=Ignore, Off=Reject)"
+    )
     public static boolean fullInventoryAction = true;
-
-    //</editor-fold>
-
-    //<editor-fold desc="Name Filtering">
 
     @Property(
             type = PropertyType.SWITCH,
@@ -955,18 +837,18 @@ public class FarmHelperConfig extends Vigilant {
     )
     public static boolean filterVisitorsByName = false;
 
-//     @DualOption(
-//             name = "Name Filtering Type", category = VISITORS_MACRO, subcategory = "Name Filtering",
-//             description = "The name filtering method to use",
-//             left = "Blacklist", right = "Whitelist"
-//     )
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "Name Filtering Type", category = VISITORS_MACRO, subcategory = "Name Filtering",
+            description = "The name filtering method to use (On=Whitelist, Off=Blacklist)"
+    )
     public static boolean nameFilteringType = false;
 
-//     @DualOption(
-//             name = "Name Action Type", category = VISITORS_MACRO, subcategory = "Name Filtering",
-//             description = "The action to execute when a visitors name does not match your set filter",
-//             left = "Reject", right = "Ignore"
-//     )
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "Name Action Type", category = VISITORS_MACRO, subcategory = "Name Filtering",
+            description = "The action to execute when a visitors name does not match your set filter (On=Ignore, Off=Reject)"
+    )
     public static boolean nameActionType = true;
 
     @Property(
@@ -976,8 +858,6 @@ public class FarmHelperConfig extends Vigilant {
             placeholder = "Visitor names to filter. Use | to split the messages."
     )
     public static String nameFilter = "Librarian|Maeve|Spaceman";
-
-    //<editor-fold desc="Rarity">
     @Property(
             type = PropertyType.SWITCH,
             name = "Filter by rarity", category = VISITORS_MACRO, subcategory = "Rarity Filtering",
@@ -1015,14 +895,6 @@ public class FarmHelperConfig extends Vigilant {
             options = {"Accept", "Accept if profitable only", "Decline", "Ignore"}
     )
     public static int visitorsActionSpecial = 3;
-    //</editor-fold>
-    //</editor-fold>
-
-    //<editor-fold desc="PESTS DESTROYER">
-    //<editor-fold desc="Infos">
-    //</editor-fold>
-
-    //<editor-fold desc="Pests Destroyer Main">
     @Property(
             type = PropertyType.SWITCH,
             name = "Enable Pests Destroyer", category = PESTS_DESTROYER, subcategory = "Pests Destroyer",
@@ -1141,10 +1013,6 @@ public class FarmHelperConfig extends Vigilant {
     )
     public static boolean dontKillPestsOnTrackDuringJacobsContest = true;
 
-    //</editor-fold>
-
-    //<editor-fold desc="Drawings">
-
     @Property(
             type = PropertyType.SWITCH,
             name = "Pests ESP", category = PESTS_DESTROYER, subcategory = "Drawings",
@@ -1181,9 +1049,7 @@ public class FarmHelperConfig extends Vigilant {
             description = "The color of the plot highlight"
     )
     public static Color plotHighlightColor = new Color(0, 255, 217, 40);
-    //</editor-fold>
 
-    //<editor-fold desc="Logs">
     @Property(
             type = PropertyType.SWITCH,
             name = "Send Webhook log if pests detection number has been exceeded", category = PESTS_DESTROYER, subcategory = "Logs",
@@ -1207,11 +1073,7 @@ public class FarmHelperConfig extends Vigilant {
             description = "Sends a webhook log when pest destroyer starts/stops"
     )
     public static boolean sendWebhookLogWhenPestDestroyerStartsStops = true;
-    //</editor-fold>
-    //</editor-fold>
 
-    //<editor-fold desc="DISCORD INTEGRATION">
-    //<editor-fold desc="Webhook Discord">
     @Property(
             type = PropertyType.SWITCH,
             name = "Enable Webhook Messages", category = DISCORD_INTEGRATION, subcategory = "Discord Webhook",
@@ -1262,9 +1124,6 @@ public class FarmHelperConfig extends Vigilant {
             placeholder = "https://discord.com/api/webhooks/..."
     )
     public static String webHookURL = "";
-    //</editor-fold>
-
-    //<editor-fold desc="Remote Control">
     @Property(
             type = PropertyType.SWITCH,
             name = "Enable Remote Control", category = DISCORD_INTEGRATION, subcategory = "Remote Control",
@@ -1294,10 +1153,6 @@ public class FarmHelperConfig extends Vigilant {
             min = 1, max = 65535
     )
     public static int remoteControlPort = 21370;
-    //</editor-fold>
-    //</editor-fold>
-
-    //<editor-fold desc="AUTO PEST EXCHANGE">
 
     @Property(
             type = PropertyType.SWITCH,
@@ -1323,12 +1178,11 @@ public class FarmHelperConfig extends Vigilant {
             description = "Only start the Auto Pest Exchange if the next Jacobs contest contains the current crop you are farming"
     )
     public static boolean autoPestExchangeOnlyStartRelevant = false;
-//     @DualOption(
-//             name = "Travel method", category = AUTO_PEST_EXCHANGE, subcategory = "Auto Pest Exchange",
-//             description = "The travel method to use to get to the pest exchange desk",
-//             left = "Fly",
-//             right = "Walk"
-//     )
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "Travel method", category = AUTO_PEST_EXCHANGE, subcategory = "Auto Pest Exchange",
+            description = "The travel method to use to get to the pest exchange desk (On=Walk, Off=Fly)"
+    )
     public static boolean autoPestExchangeTravelMethod = false;
     @Property(
             type = PropertyType.SLIDER,
@@ -1414,9 +1268,6 @@ public class FarmHelperConfig extends Vigilant {
     )
     public static int pestExchangeDeskZ = 0;
 
-    //</editor-fold>
-
-    //<editor-fold desc="God Pot">
     @Property(
             type = PropertyType.SWITCH,
             name = "Auto God Pot", category = AUTO_GOD_POT, subcategory = "God Pot",
@@ -1430,12 +1281,11 @@ public class FarmHelperConfig extends Vigilant {
     )
     public static boolean autoGodPotFromBackpack = true;
 
-//     @DualOption(
-//             name = "Storage Type", category = AUTO_GOD_POT, subcategory = "God Pot",
-//             description = "The storage type to get god pots from",
-//             left = "Backpack",
-//             right = "Ender Chest"
-//     )
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "Storage Type", category = AUTO_GOD_POT, subcategory = "God Pot",
+            description = "The storage type to get god pots from (On=Ender Chest, Off, Backpack)"
+    )
     public static boolean autoGodPotStorageType = true;
 
     @Property(
@@ -1459,10 +1309,6 @@ public class FarmHelperConfig extends Vigilant {
     )
     public static boolean autoGodPotFromAH = false;
 
-    //</editor-fold>
-
-    //<editor-fold desc="Auto Sell">
-
     @Property(
             type = PropertyType.SWITCH,
             name = "Enable Auto Sell", category = AUTO_SELL, subcategory = "Auto Sell",
@@ -1470,12 +1316,11 @@ public class FarmHelperConfig extends Vigilant {
     )
     public static boolean enableAutoSell = false;
 
-//     @DualOption(
-//             name = "Market type", category = AUTO_SELL, subcategory = "Auto Sell",
-//             description = "The market type to sell crops to",
-//             left = "BZ",
-//             right = "NPC"
-//     )
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "Market type", category = AUTO_SELL, subcategory = "Auto Sell",
+            description = "The market type to sell crops to (On=NPC, Off=BZ)"
+    )
     public static boolean autoSellMarketType = false;
 
     @Property(
@@ -1485,13 +1330,12 @@ public class FarmHelperConfig extends Vigilant {
     )
     public static boolean autoSellSacks = false;
 
-//     @DualOption(
-//             name = "Sacks placement",
-//             category = AUTO_SELL, subcategory = "Auto Sell",
-//             description = "The sacks placement",
-//             left = "Inventory",
-//             right = "Sack of sacks"
-//     )
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "Sacks placement",
+            category = AUTO_SELL, subcategory = "Auto Sell",
+            description = "The sacks placement (On=Sack of sacks, Off=Inventory)"
+    )
     public static boolean autoSellSacksPlacement = true;
 
     @Property(
@@ -1548,9 +1392,6 @@ public class FarmHelperConfig extends Vigilant {
             placeholder = "Custom items to auto sell. Use | to split the messages."
     )
     public static String autoSellCustomItems = "";
-    //</editor-fold>
-
-    //<editor-fold desc="Pest Repellant">
     @Property(
             type = PropertyType.SWITCH,
             name = "Auto Pest Repellent", category = AUTO_REPELLANT, subcategory = "Pest Repellent",
@@ -1558,12 +1399,11 @@ public class FarmHelperConfig extends Vigilant {
     )
     public static boolean autoPestRepellent = false;
 
-//     @DualOption(
-//             name = "Pest Repellent Type", category = AUTO_REPELLANT, subcategory = "Pest Repellent",
-//             description = "The pest repellent type to use",
-//             left = "Pest Repellent",
-//             right = "Pest Repellent MAX"
-//     )
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "Pest Repellent Type", category = AUTO_REPELLANT, subcategory = "Pest Repellent",
+            description = "The pest repellent type to use (On=MAX, Off=Regular)"
+    )
     public static boolean pestRepellentType = true;
 
     @Property(
@@ -1580,9 +1420,6 @@ public class FarmHelperConfig extends Vigilant {
     public void resetFailsafe() {
         AutoRepellent.repellentFailsafeClock.schedule(0);
     }
-    //</editor-fold>
-
-    //<editor-fold desc="Auto Sprayonator">
     @Property(
             type = PropertyType.SWITCH,
             name = "Auto Sprayonator", category = AUTO_SPRAYONATOR, subcategory = "Auto Sprayonator"
@@ -1625,10 +1462,7 @@ public class FarmHelperConfig extends Vigilant {
             min = 1, max = 64
     )
     public static int autoSprayonatorAutoBuyAmount = 1;
-    //</editor-fold>
 
-    //<editor-fold desc="DELAYS">
-    //<editor-fold desc="Changing Rows">
     @Property(
             type = PropertyType.SLIDER,
             name = "Time between changing rows", category = DELAYS, subcategory = "Changing rows",
@@ -1663,9 +1497,6 @@ public class FarmHelperConfig extends Vigilant {
             min = 0, max = 2000
     )
     public static int randomTimeBetweenChangingRowsDuringJacob = 200;
-    //</editor-fold>
-
-    //<editor-fold desc="Rotation Time">
     @Property(
             type = PropertyType.SLIDER,
             name = "Rotation Time", category = DELAYS, subcategory = "Rotations",
@@ -1700,9 +1531,6 @@ public class FarmHelperConfig extends Vigilant {
             min = 0, max = 2000
     )
     public static int rotationTimeRandomnessDuringJacob = 300;
-    //</editor-fold>
-
-    //<editor-fold desc="Fly Pathexecutioner Rotation Time">
     @Property(
             type = PropertyType.SLIDER,
             name = "Fly PathExecutioner Rotation Time", category = DELAYS, subcategory = "Fly PathExecutioner",
@@ -1717,9 +1545,6 @@ public class FarmHelperConfig extends Vigilant {
             min = 0, max = 2000
     )
     public static int flyPathExecutionerRotationTimeRandomness = 300;
-    //</editor-fold>
-
-    //<editor-fold desc="Pests Destroyer Time">
     @Property(
             type = PropertyType.SLIDER,
             name = "Pests Destroyer Stuck Time in minutes", category = DELAYS, subcategory = "Pests Destroyer",
@@ -1734,9 +1559,7 @@ public class FarmHelperConfig extends Vigilant {
             min = 20, max = 200
     )
     public static int pestsKillerTicksOfNotSeeingPestWhileAttacking = 100;
-    //</editor-fold>
 
-    //<editor-fold desc="Gui Delay">
     @Property(
             type = PropertyType.SLIDER,
             name = "GUI Delay", category = DELAYS, subcategory = "GUI Delays",
@@ -1751,9 +1574,7 @@ public class FarmHelperConfig extends Vigilant {
             min = 0, max = 2000
     )
     public static int macroGuiDelayRandomness = 350;
-    //</editor-fold>
 
-    //<editor-fold desc="Plot Cleaning Time">
     @Property(
             type = PropertyType.SLIDER,
             name = "Plot Cleaning Helper Rotation Time", category = DELAYS, subcategory = "Plot Cleaning Helper",
@@ -1769,9 +1590,7 @@ public class FarmHelperConfig extends Vigilant {
     )
 
     public static int plotCleaningHelperRotationTimeRandomness = 50;
-    //</editor-fold>
 
-    //<editor-fold desc="Rewarp Time">
     @Property(
             type = PropertyType.SLIDER,
             name = "Rewarp Delay", category = DELAYS, subcategory = "Rewarp",
@@ -1786,10 +1605,6 @@ public class FarmHelperConfig extends Vigilant {
             min = 0, max = 2000
     )
     public static int rewarpDelayRandomness = 350;
-    //</editor-fold>
-
-    //<editor-fold desc="DEBUG">
-    //<editor-fold desc="Debug">
 
     @Property(
             type = PropertyType.SWITCH,
@@ -1797,9 +1612,6 @@ public class FarmHelperConfig extends Vigilant {
             description = "Prints to chat what the bot is currently executing. Useful if you are having issues."
     )
     public static boolean debugMode = false;
-
-    //<editor-fold desc="EXPERIMENTAL">
-    //</editor-fold>
 
     @Property(
             type = PropertyType.SWITCH,
@@ -1822,16 +1634,30 @@ public class FarmHelperConfig extends Vigilant {
     )
     public static boolean showDebugLogsAboutPDOTT = false;
 
+    @Property(
+            type = PropertyType.BUTTON,
+            name = "Failsafe Notifications", category = FAILSAFE, subcategory = "Failsafe Notifications", location = PageLocation.BOTTOM,
+            description = "Click here to customize failsafe notifications"
+    )
+    public static void _failsafeNotificationsPage() {
+        FailsafeNotificationsPage.getInstance().gui();
+    }
 
-    //</editor-fold>
+    @Property(
+            type = PropertyType.BUTTON,
+            name = "Custom Failsafe Messages", category = FAILSAFE, subcategory = "Failsafe Messages", location = PageLocation.BOTTOM,
+            description = "Click here to edit custom failsafe messages"
+    )
+    public static void _customFailsafeMessagesPage() {
+        CustomFailsafeMessagesPage.getInstance().gui();
+    }    
+
     public static int configVersion = 6;
-
     public static KeyBinding toggleMacro = new KeyBinding("Toggle Macro", Keyboard.KEY_GRAVE, "Farm Helper");
     public static KeyBinding openGuiKeybind = new KeyBinding("Open Gui", Keyboard.KEY_F, "Farm Helper");
     public static KeyBinding freelookKeybind = new KeyBinding("Freelook", Keyboard.KEY_NONE, "Farm Helper");
     public static KeyBinding cancelFailsafeKeybind = new KeyBinding("Cancel Failsafe", Keyboard.KEY_NONE, "Farm Helper");
     public static KeyBinding plotCleaningHelperKeybind = new KeyBinding("Plot Cleaning Helper", Keyboard.KEY_NONE, "Farm Helper");
-    public static KeyBinding captureClipKeybind = new KeyBinding("Capture Clip", Keyboard.KEY_NONE, "Farm Helper");
     public static KeyBinding enablePestsDestroyerKeyBind = new KeyBinding("Enable Pests Destroyer", Keyboard.KEY_NONE, "Farm Helper");
 
     public FarmHelperConfig() {
@@ -1843,7 +1669,6 @@ public class FarmHelperConfig extends Vigilant {
         ClientRegistry.registerKeyBinding(freelookKeybind);
         ClientRegistry.registerKeyBinding(cancelFailsafeKeybind);
         ClientRegistry.registerKeyBinding(plotCleaningHelperKeybind);
-        ClientRegistry.registerKeyBinding(captureClipKeybind);
         ClientRegistry.registerKeyBinding(enablePestsDestroyerKeyBind);
     }
 

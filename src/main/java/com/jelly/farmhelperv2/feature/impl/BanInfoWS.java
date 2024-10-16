@@ -259,12 +259,6 @@ public class BanInfoWS implements IFeature {
             String banId = StringUtils.stripControlCodes(multilineMessage.get(5)).replace("Ban ID: ", "").trim();
             BanInfoWS.getInstance().playerBanned(durationDays, reason, banId, wholeReason);
             LogUtils.webhookLog("[Banned]\\nBanned for " + durationDays + " days for " + reason, true);
-            if (FarmHelperConfig.captureClipAfterFailsafe && !(FarmHelperConfig.captureClipKeybind.getKeyCode() == Keyboard.KEY_NONE)) {
-                Multithreading.schedule(() -> {
-                    FailsafeUtils.captureClip();
-                    LogUtils.sendDebug("[Failsafe] Clip captured!");
-                }, FarmHelperConfig.captureClipDelay, TimeUnit.SECONDS);
-            }
             if (MacroHandler.getInstance().isMacroToggled()) {
                 MacroHandler.getInstance().disableMacro();
             }

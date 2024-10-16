@@ -5,6 +5,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jelly.farmhelperv2.command.FarmHelperMainCommand;
 import com.jelly.farmhelperv2.config.FarmHelperConfig;
+import com.jelly.farmhelperv2.config.page.CustomFailsafeMessagesPage;
+import com.jelly.farmhelperv2.config.page.FailsafeNotificationsPage;
 import com.jelly.farmhelperv2.event.MillisecondEvent;
 import com.jelly.farmhelperv2.failsafe.FailsafeManager;
 import com.jelly.farmhelperv2.feature.FeatureManager;
@@ -140,11 +142,6 @@ public class FarmHelper {
                 e.printStackTrace();
             }
         }
-        if (Minecraft.isRunningOnMac && FarmHelperConfig.autoUngrabMouse) {
-            FarmHelperConfig.autoUngrabMouse = false;
-            LogUtils.sendNotification("Farm Helper", "Auto Ungrab Mouse feature doesn't work properly on Mac OS. It has been disabled automatically.", 15000);
-            LogUtils.sendError("Auto Ungrab Mouse feature doesn't work properly on Mac OS. It has been disabled automatically.");
-        }
         if (FarmHelperConfig.configVersion < 3) {
             FarmHelperConfig.visitorsMacroMaxSpendLimit = 1;
             LogUtils.sendNotification("Farm Helper", "'Max Spend Limit' in Visitors Macro settings has been set to 0.7 automatically, because of change of type. Make sure to update it to your preferences", 15000);
@@ -159,7 +156,6 @@ public class FarmHelper {
             FarmHelperConfig.macroType += 1; // Added cocoa bean macro with trapdoors
         }
         if (FarmHelperConfig.configVersion <= 5) {
-            //noinspection deprecation
             if (FarmHelperConfig.visitorsFilteringMethod) {
                 FarmHelperConfig.filterVisitorsByName = true;
                 FarmHelperConfig.filterVisitorsByRarity = false;
@@ -192,9 +188,11 @@ public class FarmHelper {
 
     private void initializeFields() {
         config = new FarmHelperConfig();
-        config.loadRewarpConfig();
         Vigilance.initialize();
         config.preload();
+        FarmHelperConfig.loadRewarpConfig();
+        CustomFailsafeMessagesPage.getInstance().preload();
+        FailsafeNotificationsPage.getInstance().preload();
         MinecraftForge.EVENT_BUS.register(config);
     }
 
