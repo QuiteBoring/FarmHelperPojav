@@ -1872,7 +1872,7 @@ public class FarmHelperConfig extends Vigilant {
             if (!configRewarpFile.exists())
                 Files.createFile(configRewarpFile.toPath());
 
-            rewarpList = Arrays.asList(FarmHelper.gson.fromJson(Files.readString(configRewarpFile.toPath()), Rewarp[].class));
+            rewarpList = Arrays.asList(FarmHelper.gson.fromJson(new String(Files.readAllBytes(configRewarpFile.toPath()))), Rewarp[].class));
         } catch (IOException e) {
             e.printStackTrace();
         }
