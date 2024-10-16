@@ -545,9 +545,9 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.SLIDER,
             name = "Pause for X milliseconds after desync triggered", category = FAILSAFE, subcategory = "Desync",
             description = "The delay to pause after desync triggered (in milliseconds)",
-            min = 3_000, max = 10_000
+            min = 3000, max = 10000
     )
-    public static int desyncPauseDelay = 5_000;
+    public static int desyncPauseDelay = 5000;
     //</editor-fold>
 
     //<editor-fold desc="Failsafe Trigger Sound">
@@ -889,9 +889,9 @@ public class FarmHelperConfig extends Vigilant {
             type = PropertyType.SLIDER,
             name = "The minimum amount of coins to start the macro (in thousands)", category = VISITORS_MACRO, subcategory = "Visitors Macro",
             description = "The minimum amount of coins you need to have in your purse to start the visitors macro",
-            min = 1_000, max = 20_000
+            min = 1000, max = 20000
     )
-    public static int visitorsMacroMinMoney = 2_000;
+    public static int visitorsMacroMinMoney = 2000;
 
     @Property(
             type = PropertyType.SLIDER,
@@ -1120,7 +1120,7 @@ public class FarmHelperConfig extends Vigilant {
             name = "Time for the pest to stay in range to activate (ms)",
             description = "The time for the pest to stay in range to activate the macro",
             category = PESTS_DESTROYER, subcategory = "Pests Destroyer on the track",
-            min = 0, max = 2_000
+            min = 0, max = 2000
     )
     public static int pestsDestroyerOnTheTrackTimeForPestToStayInRange = 750;
 
@@ -1129,7 +1129,7 @@ public class FarmHelperConfig extends Vigilant {
             name = "Stuck timer (ms)",
             description = "The time after which macro will count as being stuck",
             category = PESTS_DESTROYER, subcategory = "Pests Destroyer on the track",
-            min = 4_000, max = 25_000
+            min = 4000, max = 25000
     )
     public static int pestsDestroyerOnTheTrackStuckTimer = 5_000;
 
