@@ -31,7 +31,6 @@
     "gui.IGuiPlayerTabOverlayAccessor",
     "gui.MixinGuiContainer",
     "gui.MixinGuiDisconnected",
-    "gui.MixinGuiMainMenu",
     "gui.MixinGuiMultiplayer",
     "network.MixinNetHandlerPlayClient",
     "render.MixinActiveRenderInfo",
