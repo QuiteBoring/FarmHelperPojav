@@ -192,6 +192,7 @@ public class FarmHelper {
 
     private void initializeFields() {
         config = new FarmHelperConfig();
+        config.loadRewarpConfig();
         Vigilance.initialize();
         config.preload();
         MinecraftForge.EVENT_BUS.register(config);
