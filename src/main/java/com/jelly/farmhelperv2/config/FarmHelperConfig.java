@@ -730,17 +730,86 @@ public class FarmHelperConfig extends Vigilant {
     )
     public static boolean enableJacobFailsafes = false;
 
+    // ASDHAOSUDHAUSOD
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "Jacob Failsafe Action", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
+            description = "The action to take when a failsafe has been triggered (On=Pause, Off=Leave)"
+    )
     public static boolean jacobFailsafeAction = true;
-    public static int jacobNetherWartCap = 800000;
-    public static int jacobPotatoCap = 830000;
-    public static int jacobCarrotCap = 860000;
-    public static int jacobWheatCap = 265000;
-    public static int jacobSugarCaneCap = 575000;
-    public static int jacobMushroomCap = 250000;
-    public static int jacobMelonCap = 1234000;
-    public static int jacobPumpkinCap = 240000;
-    public static int jacobCocoaBeansCap = 725000;
-    public static int jacobCactusCap = 470000;
+    @Property(
+            type = PropertyType.SLIDER,
+            name = "Nether Wart Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
+            description = "The nether wart cap (multiplied by 10000)",
+            min = 1, max = 200
+    )
+    public static int jacobNetherWartCap = 80;
+    @Property(
+            type = PropertyType.SLIDER,
+            name = "Potato Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
+            description = "The potato cap (multiplied by 10000)",
+            min = 1, max = 200
+    )
+    public static int jacobPotatoCap = 83;
+    @Property(
+            type = PropertyType.SLIDER,
+            name = "Carrot Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
+            description = "The carrot cap (multiplied by 10000)",
+            min = 1, max = 200
+    )
+    public static int jacobCarrotCap = 86;
+    @Property(
+            type = PropertyType.SLIDER,
+            name = "Wheat Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
+            description = "The wheat cap (multiplied by 10000)",
+            min = 1, max = 200
+    )
+    public static int jacobWheatCap = 26;
+    @Property(
+            type = PropertyType.SLIDER,
+            name = "Sugar Cane Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
+            description = "The sugar cane cap (multiplied by 10000)",
+            min = 1, max = 200
+    )
+    public static int jacobSugarCaneCap = 57;
+    @Property(
+            type = PropertyType.SLIDER,
+            name = "Mushroom Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
+            description = "The mushroom cap (multiplied by 10000)",
+            min = 1, max = 200
+    )
+    public static int jacobMushroomCap = 25;
+    @Property(
+            type = PropertyType.SLIDER,
+            name = "Melon Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
+            description = "The melon cap (multiplied by 10000)",
+            min = 1, max = 200
+    )
+    public static int jacobMelonCap = 123;
+
+    @Property(
+            type = PropertyType.SLIDER,
+            name = "Pumpkin Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
+            description = "The pumpkin cap (multiplied by 10000)",
+            min = 1, max = 200
+    )
+    public static int jacobPumpkinCap = 24;
+
+    @Property(
+            type = PropertyType.SLIDER,
+            name = "Cocoa Beans Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
+            description = "The cocoa beans cap (multiplied by 10000)",
+            min = 1, max = 200
+    )
+    public static int jacobCocoaBeansCap = 72;
+    @Property(
+            type = PropertyType.SLIDER,
+            name = "Cactus Cap", category = JACOBS_CONTEST, subcategory = "Jacob's Contest",
+            description = "The cactus cap (multiplied by 10000)",
+            min = 1, max = 200
+    )
+    public static int jacobCactusCap = 47;
+    // ASDHAOSUDHAUSOD
 
     @Property(
             type = PropertyType.SWITCH,

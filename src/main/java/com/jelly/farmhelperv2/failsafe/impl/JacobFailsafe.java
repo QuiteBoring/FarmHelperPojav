@@ -57,36 +57,38 @@ public class JacobFailsafe extends Failsafe {
 
         int cropThreshold = Integer.MAX_VALUE;
         switch (GameStateHandler.getInstance().getJacobsContestCrop().get()) {
+            default: 
+                break;
             case CARROT:
-                cropThreshold = FarmHelperConfig.jacobCarrotCap;
+                cropThreshold = FarmHelperConfig.jacobCarrotCap * 10000;
                 break;
             case NETHER_WART:
-                cropThreshold = FarmHelperConfig.jacobNetherWartCap;
+                cropThreshold = FarmHelperConfig.jacobNetherWartCap * 10000;
                 break;
             case POTATO:
-                cropThreshold = FarmHelperConfig.jacobPotatoCap;
+                cropThreshold = FarmHelperConfig.jacobPotatoCap * 10000;
                 break;
             case WHEAT:
-                cropThreshold = FarmHelperConfig.jacobWheatCap;
+                cropThreshold = FarmHelperConfig.jacobWheatCap * 10000;
                 break;
             case SUGAR_CANE:
-                cropThreshold = FarmHelperConfig.jacobSugarCaneCap;
+                cropThreshold = FarmHelperConfig.jacobSugarCaneCap * 10000;
                 break;
             case MELON:
-                cropThreshold = FarmHelperConfig.jacobMelonCap;
+                cropThreshold = FarmHelperConfig.jacobMelonCap * 10000;
                 break;
             case PUMPKIN:
-                cropThreshold = FarmHelperConfig.jacobPumpkinCap;
+                cropThreshold = FarmHelperConfig.jacobPumpkinCap * 10000;
                 break;
             case CACTUS:
-                cropThreshold = FarmHelperConfig.jacobCactusCap;
+                cropThreshold = FarmHelperConfig.jacobCactusCap * 10000;
                 break;
             case COCOA_BEANS:
-                cropThreshold = FarmHelperConfig.jacobCocoaBeansCap;
+                cropThreshold = FarmHelperConfig.jacobCocoaBeansCap * 10000;
                 break;
             case MUSHROOM_ROTATE:
             case MUSHROOM:
-                cropThreshold = FarmHelperConfig.jacobMushroomCap;
+                cropThreshold = FarmHelperConfig.jacobMushroomCap * 10000;
                 break;
         }
 
