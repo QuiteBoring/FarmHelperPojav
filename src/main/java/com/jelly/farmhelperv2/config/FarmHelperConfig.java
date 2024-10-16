@@ -168,17 +168,25 @@ public class FarmHelperConfig extends Vigilant {
             name = "Add Rewarp", category = GENERAL, subcategory = "Rewarp",
             description = "Adds a rewarp position"
     )
-    Runnable _addRewarp = FarmHelperConfig::addRewarp;
+    public void addRewarpButton() {
+        FarmHelperConfig.addRewarp();
+    }
+
     @Property(type = PropertyType.BUTTON, 
             name = "Remove Rewarp", category = GENERAL, subcategory = "Rewarp",
             description = "Removes a rewarp position"
     )
-    Runnable _removeRewarp = FarmHelperConfig::removeRewarp;
+    public void removeRewarpButton() {
+        FarmHelperConfig.removeRewarp();
+    }
+
     @Property(type = PropertyType.BUTTON, 
             name = "Remove All Rewarps", category = GENERAL, subcategory = "Rewarp",
             description = "Removes all rewarp positions"
     )
-    Runnable _removeAllRewarps = FarmHelperConfig::removeAllRewarps;
+    public void removeAllRewarpsButton() {
+        FarmHelperConfig.removeAllRewarps();
+    }
     //</editor-fold>
 
     //<editor-fold desc="Spawn">
