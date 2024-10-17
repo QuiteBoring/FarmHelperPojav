@@ -1704,7 +1704,7 @@ public class FarmHelperConfig extends Vigilant {
             description = "Click here to customize failsafe notifications"
     )
     public static void _failsafeNotificationsPage() {
-        FailsafeNotificationsPage.getInstance().gui();
+        EssentialAPI.getGuiUtil().openScreen(FailsafeNotificationsPage.getInstance().gui());
     }
 
     @Property(
@@ -1713,7 +1713,7 @@ public class FarmHelperConfig extends Vigilant {
             description = "Click here to edit custom failsafe messages"
     )
     public static void _customFailsafeMessagesPage() {
-        CustomFailsafeMessagesPage.getInstance().gui();
+        EssentialAPI.getGuiUtil().openScreen(CustomFailsafeMessagesPage.getInstance().gui());
     }    
 
     public static int configVersion = 6;
