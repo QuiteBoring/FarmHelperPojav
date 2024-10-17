@@ -1734,153 +1734,150 @@ public class FarmHelperConfig extends Vigilant {
         ClientRegistry.registerKeyBinding(cancelFailsafeKeybind);
         ClientRegistry.registerKeyBinding(plotCleaningHelperKeybind);
         ClientRegistry.registerKeyBinding(enablePestsDestroyerKeyBind);
-        this.addDependency("macroType", "Macro Type", () -> !MacroHandler.getInstance().isMacroToggled());
+        
+        addDependency("macroType", "Macro Type", () -> !MacroHandler.getInstance().isMacroToggled());
 
-        this.addDependency("customPitchLevel", "customPitch");
-        this.addDependency("customYawLevel", "customYaw");
+        addDependency("customPitchLevel", "customPitch");
+        addDependency("customYawLevel", "customYaw");
 
-        this.addDependency("inventoryFullTime", "enableAutoSell");
-        this.addDependency("autoSellMarketType", "enableAutoSell");
-        this.addDependency("autoSellSacks", "enableAutoSell");
-        this.addDependency("autoSellSacksPlacement", "enableAutoSell");
-        this.addDependency("autoSellFunction", "enableAutoSell");
+        addDependency("inventoryFullTime", "enableAutoSell");
+        addDependency("autoSellMarketType", "enableAutoSell");
+        addDependency("autoSellSacks", "enableAutoSell");
+        addDependency("autoSellSacksPlacement", "enableAutoSell");
+        addDependency("autoSellFunction", "enableAutoSell");
 
-        this.addDependency("petSwapperDelay", "enablePetSwapper");
-        this.addDependency("petSwapperName", "enablePetSwapper");
+        addDependency("petSwapperDelay", "enablePetSwapper");
+        addDependency("petSwapperName", "enablePetSwapper");
 
-        this.addDependency("autoUngrabMouse", "This feature doesn't work properly on Mac OS!", () -> !Minecraft.isRunningOnMac);
+        addDependency("autoUngrabMouse", "This feature doesn't work properly on Mac OS!", () -> !Minecraft.isRunningOnMac);
 
-        this.addDependency("desyncPauseDelay", "checkDesync");
-        this.addDependency("failsafeSoundType", "Play Button", () -> enableFailsafeSound && !AudioManager.getInstance().isSoundPlaying());
-        this.addDependency("_playFailsafeSoundButton", "enableFailsafeSound");
-        this.addDependency("_stopFailsafeSoundButton", "enableFailsafeSound");
-        this.hidePropertyIf("_playFailsafeSoundButton", () -> AudioManager.getInstance().isSoundPlaying());
-        this.hidePropertyIf("_stopFailsafeSoundButton", () -> !AudioManager.getInstance().isSoundPlaying());
-        this.addDependency("failsafeMcSoundSelected", "Minecraft Sound", () -> !failsafeSoundType && enableFailsafeSound);
-        this.addDependency("failsafeSoundSelected", "Custom Sound", () -> failsafeSoundType && enableFailsafeSound);
-        this.addDependency("failsafeSoundVolume", "Custom Sound", () -> failsafeSoundType && enableFailsafeSound);
-        this.addDependency("maxOutMinecraftSounds", "Minecraft Sound", () -> !failsafeSoundType && enableFailsafeSound);
-        this.hidePropertyIf("customFailsafeSoundWarning", () -> !failsafeSoundType || !enableFailsafeSound || failsafeSoundSelected != 0);
-        this.addDependency("restartAfterFailSafeDelay", "enableRestartAfterFailSafe");
-        this.addDependency("alwaysTeleportToGarden", "enableRestartAfterFailSafe");
+        addDependency("desyncPauseDelay", "checkDesync");
+        addDependency("failsafeSoundType", "Play Button", () -> enableFailsafeSound && !AudioManager.getInstance().isSoundPlaying());
+        addDependency("_playFailsafeSoundButton", "enableFailsafeSound");
+        addDependency("_stopFailsafeSoundButton", "enableFailsafeSound");
+        hidePropertyIf("_playFailsafeSoundButton", () -> AudioManager.getInstance().isSoundPlaying());
+        hidePropertyIf("_stopFailsafeSoundButton", () -> !AudioManager.getInstance().isSoundPlaying());
+        addDependency("failsafeMcSoundSelected", "Minecraft Sound", () -> !failsafeSoundType && enableFailsafeSound);
+        addDependency("failsafeSoundSelected", "Custom Sound", () -> failsafeSoundType && enableFailsafeSound);
+        addDependency("failsafeSoundVolume", "Custom Sound", () -> failsafeSoundType && enableFailsafeSound);
+        addDependency("maxOutMinecraftSounds", "Minecraft Sound", () -> !failsafeSoundType && enableFailsafeSound);
+        hidePropertyIf("customFailsafeSoundWarning", () -> !failsafeSoundType || !enableFailsafeSound || failsafeSoundSelected != 0);
+        addDependency("restartAfterFailSafeDelay", "enableRestartAfterFailSafe");
+        addDependency("alwaysTeleportToGarden", "enableRestartAfterFailSafe");
 
-        this.addDependency("schedulerFarmingTime", "enableScheduler");
-        this.addDependency("schedulerFarmingTimeRandomness", "enableScheduler");
-        this.addDependency("schedulerBreakTime", "enableScheduler");
-        this.addDependency("schedulerBreakTimeRandomness", "enableScheduler");
-        this.addDependency("pauseSchedulerDuringJacobsContest", "enableScheduler");
+        addDependency("schedulerFarmingTime", "enableScheduler");
+        addDependency("schedulerFarmingTimeRandomness", "enableScheduler");
+        addDependency("schedulerBreakTime", "enableScheduler");
+        addDependency("schedulerBreakTimeRandomness", "enableScheduler");
+        addDependency("pauseSchedulerDuringJacobsContest", "enableScheduler");
 
-        this.addDependency("jacobNetherWartCap", "enableJacobFailsafes");
-        this.addDependency("jacobPotatoCap", "enableJacobFailsafes");
-        this.addDependency("jacobCarrotCap", "enableJacobFailsafes");
-        this.addDependency("jacobWheatCap", "enableJacobFailsafes");
-        this.addDependency("jacobSugarCaneCap", "enableJacobFailsafes");
-        this.addDependency("jacobMushroomCap", "enableJacobFailsafes");
-        this.addDependency("jacobMelonCap", "enableJacobFailsafes");
-        this.addDependency("jacobPumpkinCap", "enableJacobFailsafes");
-        this.addDependency("jacobCocoaBeansCap", "enableJacobFailsafes");
-        this.addDependency("jacobCactusCap", "enableJacobFailsafes");
-        this.addDependency("jacobFailsafeAction", "enableJacobFailsafes");
+        addDependency("jacobNetherWartCap", "enableJacobFailsafes");
+        addDependency("jacobPotatoCap", "enableJacobFailsafes");
+        addDependency("jacobCarrotCap", "enableJacobFailsafes");
+        addDependency("jacobWheatCap", "enableJacobFailsafes");
+        addDependency("jacobSugarCaneCap", "enableJacobFailsafes");
+        addDependency("jacobMushroomCap", "enableJacobFailsafes");
+        addDependency("jacobMelonCap", "enableJacobFailsafes");
+        addDependency("jacobPumpkinCap", "enableJacobFailsafes");
+        addDependency("jacobCocoaBeansCap", "enableJacobFailsafes");
+        addDependency("jacobCactusCap", "enableJacobFailsafes");
+        addDependency("jacobFailsafeAction", "enableJacobFailsafes");
 
-        this.addDependency("pauseVisitorsMacroDuringJacobsContest", "visitorsMacro");
-        this.addDependency("triggerVisitorsMacro", "visitorsMacro");
-        this.addDependency("visitorsMacroPriceManipulationMultiplier", "visitorsMacro");
-        this.addDependency("visitorsMacroMinVisitors", "visitorsMacro");
-        this.addDependency("visitorsMacroAutosellBeforeServing", "visitorsMacro");
-        this.addDependency("visitorsMacroMinMoney", "visitorsMacro");
-        this.addDependency("visitorsMacroMaxSpendLimit", "visitorsMacro");
-        this.hidePropertyIf("visitorsFilteringMethod", () -> true);
+        addDependency("pauseVisitorsMacroDuringJacobsContest", "visitorsMacro");
+        addDependency("triggerVisitorsMacro", "visitorsMacro");
+        addDependency("visitorsMacroPriceManipulationMultiplier", "visitorsMacro");
+        addDependency("visitorsMacroMinVisitors", "visitorsMacro");
+        addDependency("visitorsMacroAutosellBeforeServing", "visitorsMacro");
+        addDependency("visitorsMacroMinMoney", "visitorsMacro");
+        addDependency("visitorsMacroMaxSpendLimit", "visitorsMacro");
+        hidePropertyIf("visitorsFilteringMethod", () -> true);
 
-        this.addDependency("visitorsActionUncommon", "filterVisitorsByRarity");
-        this.addDependency("visitorsActionRare", "filterVisitorsByRarity");
-        this.addDependency("visitorsActionLegendary", "filterVisitorsByRarity");
-        this.addDependency("visitorsActionMythic", "filterVisitorsByRarity");
-        this.addDependency("visitorsActionSpecial", "filterVisitorsByRarity");
-        this.addDependency("nameFilteringType", "filterVisitorsByName");
-        this.addDependency("nameActionType", "filterVisitorsByName");
-        this.addDependency("nameActionType", "You can't reject a whitelisted visitor!", () -> !nameFilteringType);
-        this.addDependency("nameFilter", "filterVisitorsByName");
-        this.hidePropertyIf("nameFilterInfo", () -> !filterVisitorsByName || !filterVisitorsByRarity);
+        addDependency("visitorsActionUncommon", "filterVisitorsByRarity");
+        addDependency("visitorsActionRare", "filterVisitorsByRarity");
+        addDependency("visitorsActionLegendary", "filterVisitorsByRarity");
+        addDependency("visitorsActionMythic", "filterVisitorsByRarity");
+        addDependency("visitorsActionSpecial", "filterVisitorsByRarity");
+        addDependency("nameFilteringType", "filterVisitorsByName");
+        addDependency("nameActionType", "filterVisitorsByName");
+        addDependency("nameActionType", "You can't reject a whitelisted visitor!", () -> !nameFilteringType);
+        addDependency("nameFilter", "filterVisitorsByName");
+        hidePropertyIf("nameFilterInfo", () -> !filterVisitorsByName || !filterVisitorsByRarity);
 
-        this.addDependency("sendVisitorsMacroLogs", "visitorsMacro");
-        this.addDependency("sendVisitorsMacroLogs", "enableWebHook");
-        this.addDependency("pingEveryoneOnVisitorsMacroLogs", "visitorsMacro");
-        this.addDependency("pingEveryoneOnVisitorsMacroLogs", "sendVisitorsMacroLogs");
-        this.addDependency("pingEveryoneOnVisitorsMacroLogs", "enableWebHook");
+        addDependency("sendVisitorsMacroLogs", "visitorsMacro");
+        addDependency("sendVisitorsMacroLogs", "enableWebHook");
+        addDependency("pingEveryoneOnVisitorsMacroLogs", "visitorsMacro");
+        addDependency("pingEveryoneOnVisitorsMacroLogs", "sendVisitorsMacroLogs");
+        addDependency("pingEveryoneOnVisitorsMacroLogs", "enableWebHook");
 
-        this.addDependency("startKillingPestsAt", "enablePestsDestroyer");
-        this.addDependency("pestAdditionalGUIDelay", "enablePestsDestroyer");
-        this.addDependency("sprintWhileFlying", "enablePestsDestroyer");
-        this.addDependency("pausePestsDestroyerDuringJacobsContest", "enablePestsDestroyer");
+        addDependency("startKillingPestsAt", "enablePestsDestroyer");
+        addDependency("pestAdditionalGUIDelay", "enablePestsDestroyer");
+        addDependency("sprintWhileFlying", "enablePestsDestroyer");
+        addDependency("pausePestsDestroyerDuringJacobsContest", "enablePestsDestroyer");
 
-        this.hidePropertyIf("infoCookieBuffRequired", () -> GameStateHandler.getInstance().inGarden() || GameStateHandler.getInstance().getCookieBuffState() == BuffState.NOT_ACTIVE);
+        hidePropertyIf("infoCookieBuffRequired", () -> GameStateHandler.getInstance().inGarden() || GameStateHandler.getInstance().getCookieBuffState() == BuffState.NOT_ACTIVE);
 
-        this.addDependency("sendLogs", "enableWebHook");
-        this.addDependency("sendStatusUpdates", "enableWebHook");
-        this.addDependency("statusUpdateInterval", "enableWebHook");
-        this.addDependency("webHookURL", "enableWebHook");
-        this.addDependency("enableRemoteControl", "Enable Remote Control",
+        addDependency("sendLogs", "enableWebHook");
+        addDependency("sendStatusUpdates", "enableWebHook");
+        addDependency("statusUpdateInterval", "enableWebHook");
+        addDependency("webHookURL", "enableWebHook");
+        addDependency("enableRemoteControl", "Enable Remote Control",
                 () -> Loader.isModLoaded("farmhelperjdadependency") && FarmHelper.isJDAVersionCorrect);
-        this.addDependency("discordRemoteControlAddress", "enableRemoteControl");
-        this.addDependency("remoteControlPort", "enableRemoteControl");
+        addDependency("discordRemoteControlAddress", "enableRemoteControl");
+        addDependency("remoteControlPort", "enableRemoteControl");
 
 
-        this.hidePropertyIf("infoRemoteControl", () -> Loader.isModLoaded("farmhelperjdadependency"));
-        this.hidePropertyIf("info2RemoteControl", () -> !Loader.isModLoaded("farmhelperjdadependency") || (Loader.isModLoaded("farmhelperjdadependency") && FarmHelper.isJDAVersionCorrect));
-        this.hidePropertyIf("failsafeSoundTimes", () -> true);
+        hidePropertyIf("infoRemoteControl", () -> Loader.isModLoaded("farmhelperjdadependency"));
+        hidePropertyIf("info2RemoteControl", () -> !Loader.isModLoaded("farmhelperjdadependency") || (Loader.isModLoaded("farmhelperjdadependency") && FarmHelper.isJDAVersionCorrect));
+        hidePropertyIf("failsafeSoundTimes", () -> true);
 
-        this.addDependency("debugMode", "Streamer Mode", () -> !streamerMode);
-        this.addDependency("streamerMode", "Debug Mode", () -> !debugMode);
+        addDependency("debugMode", "Streamer Mode", () -> !streamerMode);
+        addDependency("streamerMode", "Debug Mode", () -> !debugMode);
 
-        this.addDependency("autoGodPotFromBackpack", "autoGodPot");
-        this.addDependency("autoGodPotFromBits", "autoGodPot");
-        this.addDependency("autoGodPotFromAH", "autoGodPot");
+        addDependency("autoGodPotFromBackpack", "autoGodPot");
+        addDependency("autoGodPotFromBits", "autoGodPot");
+        addDependency("autoGodPotFromAH", "autoGodPot");
 
-        this.hidePropertyIf("autoGodPotBackpackNumber", () -> !autoGodPotFromBackpack);
-        this.hidePropertyIf("autoGodPotStorageType", () -> !autoGodPotFromBackpack);
+        hidePropertyIf("autoGodPotBackpackNumber", () -> !autoGodPotFromBackpack);
+        hidePropertyIf("autoGodPotStorageType", () -> !autoGodPotFromBackpack);
 
-        this.addDependency("banwaveAction", "enableLeavePauseOnBanwave");
-        this.addDependency("banwaveThreshold", "enableLeavePauseOnBanwave");
-        this.addDependency("banwaveThresholdType", "enableLeavePauseOnBanwave");
-        this.addDependency("delayBeforeReconnecting", "enableLeavePauseOnBanwave");
-        this.addDependency("banwaveDontLeaveDuringJacobsContest", "enableLeavePauseOnBanwave");
+        addDependency("banwaveAction", "enableLeavePauseOnBanwave");
+        addDependency("banwaveThreshold", "enableLeavePauseOnBanwave");
+        addDependency("banwaveThresholdType", "enableLeavePauseOnBanwave");
+        addDependency("delayBeforeReconnecting", "enableLeavePauseOnBanwave");
+        addDependency("banwaveDontLeaveDuringJacobsContest", "enableLeavePauseOnBanwave");
 
-        this.addDependency("antiStuckTriesUntilRewarp", "enableAntiStuck");
+        addDependency("antiStuckTriesUntilRewarp", "enableAntiStuck");
 
-        this.addDependency("sendWebhookLogIfPestsDetectionNumberExceeded", "enableWebHook");
-        this.addDependency("pingEveryoneOnPestsDetectionNumberExceeded", "sendWebhookLogIfPestsDetectionNumberExceeded");
-        this.addDependency("pingEveryoneOnPestsDetectionNumberExceeded", "enableWebHook");
+        addDependency("sendWebhookLogIfPestsDetectionNumberExceeded", "enableWebHook");
+        addDependency("pingEveryoneOnPestsDetectionNumberExceeded", "sendWebhookLogIfPestsDetectionNumberExceeded");
+        addDependency("pingEveryoneOnPestsDetectionNumberExceeded", "enableWebHook");
 
-        this.addDependency("pauseAutoPestExchangeDuringJacobsContest", "autoPestExchange");
-        this.addDependency("autoPestExchangeIgnoreJacobsContest", "autoPestExchange");
-        this.addDependency("autoPestExchangeTriggerBeforeContestStarts", "autoPestExchange");
-        this.addDependency("autoPestExchangeTriggerBeforeContestStarts",
+        addDependency("pauseAutoPestExchangeDuringJacobsContest", "autoPestExchange");
+        addDependency("autoPestExchangeIgnoreJacobsContest", "autoPestExchange");
+        addDependency("autoPestExchangeTriggerBeforeContestStarts", "autoPestExchange");
+        addDependency("autoPestExchangeTriggerBeforeContestStarts",
                 "You can either wait until Jacob's Contest or run it regardless.", () -> !autoPestExchangeIgnoreJacobsContest);
-        this.addDependency("autoPestExchangeMinPests", "autoPestExchange");
-        this.addDependency("logAutoPestExchangeEvents", "autoPestExchange");
-        this.hidePropertyIf("pestExchangeDeskX", () -> true);
-        this.hidePropertyIf("pestExchangeDeskY", () -> true);
-        this.hidePropertyIf("pestExchangeDeskZ", () -> true);
+        addDependency("autoPestExchangeMinPests", "autoPestExchange");
+        addDependency("logAutoPestExchangeEvents", "autoPestExchange");
+        hidePropertyIf("pestExchangeDeskX", () -> true);
+        hidePropertyIf("pestExchangeDeskY", () -> true);
+        hidePropertyIf("pestExchangeDeskZ", () -> true);
 
-        this.addDependency("pestRepellentType", "autoPestRepellent");
+        addDependency("pestRepellentType", "autoPestRepellent");
 
-        this.addDependency("averageBPSDrop", "enableBpsCheck");
+        addDependency("averageBPSDrop", "enableBpsCheck");
 
-        this.addDependency("captureClipKeybind", "", () -> captureClipAfterFailsafe || captureClipAfterGettingBanned);
-        this.addDependency("clipCapturingType", "", () -> captureClipAfterFailsafe || captureClipAfterGettingBanned);
-        this.addDependency("captureClipDelay", "", () -> captureClipAfterFailsafe || captureClipAfterGettingBanned);
+        addDependency("pestsDestroyerOnTheTrackFOV", "pestsDestroyerOnTheTrack");
+        addDependency("dontKillPestsOnTrackDuringJacobsContest", "pestsDestroyerOnTheTrack");
 
-        this.addDependency("pestsDestroyerOnTheTrackFOV", "pestsDestroyerOnTheTrack");
-        this.addDependency("dontKillPestsOnTrackDuringJacobsContest", "pestsDestroyerOnTheTrack");
+        addDependency("timeBetweenChangingRowsDuringJacob", "customRowChangeDelaysDuringJacob");
+        addDependency("randomTimeBetweenChangingRowsDuringJacob", "customRowChangeDelaysDuringJacob");
+        addDependency("rotationTimeDuringJacob", "customRotationDelaysDuringJacob");
+        addDependency("rotationTimeRandomnessDuringJacob", "customRotationDelaysDuringJacob");
 
-        this.addDependency("timeBetweenChangingRowsDuringJacob", "customRowChangeDelaysDuringJacob");
-        this.addDependency("randomTimeBetweenChangingRowsDuringJacob", "customRowChangeDelaysDuringJacob");
-        this.addDependency("rotationTimeDuringJacob", "customRotationDelaysDuringJacob");
-        this.addDependency("rotationTimeRandomnessDuringJacob", "customRotationDelaysDuringJacob");
+        addDependency("leaveTimer", "leaveTimer");
 
-        this.addDependency("leaveTimer", "leaveTimer");
-
-        this.hidePropertyIf("shownWelcomeGUI", () -> true);
+        hidePropertyIf("shownWelcomeGUI", () -> true);
     }
 
     @SubscribeEvent
@@ -2047,7 +2044,7 @@ public class FarmHelperConfig extends Vigilant {
         final String localizedName;
 
         CropEnum(String localizedName) {
-            this.localizedName = localizedName;
+            localizedName = localizedName;
         }
     }
 }
