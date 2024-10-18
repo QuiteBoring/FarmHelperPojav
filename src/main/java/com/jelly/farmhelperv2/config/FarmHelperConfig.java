@@ -1894,8 +1894,7 @@ public class FarmHelperConfig extends Vigilant {
         CACTUS("Cactus"),
         COCOA_BEANS("Cocoa Beans"),
         MUSHROOM("Mushroom"),
-        MUSHROOM_ROTATE("Mushroom"),
-        ;
+        MUSHROOM_ROTATE("Mushroom");
 
         final String localizedName;
 
