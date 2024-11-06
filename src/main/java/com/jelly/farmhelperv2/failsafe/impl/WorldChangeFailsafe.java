@@ -67,25 +67,6 @@ public class WorldChangeFailsafe extends Failsafe {
 
     @Override
     public void onChatDetection(ClientChatReceivedEvent event) {
-        chatOne(event);
-        chatTwo(event);
-    }
-
-    public void chatOne(ClientChatReceivedEvent event) {
-        if (FailsafeManager.getInstance().firstCheckReturn()) return;
-        if (FailsafeManager.getInstance().triggeredFailsafe.isPresent()
-                && FailsafeManager.getInstance().triggeredFailsafe.get().getType() != FailsafeManager.EmergencyType.WORLD_CHANGE_CHECK)
-            return;
-
-        String message = StringUtils.stripControlCodes(event.message.getUnformattedText());
-        if (message.contains(":")) return;
-        if (message.contains("You were spawned in Limbo.") || message.contains("/limbo") || message.startsWith("A kick occurred in your connection")) {
-            LogUtils.sendWarning("[Failsafe Debug] You've been kicked to limbo! #1");
-            FailsafeManager.getInstance().possibleDetection(this);
-        }
-    }
-
-    public void chatTwo(ClientChatReceivedEvent event) {
         if (event.type != 0) return;
         if (FailsafeManager.getInstance().triggeredFailsafe.isPresent()
                 && FailsafeManager.getInstance().triggeredFailsafe.get().getType() != FailsafeManager.EmergencyType.WORLD_CHANGE_CHECK)
@@ -98,12 +79,14 @@ public class WorldChangeFailsafe extends Failsafe {
             FailsafeManager.getInstance().scheduleDelay(10000);
         }
         if (message.startsWith("You cannot join SkyBlock from here!")) {
+            if (worldChangeState != WorldChangeState.TAKE_ACTION)
+                worldChangeState = WorldChangeState.TAKE_ACTION;
             LogUtils.sendWarning("[Failsafe Debug] Can't warp to the SkyBlock! Executing /lobby command...");
             mc.thePlayer.sendChatMessage("/lobby");
             FailsafeManager.getInstance().scheduleDelay(2000);
         }
     }
-
+    
     @Override
     public void duringFailsafeTrigger() {
         if (!FarmHelperConfig.autoWarpOnWorldChange) {
