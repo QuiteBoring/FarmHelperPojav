@@ -81,6 +81,7 @@ public class AntiStuck implements IFeature {
 
     @Override
     public void start() {
+        return; // no more antistuck :D
         if (enabled) return;
         if (FailsafeManager.getInstance().getEmergencyQueue().contains(CobwebFailsafe.getInstance()) ||
                 FailsafeManager.getInstance().getEmergencyQueue().contains(BadEffectsFailsafe.getInstance()))
