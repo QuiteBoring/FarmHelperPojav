@@ -9,7 +9,7 @@
 
 ## About The Project
 
-Blah blah blah ... I make FarmHelper work on pojav because people at JellyLab couldn't care less. Check Github Actions for releases and no this is not a rat. All I changed was using vigilance and removed a few features imcompatible with phone.
+Blah blah blah ... I make FarmHelper work on pojav because people at JellyLab couldn't care less. Check Github Actions for releases and no this is not a rat. All I changed was using vigilance and removed a few features incompatible with phone.
 
 ## Contributing
 
