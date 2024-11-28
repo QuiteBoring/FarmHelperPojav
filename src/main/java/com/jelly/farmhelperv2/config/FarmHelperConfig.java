@@ -1,6 +1,7 @@
 package com.jelly.farmhelperv2.config;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 import com.jelly.farmhelperv2.FarmHelper;
 import com.jelly.farmhelperv2.config.page.CustomFailsafeMessagesPage;
 import com.jelly.farmhelperv2.config.page.FailsafeNotificationsPage;
@@ -1759,34 +1760,47 @@ public class FarmHelperConfig extends Vigilant {
 
     public static void loadRewarpConfig() {
         try {
-            if (!configRewarpFile.exists()) return;
-            rewarpList = Arrays.asList(FarmHelper.gson.fromJson(new String(Files.readAllBytes(configRewarpFile.toPath())), Rewarp[].class));
-        } catch (IOException e) {
+            if (!configRewarpFile.exists()) {
+                rewarpList = new ArrayList<>();
+                return;
+            }
+
+            String jsonContent = new String(Files.readAllBytes(configRewarpFile.toPath()), StandardCharsets.UTF_8);
+            Rewarp[] rewarpArray = FarmHelper.gson.fromJson(jsonContent, Rewarp[].class);
+            rewarpList = (rewarpArray != null) ? new ArrayList<>(Arrays.asList(rewarpArray)) : new ArrayList<>();
+        } catch (IOException | JsonSyntaxException e) {
             e.printStackTrace();
+            rewarpList = new ArrayList<>();
+            LogUtils.sendError("Failed to load rewarp config. Starting with an empty list.");
         }
     }
 
     public static void addRewarp() {
-        if (FarmHelperConfig.rewarpList.stream().anyMatch(rewarp -> rewarp.isTheSameAs(BlockUtils.getRelativeBlockPos(0, 0, 0)))) {
+        if (rewarpList == null) rewarpList = new ArrayList<>();
+
+        if (rewarpList.stream().anyMatch(rewarp -> rewarp.isTheSameAs(BlockUtils.getRelativeBlockPos(0, 0, 0)))) {
             LogUtils.sendError("Rewarp location has already been set!");
             return;
         }
+
         Rewarp newRewarp = new Rewarp(BlockUtils.getRelativeBlockPos(0, 0, 0));
         if (newRewarp.getDistance(new BlockPos(PlayerUtils.getSpawnLocation())) < 2) {
             LogUtils.sendError("Rewarp location is too close to the spawn location! You must put it AT THE END OF THE FARM!");
             return;
         }
+
         rewarpList.add(newRewarp);
         LogUtils.sendSuccess("Added rewarp: " + newRewarp);
         saveRewarpConfig();
     }
 
     public static void removeRewarp() {
-        Rewarp closest = null;
-        if (rewarpList.isEmpty()) {
+        if (rewarpList == null || rewarpList.isEmpty()) {
             LogUtils.sendError("No rewarp locations set!");
             return;
         }
+
+        Rewarp closest = null;
         double closestDistance = Double.MAX_VALUE;
         for (Rewarp rewarp : rewarpList) {
             double distance = rewarp.getDistance(BlockUtils.getRelativeBlockPos(0, 0, 0));
@@ -1795,27 +1809,38 @@ public class FarmHelperConfig extends Vigilant {
                 closestDistance = distance;
             }
         }
+
         if (closest != null) {
             rewarpList.remove(closest);
             LogUtils.sendSuccess("Removed the closest rewarp: " + closest);
             saveRewarpConfig();
+        } else {
+            LogUtils.sendError("No rewarp found to remove!");
         }
     }
 
     public static void removeAllRewarps() {
+        if (rewarpList == null || rewarpList.isEmpty()) {
+            LogUtils.sendError("No rewarp locations to remove!");
+            return;
+        }
+
         rewarpList.clear();
-        LogUtils.sendSuccess("Removed all saved rewarp positions");
+        LogUtils.sendSuccess("Removed all saved rewarp positions.");
         saveRewarpConfig();
     }
 
     public static void saveRewarpConfig() {
         try {
-            if (!configRewarpFile.exists())
-                Files.createFile(configRewarpFile.toPath());
+            if (!configRewarpFile.exists()) {
+                configRewarpFile.createNewFile();
+            }
 
-            Files.write(configRewarpFile.toPath(), FarmHelper.gson.toJson(rewarpList).getBytes(StandardCharsets.UTF_8));
+            String json = FarmHelper.gson.toJson(rewarpList);
+            Files.write(configRewarpFile.toPath(), json.getBytes(StandardCharsets.UTF_8));
         } catch (IOException e) {
             e.printStackTrace();
+            LogUtils.sendError("Failed to save rewarp config!");
         }
     }
 
