@@ -13,4 +13,4 @@ Blah blah blah ... I make FarmHelper work on pojav because people at JellyLab co
 
 ## Contributing
 
-Make sure contributed code actually works!!!
+Make sure contributed code actually works!!
